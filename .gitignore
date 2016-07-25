@@ -1,0 +1,22 @@
+# Generated directories
+node_modules/
+bower_components/
+/distro/
+/export/
+.sass-cache/
+source/css/lib/
+source/index.html
+source/lib/
+*.css
+*.map
+
+# Mac OS X hidden files
+.DS_Store
+
+# Vim swap files
+.*.sw?
+# Gedit swap files
+*~
+
+# Logs
+*.log
