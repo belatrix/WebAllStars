@@ -7,7 +7,7 @@ var batch = require('gulp-batch'),
 	  server = require('gulp-server-livereload'),
 	  watch = require('gulp-watch');
  
-gulp.task('server', ['watch', 'index'], function() {
+gulp.task('server', ['watch', 'index', 'bower'], function() {
 
   	gulp.src('./source/**').pipe(server({
       livereload: true,
@@ -41,6 +41,3 @@ gulp.task('index', function () {
   return target.pipe(inject(sources))
     .pipe(gulp.dest('./source'));
 });
-
-
-
