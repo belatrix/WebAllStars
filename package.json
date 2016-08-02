@@ -19,8 +19,6 @@
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-batch": "^1.0.5",
-    "gulp-bower": "0.0.13",
-    "gulp-bower-flatten": "^1.0.2",
     "gulp-eslint": "^3.0.1",
     "gulp-inject": "^4.1.0",
     "gulp-server-livereload": "^1.8.2",
