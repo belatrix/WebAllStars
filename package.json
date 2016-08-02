@@ -18,6 +18,9 @@
   "homepage": "https://github.com/belatrix/WebAllStars#readme",
   "dependencies": {
     "gulp": "^3.9.1",
-    "gulp-server-livereload": "^1.8.2"
+    "gulp-batch": "^1.0.5",
+    "gulp-eslint": "^3.0.1",
+    "gulp-server-livereload": "^1.8.2",
+    "gulp-watch": "^4.3.9"
   }
 }
