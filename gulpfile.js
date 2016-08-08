@@ -9,9 +9,9 @@ var batch = require('gulp-batch'),
  
 gulp.task('server', ['watch', 'index'], function() {
 
-  	gulp.src('./source/**').pipe(server({
+  	gulp.src('source/**').pipe(server({
       livereload: true,
-      directoryListing: false	,
+      directoryListing: false,
       open: true,
       port: 3000
     }));
@@ -21,28 +21,32 @@ gulp.task('server', ['watch', 'index'], function() {
 gulp.task('apply',['lint'],function () {});
 
 gulp.task('watch', function () {
-  watch('./source/**/*.*', batch(function (events, done) {
+  watch(['source/js/**/*.*',
+    'source/layout/*.html',
+    'source/views/**/*.html'
+    'templates/source/**/*.html'
+  ], batch(function (events, done) {
     gulp.start('apply', done);
   }));
 });
 
 gulp.task('lint', function () {
-    return gulp.src(['./source/**/*.js'])
-        .pipe(eslint())
-        .pipe(eslint.format())
-        .pipe(eslint.failAfterError());
+  return gulp.src(['source/**/*.js'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError());
 });
 
 gulp.task('index', function () {
-  var target = gulp.src('./templates/source/index.html');
-  // It's not necessary to read the files (will speed up things), we're only after their paths: 
-  var sources = gulp.src([
-    './source/js/lib/**/*.js',
-    './source/js/app.js',
-    './source/css/lib/**/*.css',
-    './source/css/main.css'
-  ], {read: false});
+  var target = gulp.src('./templates/source/index.html'),
+      sources = gulp.src([
+        './source/js/lib/**/*.js',
+        './source/js/app/**/*.js',
+        './source/css/initialize.css',
+        './source/css/lib/**/*.css',
+        './source/css/main.css'
+      ], {read: false});
  
-  return target.pipe(inject(sources), {relative: true})
+  return target.pipe(inject(sources, {ignorePath: 'source'}))
     .pipe(gulp.dest('./source'));
 });

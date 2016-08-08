@@ -28,10 +28,10 @@
     "angular-ui-router": "~0.2.x",
     "ngstorage": "~0.3.x"
   },
-  "install" : {
-   "path" : {
-     "css": "source/css/lib",
-     "js": "source/js/lib"
-   }
- }
+  "install": {
+    "path": {
+      "css": "source/css/lib",
+      "js": "source/js/lib"
+    }
+  }
 }
