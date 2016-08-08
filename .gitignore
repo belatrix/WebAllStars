@@ -5,8 +5,8 @@ bower_components/
 /export/
 .sass-cache/
 source/css/lib/
+source/js/lib/
 source/index.html
-source/lib/
 *.css
 *.map
 
