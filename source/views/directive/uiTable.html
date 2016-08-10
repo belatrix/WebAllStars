@@ -1,0 +1,31 @@
+<thead>
+	<th ng-repeat="item in tableRequest.headerDefine">
+		<span>{{item.title}}</span>
+		<md-button ng-show="tableRequest.sorting" class="md-icon-button" ng-click="toggle1=!toggle1" aria-label="toggle">
+       		<md-icon ng-if="!toggle1" md-svg-icon="caret_down"></md-icon>
+      		<md-icon ng-if="toggle1" md-svg-icon="caret_up"></md-icon>
+       	</md-button>
+	</th>
+	<th ng-repeat="action in tableRequest.actions">
+		{{action.title}}
+	</th>
+</thead>
+<tbody>
+	<tr ng-init="rowIndex = $index+1" ng-repeat="item in tableModel">
+		<td ng-repeat="col in item">{{col}}</td>
+		<td ng-repeat="action in tableRequest.actions" align="center">
+			<md-button ng-show="action.type=='button'" class="md-raised md-primary" ng-click="action.method()">
+				{{action.text}}
+			</md-button>
+			<md-checkbox ng-show="action.type=='checkbox'" style="margin-top:8px;">
+				<span>{{action.text}}</span>
+			</md-checkbox>
+			<md-button ng-show="action.type=='icon'" class="md-icon-button md-primary" aria-label="Settings">
+		        <md-icon md-svg-icon="{{action.icon}}"></md-icon>
+      		</md-button>
+		</td>	
+	</tr>	
+</tbody>
+				
+
+
