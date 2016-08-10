@@ -23,7 +23,7 @@ gulp.task('apply',['lint'],function () {});
 gulp.task('watch', function () {
   watch(['source/js/**/*.*',
     'source/layout/*.html',
-    'source/views/**/*.html'
+    'source/views/**/*.html',
     'templates/source/**/*.html'
   ], batch(function (events, done) {
     gulp.start('apply', done);
