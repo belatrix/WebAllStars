@@ -2,11 +2,11 @@
 
 var batch = require('gulp-batch'),
     eslint = require('gulp-eslint'),
-	  gulp = require('gulp'),
+    gulp = require('gulp'),
     inject = require('gulp-inject'),
-	  server = require('gulp-server-livereload'),
-	  watch = require('gulp-watch');
- 
+    server = require('gulp-server-livereload'),
+    watch = require('gulp-watch');
+
 gulp.task('server', ['watch', 'index'], function() {
 
   	gulp.src('source/**').pipe(server({
@@ -21,13 +21,15 @@ gulp.task('server', ['watch', 'index'], function() {
 gulp.task('apply',['lint'],function () {});
 
 gulp.task('watch', function () {
-  watch(['source/js/**/*.*',
-    'source/layout/*.html',
-    'source/views/**/*.html',
-    'templates/source/**/*.html'
-  ], batch(function (events, done) {
-    gulp.start('apply', done);
-  }));
+    watch(
+        [
+            'source/app/**/*.js',
+            'source/app/**/*.html',
+        ],
+        batch(function (events, done) {
+            gulp.start('apply', done);
+        })
+    );
 });
 
 gulp.task('lint', function () {
@@ -46,7 +48,7 @@ gulp.task('index', function () {
         './source/css/lib/**/*.css',
         './source/css/main.css'
       ], {read: false});
- 
+
   return target.pipe(inject(sources, {ignorePath: 'source'}))
     .pipe(gulp.dest('./source'));
 });
