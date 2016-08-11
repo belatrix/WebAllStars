@@ -55,36 +55,6 @@
           actions:{
             'put':   {method:'PUT', isArray: false}
           }
-        },
-
-        serviceList:{
-          url:'/fumiambar/service/list/:skip/:limit',
-          params:{
-            name:'@skip',
-            password:'@limit'
-          },
-          actions:{
-            'get':   {method:'GET', isArray: true, cache: false}
-          }
-        },
-
-        serviceCreate:{
-          url:'/fumiambar/service/create',
-          params:{
-          },
-          actions:{
-            'save':   {method:'post', isArray: false}
-          }
-        },
-
-        serviceUpdate:{
-          url:'/fumiambar/service/update/:_id',
-          params:{
-            _id:'@_id'
-          },
-          actions:{
-            'put':   {method:'PUT', isArray: false}
-          }
         }
        
     });
