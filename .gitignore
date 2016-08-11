@@ -6,7 +6,6 @@ bower_components/
 .sass-cache/
 source/css/lib/
 source/js/lib/
-source/index.html
 *.css
 *.map
 
