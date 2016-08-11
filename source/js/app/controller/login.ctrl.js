@@ -18,8 +18,8 @@
 
       	loginService.signIn(user,function(data){
         
-          $state.go('user');
-          serviceStorage.setData('token',data.token);
+          //$state.go('user');
+          //serviceStorage.setData('token',data.token);
       	
         },function(){
         
