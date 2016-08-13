@@ -8,12 +8,9 @@ WORKDIR /home/app
 COPY . /home/app
 
 # Install dependencies
-RUN npm install -g bower && \
-    npm install && \
-    npm install -g gulp && \
-    bower install --config.interactive=false --allow-root
+RUN npm install -g gulp bower
 
 # The command to run our app when the container is run
-CMD ["gulp", "server"]
+#CMD ["gulp", "server"]
 
 EXPOSE 3000

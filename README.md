@@ -22,4 +22,8 @@ Build the image
 ```docker build -t webimageallstarts:0.01 .```
 
 Run the container
-```docker run -d --name=weballstars -p 3000:3000 webimageallstarts:0.01```
+```docker run -d --name=weballstars -v `$pwd`:/home/app -p 3000:3000 webimageallstarts:0.01```
+
+Install npm packages and bower dependencies
+```docker exec -ti weballstars /bin/bash
+```npm install && bower install --config.interactive=false --allow-root
