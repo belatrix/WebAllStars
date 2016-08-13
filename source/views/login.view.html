@@ -55,14 +55,15 @@
   <div flex>
     I'm above on mobile, and to the left on larger devices.
   </div>
-  <div flex-xs flex-gt-xs="50">
-    <md-card md-colors="{background: 'deep-orange'}">
+  <div flex-xs layout-xs>
+
+    <md-card>
       <md-card-title>
         <md-card-title-text>
           <!--span class="md-headline">Card with image</span>
           <span class="md-subhead">Large</span-->
 
-          <md-content class="md-no-momentum" flex-gt-sm="90" md-colors="{background: 'deep-orange'}">
+          <md-content class="md-no-momentum" flex-gt-sm="90">
             <md-input-container class="md-block">
               <md-icon md-svg-src="img/icons/ic_email_24px.svg" class="email"></md-icon>
               <input md-maxlength="80" ng-model="user.email" type="email" placeholder="Email" ng-required="true">
@@ -75,9 +76,9 @@
 
         </md-card-title-text>
         <md-card-title-media>
-          <div class="md-media-lg card-media">
-            <img src="image/logo.webp" alt="">
-          </div>
+          <!--div class="md-media-lg card-media">
+            
+          </div-->
         </md-card-title-media>
       </md-card-title>
       <md-card-actions layout="row" layout-align="end center">
@@ -85,8 +86,20 @@
         <md-button class="md-accent md-raised">Action 2</md-button>
       </md-card-actions>
     </md-card>
+    
+    <div layout="row" layout-align="center center">
+      <img height="100" width="100" src="image/logo.webp" alt="">     
+    </div>
+    <div layout="row" layout-align="center center">
+      <h2>Connect</h2>
+    </div>
+    
   </div>
   <div flex>
     I'm below on mobile, and to the right on larger devices.
   </div>
 </div>
+
+<!--md-button class="md-fab" aria-label="Eat cake">
+  <md-icon md-svg-src="img/icons/cake.svg"></md-icon>
+</md-button-->
