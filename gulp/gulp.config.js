@@ -8,8 +8,20 @@ module.exports = {
         js_compile: [
 
         ],
-        test_files: [
-
+        atpl: [
+            'src/app/**/*.view.html'
+        ]
+    },
+    test_files: {
+        required: [
+            'build/app/app.module.js',
+            'build/app/app.config.js',
+            'build/app/**/*.module.js',
+            'build/app/**/*.config.js',
+            'build/app/**/*.js'
+        ],
+        js: [
+            'source/app/**/*.spec.js'
         ]
     }
 }

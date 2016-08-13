@@ -16,7 +16,7 @@ finally use:
 
 gulp server
 
-## Using docker (WIP)
+## Using docker (WIP = Work In Progress)
 
 Build the image
 ```docker build -t webimageallstarts:0.01 .```
