@@ -6,7 +6,10 @@ bower_components/
 .sass-cache/
 source/css/lib/
 source/js/lib/
+<<<<<<< HEAD
 source/index.html
+=======
+>>>>>>> 501647e804dcb4e41d7e0aa57e7ff2a95d7df008
 *.css
 *.map
 

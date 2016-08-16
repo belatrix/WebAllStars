@@ -1,0 +1,37 @@
+{
+  "name": "belatrix-web-connect",
+  "description": "web application to connect collaborators in a great company",
+  "main": "index.js",
+  "authors": [
+    "belatrix"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "belatrix"
+  ],
+  "homepage": "https://github.com/belatrix/WebAllStars",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.x.x",
+    "angular-route": "^1.x.x",
+    "angular-resource": "^1.x.x",
+    "angular-sanitize": "^1.x.x",
+    "angular-animate": "^1.x.x",
+    "angular-aria": "^1.x.x",
+    "angular-material": "^1.x.x",
+    "angular-ui-router": "~0.2.x",
+    "ngstorage": "~0.3.x"
+  },
+  "install": {
+    "path": {
+      "css": "source/css/lib",
+      "js": "source/js/lib"
+    }
+  }
+}

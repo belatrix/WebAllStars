@@ -1,0 +1,120 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z1"
+             md-component-id="userDetailRight"
+             layout-md="column">
+  <md-toolbar class="md-theme-light">
+    <h1 class="md-toolbar-tools">{{user.name}}</h1>
+  </md-toolbar>
+  <md-content layout-padding>
+    <form>
+      <div align="center">
+        <img ng-show="user.picture"
+             ng-src="{{ user.picture }}"
+             class="md-profile-avatar"
+             alt="" />
+        <img ng-show="!user.picture"
+             src="svg/account.svg"
+             class="md-profile-avatar"
+             alt="" />
+      </div>
+      <br>
+      <md-input-container class="md-block">
+        <label for="testInput">Nombre de Usuario</label>
+        <input type="text"
+               id="testInput"
+               ng-model="user.username"
+               md-autofocus>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label for="testInput">Clave</label>
+        <input type="password"
+               id="testInput"
+               ng-model="user.password"
+               md-autofocus>
+      </md-input-container>
+    </form>
+    <md-divider></md-divider>
+    <form>
+      <md-input-container class="md-block">
+        <label for="testInput">Nombre</label>
+        <input type="text" id="testInput"
+              ng-model="user.name">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label for="testInput">Apellidos</label>
+        <input type="text" id="testInput"
+              ng-model="user.lastName">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label for="testInput">Correo</label>
+        <input type="text" id="testInput"
+              ng-model="user.email">
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label for="testInput">Rol</label>
+        <md-select ng-model="user.role.type">
+          <md-optgroup label="Rol">
+            <md-option value="owner">
+              Owner
+            </md-option>
+            <md-option value="master">
+              Master
+            </md-option>
+            <md-option value="user">
+              User
+            </md-option>
+          </md-optgroup>
+        </md-select>
+        <br>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label for="testInput">Cargo</label>
+        <md-select ng-model="user.perfomance.type">
+          <md-optgroup label="Cargo">
+            <md-option value="administrator">
+              Administrator
+            </md-option>
+            <md-option value="user">
+              Ventas
+            </md-option>
+          </md-optgroup>
+        </md-select>
+        <br>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <label for="testInput">Departamento</label>
+        <md-select ng-model="user.department.name">
+          <md-optgroup label="Cargo">
+            <md-option value="Lima">
+              Lima
+            </md-option>
+            <md-option value="Piura">
+              Piura
+            </md-option>
+            <md-option value="*">
+              Todo
+            </md-option>
+          </md-optgroup>
+        </md-select>
+        <br>
+      </md-input-container>
+      <md-input-container class="md-block">
+        <span ng-show="user.active">Activo</span>
+        <span ng-show="!user.active">Inactivo</span>
+        <br>
+        <md-switch class="md-secondary" ng-disabled="loading" ng-model="user.active" aria-label="Disabled">
+          </md-switch>
+      </md-input-container>
+      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+        <md-button ng-show="!new" ng-click="closeUserDetailRight(); changeUser(user)" class="md-primary md-raised">
+          Actualizar
+        </md-button>
+        <md-button ng-show="!new" ng-click="user={}; new=true" class="md-primary md-raised">
+          Nuevo
+        </md-button>
+        <md-button ng-show="new" ng-click="closeUserDetailRight(); userSave(user); new=false" class="md-primary md-raised">
+          Grabar
+        </md-button>
+      </section>
+    </form>
+  </md-content>
+</md-sidenav>
