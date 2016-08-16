@@ -26,6 +26,7 @@
                       config.headers = config.headers || {};
                       if (serviceStorage.getData('token')) {
                           config.headers.Authorization = serviceStorage.getData('token');
+                          config.headers['X-CSRFToken'] = 'IB2ulAHjBiIqSQ4gMow93bCUrGpGHDq0';
                       }
                       $rootScope.$broadcast('loadingBefore');
                       return config;

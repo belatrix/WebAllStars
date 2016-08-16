@@ -8,7 +8,7 @@
 			this.signIn=function(query,fnSuccess,fnError){
 				var auth = $resourceService.request('auth');
 
-				return auth.get(query,fnSuccess,fnError);
+				return auth.post(query,fnSuccess,fnError);
 			};
 			
 

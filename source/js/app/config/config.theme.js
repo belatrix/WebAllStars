@@ -17,9 +17,11 @@
         .icon("more_horiz_black", "svg/more_horiz_black.svg", 24)
         .icon("list", "svg/list.svg", 24)
         .icon("chart", "svg/chart.svg", 24)
+        .icon("lock", "svg/lock.svg", 24)
+        .icon("person", "svg/person.svg", 24)
         .icon("close", "svg/close.svg", 24);
 
-      $mdThemingProvider.theme('default').primaryPalette('orange')
+      $mdThemingProvider.theme('default').primaryPalette('deep-orange')
         .accentPalette('blue');
 
     });
