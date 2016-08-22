@@ -1,100 +1,55 @@
-<!--div layout="row">
-
-    <div flex>
-    </div>
-
-    <div flex>
-
-      <md-content class="md-padding main">
-
-        <md-card ng-hide="loading">
-          <form ng-init="user={}" ng-submit="getSignIn(user)" name="projectForm">
-          
-            <md-toolbar class="md-primary">
-              <h1 class="md-toolbar-tools">
-                Login
-              </h1>
-            </md-toolbar>
-            
-            <md-card-content>
-              
-                <md-input-container class="md-block">
-                  <label>User</label>
-                  <input type="text" name="description" ng-model="user.name">
-                </md-input-container>
-                <md-input-container class="md-block">
-                  <label>Password</label>
-                  <input type="password" name="clientName" ng-model="user.password" flex>
-                </md-input-container>
-            
-            </md-card-content>
-          
-            <div class="md-actions" layout="row" layout-align="end center">
-              <button type="submit" ng-disabled="!user.name || !user.password" ng-click="getSignIn(user)" class="md-button md-raised md-primary">Sign In</button>
-              <md-button ng-click="user={}" class="md-raised">Cancel</md-button>
-            </div>
-        
-          </form>
-        </md-card>
-
-        <div layout="row" layout-sm="column" layout-align="space-around" ng-show="loading">
-          <md-progress-circular md-mode="indeterminate">
-          </md-progress-circular>
-        </div>
-
-      </md-content>
-
-    </div>
-
-    <div flex hide-sm>
-    </div>
-
-</div-->
-
 <div layout="row" layout-xs="column">
   <div flex>
-   
+
   </div>
-  <div flex>  
+  <div flex>
     <div layout="row" layout-align="center center" layout-margin>
-      <img height="100" width="100" src="image/logo.webp" alt="">     
+      <img height="100" width="100" src="image/logo.webp" alt="">
     </div>
     <div layout="row" layout-align="center center">
       <h2>Belatrix Connect</h2>
     </div>
-    <md-card flex-order-gt-xs>
-      <md-card-title>
-        <md-card-title-text>
+    <form ng-init="user={}" ng-submit="getSignIn(user)" name="projectForm">
 
-          <md-content class="md-no-momentum">
-            <md-input-container class="md-block">
-              <md-icon md-svg-icon="person" class="email"></md-icon>
-              <input  ng-model="user.name" type="text" placeholder="Username">
-            </md-input-container>
-            <md-input-container class="md-block">
-              <md-icon md-svg-icon="lock" class="email"></md-icon>
-              <input ng-model="user.email" type="password" placeholder="Password">
-            </md-input-container>
-          </md-content>
+      <md-card flex-order-gt-xs ng-show="!loading" class="login">
+        <md-card-title>
+          <md-card-title-text>
+            <md-content class="md-no-momentum">
+              <md-input-container class="md-block">
+                <md-icon md-svg-icon="person" class="email"></md-icon>
+                <input  ng-model="user.username" type="text" placeholder="Username">
+              </md-input-container>
+              <md-input-container class="md-block">
+                <md-icon md-svg-icon="lock" class="email"></md-icon>
+                <input ng-model="user.password" type="password" placeholder="Password">
+              </md-input-container>
+            </md-content>
+          </md-card-title-text>
+          <md-card-title-media>
+            <!--div class="md-media-lg card-media">
+            </div-->
+          </md-card-title-media>
+        </md-card-title>
+        <md-card-actions layout="row" layout-align="center center">
+          <md-button class="md-primary md-raised">
+              Cancel
+          </md-button>
+          <md-button ng-disabled="!user.username || !user.password || sending"
+            ng-click="getSignIn(user); sending=true"
+            class="md-accent md-raised">
+              Sign In
+          </md-button>
+        </md-card-actions>
+      </md-card>
 
-        </md-card-title-text>
-        <md-card-title-media>
-          <!--div class="md-media-lg card-media">
-            
-          </div-->
-        </md-card-title-media>
-      </md-card-title>
-      <md-card-actions layout="row" layout-align="center center">
-        <md-button class="md-primary md-raised">Cancel</md-button>
-        <md-button class="md-accent md-raised">Sign In</md-button>
-      </md-card-actions>
-    </md-card>    
+      <div layout="row" layout-sm="column" layout-align="space-around" ng-show="loading">
+        <md-progress-circular md-mode="indeterminate" class="md-accent">
+        </md-progress-circular>
+      </div>
+
+    </form>
   </div>
   <div flex>
-    
+
   </div>
 </div>
-
-<!--md-button class="md-fab" aria-label="Eat cake">
-  <md-icon md-svg-src="img/icons/cake.svg"></md-icon>
-</md-button-->

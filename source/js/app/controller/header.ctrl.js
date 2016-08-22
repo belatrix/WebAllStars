@@ -1,17 +1,18 @@
 (function() {
   'use strict';
   angular.module('module.controller.header', [])
-    .controller('controllerHeader', controllerHeader); 
+    .controller('controllerHeader', controllerHeader);
 
     controllerHeader.$inject=[
     	'$scope',
       '$state',
       '$mdDialog',
       '$mdUtil',
-      '$mdSidenav'
+      '$mdSidenav',
+      'loginService'
     ];
 
-    function controllerHeader($scope, $state, $mdDialog, $mdUtil, $mdSidenav) {
+    function controllerHeader($scope, $state, $mdDialog, $mdUtil, $mdSidenav, loginService) {
 
       $scope.toggleLeft = buildToggler('left');
 
@@ -25,13 +26,16 @@
             },300);
         return debounceFn;
       }
-      
+
       $scope.openMenu = function($mdOpenMenu, ev) {
         var originatorEv = ev;
         $mdOpenMenu(ev);
       };
-     
-    	
+
+      $scope.logOut = function () {
+        loginService.logOut();
+      };
+
     }
-    
+
 })();

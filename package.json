@@ -4,7 +4,8 @@
   "description": "web application to connect collaborators in a great company",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "bower install && bower-installer"
   },
   "repository": {
     "type": "git",

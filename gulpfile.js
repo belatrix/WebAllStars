@@ -6,10 +6,10 @@ var batch = require('gulp-batch'),
     inject = require('gulp-inject'),
 	  server = require('gulp-server-livereload'),
 	  watch = require('gulp-watch');
- 
+
 gulp.task('server', ['watch', 'index'], function() {
 
-  	gulp.src('source/**').pipe(server({
+  	gulp.src('source/').pipe(server({
       livereload: true,
       directoryListing: false,
       open: true,
@@ -46,7 +46,7 @@ gulp.task('index', function () {
         './source/css/lib/**/*.css',
         './source/css/main.css'
       ], {read: false});
- 
+
   return target.pipe(inject(sources, {ignorePath: 'source'}))
     .pipe(gulp.dest('./source'));
 });
