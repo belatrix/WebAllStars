@@ -17,10 +17,10 @@
 
 
     app.config(function ($httpProvider, $resourceProvider) {
+      $resourceProvider.defaults.stripTrailingSlashes = false;
 
-      $resourceProvider.defaults.stripTrailingSlashes = false;    
-        
       $httpProvider.interceptors.push(['$q', '$location','serviceStorage', '$rootScope', function($q, $location, serviceStorage, $rootScope) {
+
           return {
                   'request': function (config) {
                       config.headers = config.headers || {};
@@ -36,13 +36,14 @@
                     return response;
                   },
                   'responseError': function(response) {
+
                       $rootScope.$broadcast('loadingAfter');
-                      if(response.status === 401 || 
-                         response.status === 403 ||  
+                      if(response.status === 401 ||
+                         response.status === 403 ||
                          response.status===0) {
 
                           $location.path('/login');
-                      
+
                       }
                       return $q.reject(response);
                   }
@@ -51,28 +52,25 @@
 
     });
 
-    app.run( function( $rootScope ,$resourceService, $state) {
+    app.run( function( $rootScope ,$resourceService, $state, serviceStorage) {
+      var checkingSession,
+          hasToken;
 
+        checkingSession = function(){
 
-        var checkingSession = function(){
-
-            var verify = $resourceService.request('verify');
-
-              verify.get(function(verify){
-                  //$state.go('');
-              },function(error){
-                  $state.go('login');
-              });              
+          hasToken = serviceStorage.getData('token');
+          if(hasToken){
+            $state.go('activity');
+          }else{
+            $state.go('login');
+          }
 
         };
-        
+
         $rootScope.$on('$locationChangeStart',function(obj,data){
-            
-            //|checkingSession();
-           
+            checkingSession();
         });
 
     });
-
 
 })();

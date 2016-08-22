@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   angular.module('module.controller.login', [])
-    .controller('controller.login', controllerLogin); 
+    .controller('controller.login', controllerLogin);
     controllerLogin.$inject=[
     	'$scope',
     	'$resourceService',
@@ -10,25 +10,21 @@
       'serviceStorage'
     ];
 
-    function controllerLogin($scope,$resourceService,$state,loginService,serviceStorage) {
+    function controllerLogin($scope, $resourceService, $state, loginService, serviceStorage) {
 
       $scope.getSignIn=function(user){
-        
+
         $scope.loading=true;
 
       	loginService.signIn(user,function(data){
-        
-          //$state.go('user');
-          //serviceStorage.setData('token',data.token);
-      	
+          serviceStorage.setData('token',data.token);
+          $state.go('activity');
         },function(){
-        
           $scope.loading=false;
-        
         });
 
       };
-      
+
     }
-    
+
 })();
