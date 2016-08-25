@@ -9,7 +9,7 @@
               template: '<ui-view />', // NEW line, with a target for a child
             }
           }
-        }).state('dashboard', {
+        }).state('dashboardd', {
             abstract: true,
             views: {
               '@': {
@@ -29,6 +29,11 @@
             url: "/login",
             templateUrl: "views/login.view.html",
             controller: "controller.login"
+        }).state('dashboard', {
+            parent:'init',
+            url: "/dashboard",
+            templateUrl: "views/dashboard.html",
+            controller: "controller.dashboard"
         });
 
       $urlRouterProvider.otherwise("/login");
