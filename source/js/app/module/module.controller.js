@@ -4,7 +4,7 @@
 		'module.controller.leftSide',
 		'module.controller.header',
 		'module.controller.login',
-		'module.controller.dashboard'
+    'module.controller.activity'
 	]);
 
 
