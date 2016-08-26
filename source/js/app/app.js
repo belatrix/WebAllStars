@@ -5,6 +5,7 @@
         'ngRoute',
         'ngResource',
         'ngMaterial',
+        'ngMdIcons',
         'ngStorage',
         'ui.router',
         'config.routes',
