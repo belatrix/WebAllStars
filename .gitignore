@@ -1,16 +1,22 @@
 # Generated directories
 node_modules/
 bower_components/
+coverage/
+.sass-cache/
+
 /distro/
 /export/
-.sass-cache/
+
 source/css/lib/
 source/js/lib/
-<<<<<<< HEAD
-source/index.html
-=======
->>>>>>> 501647e804dcb4e41d7e0aa57e7ff2a95d7df008
-*.css
+
+# other
+.tmp
+.idea/
+build/
+dist/
+report/
+
 *.map
 
 # Mac OS X hidden files

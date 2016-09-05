@@ -1,0 +1,21 @@
+.hv-result-box {
+  text-align: center;
+
+  @include e('idea') {
+    text-align: center;
+  }
+
+  @include e('votes') {
+    position: relative;
+  }
+
+  @include e('votes-number') {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 6px;
+    font-size: 16px;
+    color: white;
+  }
+}

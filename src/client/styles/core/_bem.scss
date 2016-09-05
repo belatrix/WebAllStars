@@ -1,0 +1,15 @@
+// Element
+// @param {String} $element
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+// Modifier
+// @param {String} $modifier
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}

@@ -1,0 +1,5 @@
+.hv-list {
+  @include e('item'){
+    cursor: initial !important;
+  }
+}

@@ -1,0 +1,15 @@
+// Core styles
+@import "core/colors";
+@import "core/variables"; // Variables declared before to override any default variable
+@import "core/bem";
+@import "core/utils";
+@import "core/global";
+
+// Angular Material
+@import "../../../bower_components/angular-material/angular-material.scss";
+
+// Modules
+@import "modules/hv-side-nav";
+@import "modules/hv-card";
+@import "modules/hv-list";
+@import "modules/hv-result-box";

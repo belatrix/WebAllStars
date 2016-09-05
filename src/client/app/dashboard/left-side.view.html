@@ -1,0 +1,42 @@
+<md-sidenav class="md-sidenav-left md-whiteframe-z5"
+  md-component-id="left">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button"
+        ng-click="close()"
+        aria-label="Menu">
+        <md-icon md-svg-icon="arrow_back">
+        </md-icon>
+      </md-button>
+      <h1 class="md-toolbar-tools">
+        Menu
+      </h1>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding>
+
+    <md-list ng-cloak>
+      <md-subheader class="md-no-sticky">
+          Opciones
+      </md-subheader>
+      <md-list-item ui-sref="activity"
+        ui-sref-active="active"
+        class="secondary-button-padding"
+        ng-click="close()">
+          Activity
+      </md-list-item>
+    </md-list>
+
+  </md-content>
+
+</md-sidenav>
+
+<md-content class="main" id="container" flex >
+            id="container"
+            flex>
+
+  <ui-view></ui-view>
+
+</md-content>

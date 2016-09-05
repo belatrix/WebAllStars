@@ -1,0 +1,17 @@
+@mixin mh($left, $right: null) {
+  margin-left: $left;
+  @if $right != null {
+    margin-right: $right;
+  } @else {
+    margin-right: $left;
+  }
+}
+
+@mixin mv($top, $bottom: null) {
+  margin-top: $top;
+  @if $bottom != null {
+    margin-bottom: $bottom;
+  } @else {
+    margin-bottom: $top;
+  }
+}
