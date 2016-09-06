@@ -1,28 +1,44 @@
-# Belatrix Connect Web Application
+Belatrix Connect Web Application
+=============
 
-Install NodeJS, Bower, GulpJS
+# Use local environment
 
-then install
+Install NodeJS
 
-npm install -g bower-installer
+Install bower and gulp
 
-execute
+`npm install -g bower gulp`
 
-- From the terminal in the same directory as your bower.json file, enter:
+Install node packages dependencies
 
-bower-installer
+`npm install`
 
-finally use:
+Install bower dependencies
 
-gulp server
+`bower install --config.interactive=false`
 
-## Using docker (WIP = Work In Progress)
+Run development server
+
+`gulp serve-dev`
+
+Help: to see all gulp tasks run:
+
+`gulp help`
+
+# Using docker (WIP = Work In Progress - not stable)
 
 Build the image
-```docker build -t webimageallstarts:0.01 .```
+
+`docker build -t webimageallstarts:0.01 .`
 
 Run the container
-```docker run -t -i --name=weballstars -v $(pwd):/home/dev/app -p 3000:3000 webimageallstarts:0.01 /bin/bash```
 
-Install npm packages and bower dependencies
-```npm install && bower install --config.interactive=false --allow-root```
+`docker run -t -i --name=weballstars -v $(pwd):/home/dev/app -p 3000:3000 webimageallstarts:0.01 /bin/bash`
+
+Into the container, install npm packages and bower dependencies
+
+`npm install && bower install --config.interactive=false`
+
+Run development server
+
+`gulp serve-dev`
