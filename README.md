@@ -16,12 +16,14 @@ This web application has been designed using:
 
 -----------------------------------
 
-First you need to install following
+#First you need to install following
 
 **Installing Node.js**
 
+
 **Windows**
 > You can download the .exe installer [here] (https://nodejs.org/en/download/) and follow the wizard to installation
+
 
 **Linux - Ubuntu/Debian**
 
@@ -63,17 +65,17 @@ npm install -g bower gulp
 for more details visit [Bower website] http://gulpjs.com/)
 
 
-Install node packages dependencies
+**Install node packages dependencies**
 
 `npm install`
 
-Install bower dependencies
+**Install bower dependencies**
 
 `bower install --config.interactive=false`
 
 -----------------------------------
 
-## Tasks
+## Gulp Tasks
 
 ### Task Listing
 
@@ -195,6 +197,7 @@ Install bower dependencies
     Launch debugger and break on 1st line with node-inspector.
 
 
+-----------------------------------
 
 Thanks, help to improve this document.
 
