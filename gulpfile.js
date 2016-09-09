@@ -46,16 +46,6 @@ gulp.task('vet', function() {
 });
 
 /**
- * Create a visualizer report
- */
-gulp.task('plato', function(done) {
-  log('Analyzing source with Plato');
-  log('Browse to /report/plato/index.html to see Plato results');
-
-  startPlatoVisualizer(done);
-});
-
-/**
  * Compile sass to css
  * @return {Stream}
  */
@@ -69,18 +59,6 @@ gulp.task('styles', ['clean-styles'], function() {
     //        .on('error', errorLogger) // more verbose and dupe output. requires emit.
     .pipe($.autoprefixer({ browsers: ['last 1 version', '> 5%'] }))
     .pipe(gulp.dest(config.temp));
-});
-
-/**
- * Copy fonts
- * @return {Stream}
- */
-gulp.task('fonts', ['clean-fonts'], function() {
-  log('Copying fonts');
-
-  return gulp
-    .src(config.fonts)
-    .pipe(gulp.dest(config.build + 'fonts'));
 });
 
 /**
@@ -189,9 +167,9 @@ gulp.task('build-specs', ['templatecache'], function(done) {
 /**
  * Build everything
  * This is separate so we can run tests on
- * optimize before handling image or fonts
+ * optimize before handling image
  */
-gulp.task('build', ['optimize', 'images', 'fonts'], function() {
+gulp.task('build', ['optimize', 'images'], function() {
   log('Building everything');
 
   var msg = {
@@ -257,14 +235,6 @@ gulp.task('clean', function(done) {
   var delconfig = [].concat(config.build, config.temp, config.report);
   log('Cleaning: ' + $.util.colors.blue(delconfig));
   del(delconfig, done);
-});
-
-/**
- * Remove all fonts from the build folder
- * @param  {Function} done - callback when complete
- */
-gulp.task('clean-fonts', function(done) {
-  clean(config.build + 'fonts/**/*.*', done);
 });
 
 /**
@@ -526,33 +496,6 @@ function startBrowserSync(isDev, specRunner) {
   }
 
   browserSync(options);
-}
-
-/**
- * Start Plato inspector and visualizer
- */
-function startPlatoVisualizer(done) {
-  log('Running Plato');
-
-  var files = glob.sync(config.plato.js);
-  var excludeFiles = /.*\.spec\.js/;
-  var plato = require('plato');
-
-  var options = {
-    title: 'Plato Inspections Report',
-    exclude: excludeFiles
-  };
-  var outputDir = config.report + '/plato';
-
-  plato.inspect(files, outputDir, options, platoCompleted);
-
-  function platoCompleted(report) {
-    var overview = plato.getOverviewReport(report);
-    if (args.verbose) {
-      log(overview.summary);
-    }
-    if (done) { done(); }
-  }
 }
 
 /**
