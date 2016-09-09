@@ -196,6 +196,6 @@ Install bower dependencies
 
 
 
-Thanks help to improve this document.
+Thanks, help to improve this document.
 
-Belatrix Web All stars Team
+Belatrix Web Connect Team
