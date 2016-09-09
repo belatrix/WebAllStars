@@ -14,6 +14,7 @@ This web application has been designed for the hackatrix voting process, using:
 - Using john papa gulp patterns and style guide [more details] (https://github.com/johnpapa/gulp-patterns).
 - Material Design Specifications
 
+-----------------------------------
 
 First you need to install following
 
@@ -70,6 +71,7 @@ Install bower dependencies
 
 `bower install --config.interactive=false`
 
+-----------------------------------
 
 ## Tasks
 
