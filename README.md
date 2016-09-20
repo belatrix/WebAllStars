@@ -17,9 +17,8 @@ This web application has been designed using the nex tools:
 - Simple architecture based in the pure purpose of the mentioned tools to use
 - Material Design Specifications
 
------------------------------------
-1. First you need to install following
--------------------------------------
+**1. First you need to install following**
+
 (if you have previous knowledge about nodeJS skip to 2nd step)
 
 **Installing Node.js**
