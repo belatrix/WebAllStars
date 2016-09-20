@@ -3,7 +3,7 @@ Belatrix Connect Web Application
 
 *About the web application*
 
-This web application have the mission to represent the idea to connect all the co-workers inside Belatrix family, to valuate and recognize the work and the team-spirit, using a gamification´s mechanics to create  and interact through motivation  in a better coexistence. 
+This web application has the mission to represent the idea to connect all the co-workers inside Belatrix family, to valuate and recognize the work and the team-spirit, using a gamification´s mechanics to create  and interact through motivation  in a better coexistence. 
 
 *About the project architecture*
 
