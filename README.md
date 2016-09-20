@@ -1,9 +1,12 @@
 Belatrix Connect Web Application
 ================================
-- About the web application 
+
+*About the web application 
+
 This web application have the mission to represent the idea to connect all the co-workers inside Belatrix family, to valuate and recognize the work and the team-spirit, using a gamification´s mechanics to create  and interact through motivation  in a better coexistence. 
 
-- About the project architecture
+*About the project architecture
+
 The main purpose of this architecture is minify, simplify resources and methods to develop web applications, in order to create an alternative agile and a simple way to build a project. In this case the philosophy about this repository is avoid sofistication and the preconception of other techniques that using reinvented ideas, so this is important to reach a new challenge of do a simple and functional web application oriented and based totally in user experience.
 
 This web application has been designed using the nex tools:
