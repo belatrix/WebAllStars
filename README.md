@@ -55,33 +55,31 @@ make
 ```bash
 sudo make install
 ```
-----------------------
-#2. Installing Bower
----------------------
+
+**2. Installing Bower**
+
 ```bash
 npm install -g bower
 ```
 for more details visit [Bower website] (http://bower.io/)
 
--------------------
-#3. Installing GULP
--------------------
+**3. Installing GULP**
+
 ```bash
 npm install -g gulp
 ```
 for more details visit [Bower website] (http://gulpjs.com/)
 
-------------------------------
-#4. Installing Bower-installer
-------------------------------
+
+**4. Installing Bower-installer**
+
 ```bash
 npm install -g bower-installer
 ```
 for more details visit [Bower-installer site] (https://www.npmjs.com/package/bower-installer)
 
------------------------------------------------
-#5. Finally use a simple command to install all
------------------------------------------------
+**5. Finally use a simple command to install all**
+
 `npm install` 
 
 - This do the nodeJS dependencies installation, bower and bower-installer to simplify the specifics files in a clean folder, prevoiusly configured in package.json like this:
