@@ -11,8 +11,8 @@ The main purpose of this architecture is minify, simplify resources and methods 
 
 This web application has been designed using the nex tools:
 
-- [AngularJS] (https://angularjs.org/)
 - [Material Design Specifications] (https://material.google.com/)
+- [AngularJS] (https://angularjs.org/)
 - [Angular Material] (https://material.angularjs.org/) 
 - [Gulp] (http://gulpjs.com/)
 - [Bower] (http://bower.io/)
