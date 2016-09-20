@@ -18,17 +18,18 @@ This web application has been designed using the nex tools:
 - Material Design Specifications
 
 -----------------------------------
-
-#1. First you need to install following (if you know how to do this skip to 2nd step)
+1. First you need to install following
+-------------------------------------
+(if you have previous knowledge about nodeJS skip to 2nd step)
 
 **Installing Node.js**
 
 
-**Windows**
+*Windows*
 > You can download the .exe installer [here] (https://nodejs.org/en/download/) and follow the wizard to installation
 
 
-**Linux - Ubuntu/Debian**
+*Linux - Ubuntu/Debian*
 
 1-1- Open your terminal and execute the next commands
 ```bash
@@ -54,35 +55,41 @@ make
 ```bash
 sudo make install
 ```
-
+----------------------
 #2. Installing Bower
+---------------------
 ```bash
 npm install -g bower
 ```
 for more details visit [Bower website] (http://bower.io/)
 
+-------------------
 #3. Installing GULP
+-------------------
 ```bash
 npm install -g gulp
 ```
 for more details visit [Bower website] (http://gulpjs.com/)
 
+------------------------------
 #4. Installing Bower-installer
+------------------------------
 ```bash
 npm install -g bower-installer
 ```
 for more details visit [Bower-installer site] (https://www.npmjs.com/package/bower-installer)
 
+-----------------------------------------------
 #5. Finally use a simple command to install all
-
+-----------------------------------------------
 `npm install` 
 
-- This Do the nodeJS dependencies installation, bower and bower-installer to simplify the specifics files in a clean folder, prevoiusly configured in package.json like this:
+- This do the nodeJS dependencies installation, bower and bower-installer to simplify the specifics files in a clean folder, prevoiusly configured in package.json like this:
 
-```package.json chunk to configure
-  
-  {
-  'name": "belatrix-web-connect",
+```bash
+package.json chunk to configure
+{
+  "name": "belatrix-web-connect",
   version": "0.0.1",
   "description": "web application to connect collaborators in a great company",
   "main": "index.js",
@@ -90,9 +97,8 @@ for more details visit [Bower-installer site] (https://www.npmjs.com/package/bow
     "test": "echo \"Error: no test specified\" && exit 1",
     "install": "bower install && bower-installer"
   },...
-  
 ```
-It´s easy, the install part contains the neccesary commands to install dependencies
+- It´s easy, the "install" part contains the neccesary commands to install the dependencies
 
 
 Thanks, help to improve this document.
