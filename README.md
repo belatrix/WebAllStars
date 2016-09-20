@@ -1,24 +1,25 @@
 Belatrix Connect Web Application
-=============
+================================
 
-The main purpose of this architecture is minify and simplify resources and methods to develop, in order to create an agile and simple way to develop a project. In this case the philosophy about this repository is avoid the sofistication and preconception of techniques in relation to create a new chalenge to do simple and functional sofware oriented totally
+The main purpose of this architecture is minify, simplify resources and methods to develop web applications, in order to create an alternative agile and a simple way to build a project. In this case the philosophy about this repository is avoid sofistication and the preconception of other techniques that using reinvented ideas, so this is important to reach a new challenge of do a simple and functional web application oriented and based totally in user experience.
 
-This web application has been designed using:
+This web application has been designed using the nex tools:
 
 - [AngularJS] (https://angularjs.org/)
-- [Angular Material] (https://material.angularjs.org/)
+- [Material Design Specifications] (https://material.google.com/)
+- [Angular Material] (https://material.angularjs.org/) 
 - [Gulp] (http://gulpjs.com/)
 - [Bower] (http://bower.io/)
 - [NodeJS] (https://nodejs.org/)
 
 #Features
 
-- Using john papa gulp patterns and style guide [more details] (https://github.com/johnpapa/gulp-patterns).
+- Simple architecture based in the pure purpose of the mentioned tools to use
 - Material Design Specifications
 
 -----------------------------------
 
-#First you need to install following
+#1. First you need to install following (if you know how to do this skip to 2nd step)
 
 **Installing Node.js**
 
@@ -29,49 +30,50 @@ This web application has been designed using:
 
 **Linux - Ubuntu/Debian**
 
-1- Open your terminal and execute the next commands
+1-1- Open your terminal and execute the next commands
 ```bash
 sudo apt-get update && sudo apt-get install git-core curl build-essential openssl libssl-dev
 ```
-2- Then cloning the nodeJS repository in a desired location
+1.2- Then cloning the nodeJS repository in a desired location
 ```bash
 git clone https://github.com/nodejs/node.git node && cd node
 ```
-3- If you wish choose a version, but if you want to work with the latest skip this step
+1.3- If you wish choose a version, but if you want to work with the latest skip this step
 ```bash
 git checkout v4.4.3
 ```
-4- Creating the makefile
+1.4- Creating the makefile
 ```bash
 ./configure
 ```
-5- Preparing the installation
+1.5- Preparing the installation
 ```bash
 make
 ```
-6- Installing
+1.6- Installing
 ```bash
 sudo make install
 ```
 
-**Installing Bower**
+#2. Installing Bower
 ```bash
 npm install -g bower
 ```
 for more details visit [Bower website] (http://bower.io/)
 
-**Installing GULP**
+#3. Installing GULP
 ```bash
 npm install -g gulp
 ```
 for more details visit [Bower website] (http://gulpjs.com/)
 
-**Installing Bower-installer**
+#4. Installing Bower-installer
 ```bash
 npm install -g bower-installer
 ```
 for more details visit [Bower-installer site] (https://www.npmjs.com/package/bower-installer)
-Finally use a simple command to install all
+
+#5. Finally use a simple command to install all
 
 `npm install` 
 
