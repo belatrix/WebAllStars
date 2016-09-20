@@ -97,6 +97,13 @@ package.json chunk to configure
 ```
 - It´s easy, the "install" part contains the neccesary commands to install the dependencies
 
+** GULP TASKS **
+
+```bash
+  gulp server 
+```
+Open a server in port http://localhost:3000 with livereload
+
 
 Thanks, help to improve this document.
 
