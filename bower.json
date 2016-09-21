@@ -27,6 +27,7 @@
     "angular-material": "^1.1.x-rc.x",
     "angular-ui-router": "~0.2.x",
     "ngstorage": "~0.3.x",
+    "angular-material-icons": "^0.7.1",
     "animate.css": "^3.5.2"
   },
   "install": {
