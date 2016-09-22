@@ -34,8 +34,8 @@
           <md-button class="md-primary md-raised">
               Cancel
           </md-button>
-          <md-button ng-disabled="!user.username || !user.password || sending"
-            ng-click="getSignIn(user); sending=true"
+          <md-button ng-disabled="!user.username || !user.password || loading"
+            ng-click="getSignIn(user)"
             class="md-accent md-raised">
               Sign In
           </md-button>

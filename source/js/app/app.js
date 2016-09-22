@@ -1,7 +1,6 @@
 (function() {
 
     var app = angular.module('app', [
-        'ngAnimate',
         'ngRoute',
         'ngResource',
         'ngMaterial',

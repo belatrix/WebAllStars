@@ -20,7 +20,7 @@
           serviceStorage.setData('token',data.token);
           $state.go('activity');
         },function(){
-          $scope.loading=false;
+          $scope.loading = false;
         });
 
       };

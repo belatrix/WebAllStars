@@ -1,16 +1,16 @@
 <div layout="row">
-  <div flex="33">
+  <div flex="25">
     <div ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage">
 
-        <div flex-gt-sm="50" flex="">
+        <div flex="">
 
-            <md-toolbar>
+            <!--md-toolbar>
                 <div class="md-toolbar-tools">
                 <h3>
                     <span>Users</span>
                 </h3>
                 </div>
-            </md-toolbar>
+            </md-toolbar-->
             
             <div layout-padding>
                 <md-autocomplete
@@ -44,13 +44,13 @@
         </div>
     </div>
   </div>
-  <div flex="66">
-      <md-toolbar>
+  <div flex="75">
+      <!--md-toolbar>
         <div class="md-toolbar-tools">
             <h3><md-icon md-svg-icon="/svg/person.svg" class="md-avatar"></md-icon>
                 <span>{{selected.name}}</span></h3>
         </div>
-    </md-toolbar>
+    </md-toolbar-->
     <md-content flex>
         <p ng-If="!selected.notifications.length">No notifications for {{selected.name}}, yet.</p>
         <md-list ng-If="false">
