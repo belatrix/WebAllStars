@@ -5,85 +5,24 @@
 
 	.constant('resourceServiceConfig',{
 
+        remoteURL: 'http://belatrix-connect.herokuapp.com/',
+
         auth:{
-          url:'/fumiambar/auth/login/:name/:password',
-          params:{
-            name:'@name',
-            password:'@password'
-          },
-          actions:{
-            'get':   {method:'GET'}
-          }
-        },
-
-        verify:{
-          url:'/fumiambar/auth/verify',
-          params:{
-            name:'@name',
-            password:'@password'
-          },
-          actions:{
-            'get':   {method:'GET'}
-          }
-        },
-
-        userList:{
-          url:'/fumiambar/user/list/:skip/:limit',
-          params:{
-            name:'@skip',
-            password:'@limit'
-          },
-          actions:{
-            'get':   {method:'GET', isArray: true, cache: false}
-          }
-        },
-
-        userCreate:{
-          url:'/fumiambar/user/create',
+          url:'api/employee/authenticate/',
           params:{
           },
           actions:{
-            'save':   {method:'post', isArray: false}
-          }
-        },
-
-        userUpdate:{
-          url:'/fumiambar/user/update/:_id',
-          params:{
-            _id:'@_id'
-          },
-          actions:{
-            'put':   {method:'PUT', isArray: false}
-          }
-        },
-
-        serviceList:{
-          url:'/fumiambar/service/list/:skip/:limit',
-          params:{
-            name:'@skip',
-            password:'@limit'
-          },
-          actions:{
-            'get':   {method:'GET', isArray: true, cache: false}
-          }
-        },
-
-        serviceCreate:{
-          url:'/fumiambar/service/create',
-          params:{
-          },
-          actions:{
-            'save':   {method:'post', isArray: false}
-          }
-        },
-
-        serviceUpdate:{
-          url:'/fumiambar/service/update/:_id',
-          params:{
-            _id:'@_id'
-          },
-          actions:{
-            'put':   {method:'PUT', isArray: false}
+            'post': {method:'POST', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              transformRequest: function (data, headersGetter) {
+                       var str = [];
+                       for (var d in data)
+                           str.push(encodeURIComponent(d) + "=" + encodeURIComponent(data[d]));
+                       return str.join("&");
+              }
+            }
           }
         }
        

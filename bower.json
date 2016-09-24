@@ -24,9 +24,10 @@
     "angular-sanitize": "^1.x.x",
     "angular-animate": "^1.x.x",
     "angular-aria": "^1.x.x",
-    "angular-material": "^1.x.x",
+    "angular-material": "^1.1.x-rc.x",
     "angular-ui-router": "~0.2.x",
-    "ngstorage": "~0.3.x"
+    "ngstorage": "~0.3.x",
+    "animate.css": "^3.5.2"
   },
   "install": {
     "path": {

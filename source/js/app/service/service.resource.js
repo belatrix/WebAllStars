@@ -1,4 +1,3 @@
-
 (function() {
 	'use strict';
 	angular.module('module.service.resource', [])
@@ -7,7 +6,7 @@
 
 			this.request=function(url){
 
-				var resource = $resource(config[url].url,
+				var resource = $resource(config.remoteURL + config[url].url,
 										config[url].params,
 										config[url].actions,
 										config[url].options);
