@@ -36,15 +36,15 @@ This web application has been designed using the nex tools:
 
 *Linux - Ubuntu/Debian*
 
-1-1- Open your terminal and execute the next commands
+1.1. Open your terminal and execute the next commands
 ```bash
 sudo apt-get update && sudo apt-get install git-core curl build-essential openssl libssl-dev
 ```
-1.2- Then cloning the nodeJS repository in a desired location
+1.2. Then cloning the nodeJS repository in a desired location
 ```bash
 git clone https://github.com/nodejs/node.git node && cd node
 ```
-1.3- If you wish choose a version, but if you want to work with the latest skip this step
+1.3. If you wish choose a version, but if you want to work with the latest skip this step
 ```bash
 git checkout v4.4.3
 ```
@@ -52,11 +52,11 @@ git checkout v4.4.3
 ```bash
 ./configure
 ```
-1.5- Preparing the installation
+1.5. Preparing the installation
 ```bash
 make
 ```
-1.6- Installing
+1.6. Installing
 ```bash
 sudo make install
 ```
