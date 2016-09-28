@@ -24,8 +24,8 @@
                   'request': function (config) {
                       config.headers = config.headers || {};
                       if (serviceStorage.getData('token')) {
-                          config.headers.Authorization = serviceStorage.getData('token');
-                          config.headers['X-CSRFToken'] = 'IB2ulAHjBiIqSQ4gMow93bCUrGpGHDq0';
+                          console.log("El token en el interceptor es  : "+serviceStorage.getData('token'));
+                          config.headers['X-CSRFToken'] = serviceStorage.getData('token');
                       }
                       $rootScope.$broadcast('loadingBefore');
                       return config;
@@ -40,7 +40,7 @@
                       if(response.status === 401 ||
                          response.status === 403 ||
                          response.status===0) {
-
+                          console.log("Me redirecciona por esta validacion");
                           $location.path('/login');
 
                       }
@@ -56,14 +56,11 @@
           hasToken;
 
         checkingSession = function(){
-          /*
+          
           hasToken = serviceStorage.getData('token');
-          if(hasToken){
-            $state.go('activity');
-          }else{
+          if(hasToken == null){
             $state.go('login');
-          }
-          */
+          }          
         };
 
         $rootScope.$on('$locationChangeStart',function(obj,data){

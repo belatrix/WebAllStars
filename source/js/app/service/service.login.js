@@ -10,6 +10,7 @@
 		function ($resourceService, serviceStorage, $state) {
 
 			this.signIn = function (query,fnSuccess,fnError) {
+				console.log("***"+query.username+"***"+query.password);
 				var auth = $resourceService.request('auth');
 				return auth.post(query,fnSuccess,fnError);
 			};

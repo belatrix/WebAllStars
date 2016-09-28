@@ -18,14 +18,21 @@
               },
               transformRequest: function (data, headersGetter) {
                        var str = [];
+                       console.log("Data : "+data.username+"**"+data.password);
                        for (var d in data)
                            str.push(encodeURIComponent(d) + "=" + encodeURIComponent(data[d]));
                        return str.join("&");
               }
             }
           }
+        },
+        list_coworkers : {
+          url:'api/employee/list/',
+          actions:{
+            'get':{method:'GET'}
+          }
         }
-       
+
     });
 
 })();
