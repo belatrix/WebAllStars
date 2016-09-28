@@ -38,9 +38,9 @@
           notes: " I'll be in your neighborhood doing errands",
           notifications : [
             {
-              user: 'super user',
+              user: 'super user Juan',
               text: 'Lorem ipsum dolor',
-              date: '14:30'
+              date: '14:31'
             },
             {
               user: 'super user',

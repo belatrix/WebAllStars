@@ -56,14 +56,14 @@
           hasToken;
 
         checkingSession = function(){
-
+          /*
           hasToken = serviceStorage.getData('token');
           if(hasToken){
             $state.go('activity');
           }else{
             $state.go('login');
           }
-
+          */
         };
 
         $rootScope.$on('$locationChangeStart',function(obj,data){
