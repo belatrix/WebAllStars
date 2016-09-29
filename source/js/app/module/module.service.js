@@ -3,7 +3,8 @@
 	angular.module('module.service', [
 		'module.service.resource',
 		'module.service.storage',
-		'module.service.login'
+		'module.service.login',
+    'module.service.activity'
 	]);
 
 

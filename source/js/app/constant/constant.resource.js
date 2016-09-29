@@ -24,8 +24,16 @@
               }
             }
           }
+        },
+        employeeList:{
+          url:'api/employee/list/',
+          params:{
+          },
+          actions:{
+            'get': {method:'GET'}
+          }
         }
-       
+
     });
 
 })();
