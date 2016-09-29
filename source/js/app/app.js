@@ -24,8 +24,7 @@
                   'request': function (config) {
                       config.headers = config.headers || {};
                       if (serviceStorage.getData('token')) {
-                          console.log("El token en el interceptor es  : "+serviceStorage.getData('token'));
-                          config.headers['X-CSRFToken'] = serviceStorage.getData('token');
+                          config.headers.Authorization = 'Token ' + serviceStorage.getData('token');
                       }
                       $rootScope.$broadcast('loadingBefore');
                       return config;

@@ -4,7 +4,7 @@
 		'module.service.resource',
 		'module.service.storage',
 		'module.service.login',
-		'module.service.coworkers'
+		'module.service.employee'
 	]);
 
 

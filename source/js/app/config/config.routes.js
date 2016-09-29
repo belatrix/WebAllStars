@@ -31,8 +31,8 @@
             controller: "controller.login"
         }).state('coworkers', {
             parent:'dashboard',
-            url: "/find_coworkers",
-            templateUrl: "views/find_coworkers.view.html",
+            url: "/coworkers",
+            templateUrl: "views/coworkers.view.html",
             controller: "controller.coworkers"
         }).state('activity', {
             parent:'dashboard',

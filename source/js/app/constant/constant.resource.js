@@ -26,10 +26,12 @@
             }
           }
         },
-        list_coworkers : {
+        employeeList : {
           url:'api/employee/list/',
+          params:{
+          },
           actions:{
-            'get':{method:'GET'}
+            'get': {method:'GET'}
           }
         }
 
