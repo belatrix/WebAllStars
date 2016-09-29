@@ -12,7 +12,7 @@
     ];
 
     function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage) {
-
+      $scope.loading=true;
       coworkersService.empĺoyee.list(function (response) {
         var array_users=[];
         for(var i in response.results){
@@ -23,10 +23,22 @@
         $scope.selected = null;
         $scope.searchText = '';
         $scope.users = array_users;
-        console.log(response.results[0].username+"**"+response.results[1].username);
+        $scope.loading=false;
       }, function (error) {
          
       });
+
+      $scope.onChange=function(value,id_user){
+        console.log("Entre al flag : "+value+"** PK : "+id_user);
+        var parameters={}
+        parameters.employee_id = id_user;
+        parameters.action = value;
+        coworkersService.empĺoyee.updateBlock(parameters,function (response) {
+          console.log("Success...!!!");
+        }, function (error) {
+           
+        });
+      }
     }
 
 })();

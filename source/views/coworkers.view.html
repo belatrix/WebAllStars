@@ -1,10 +1,20 @@
-  <div layout="row">
-  <div flex="100">
-    <div ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage">
-
+<div layout="row" layout-xs="column">
+  <div flex>
+    <div ng-show="loading">
+        <div layout="row" layout-align="center center" layout-margin>
+          <img height="100" width="100" src="image/logo.webp" alt="">
+        </div>
+        <div layout="row" layout-align="center center">
+          <h2>Cargando...</h2>
+        </div>
+        <div layout="row" layout-sm="column" layout-align="center" ng-show="loading">
+            <md-progress-circular md-mode="indeterminate" class="md-accent">
+            </md-progress-circular>
+        </div>
+    </div>
+    <div flex-order-gt-xs ng ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
         <div flex="">
-            
-            <div layout-padding>
+            <div layout-padding >
                 <md-autocomplete
                     md-input-minlength="2"
                     md-input-maxlength="18"
@@ -50,11 +60,13 @@
                             </div>
                             <div flex="25">
                                 <div class="md-list-item-text" align="center" layout="column">
-                                    <md-switch class="md-secondary" ng-model="user.is_blocked"  aria-label="Switch 1"><div>{{user.is_blocked === true ? active = "Activo" : active = "Inactivo"}}</div></md-switch>
+                                    <md-switch class="md-secondary" ng-model="user.is_blocked" ng-change="onChange(user.is_blocked,user.pk)" aria-label="Switch 1"><div>{{user.is_blocked === true ? active = "Bloqueado" : active = "Desbloqueado"}}</div></md-switch>
                                 </div>
                     </md-list-item>
                 </md-list>
             </md-content>
         </div>
     </div>
+    
   </div>
+</div>
