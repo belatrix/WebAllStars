@@ -59,8 +59,12 @@
                                 </div>
                             </div>
                             <div flex="25">
-                                <div class="md-list-item-text" align="center" layout="column">
-                                    <md-switch class="md-secondary" ng-model="user.is_blocked" ng-change="showConfirm($event,user)" aria-label="Switch 1"><div>{{user.is_blocked === true ? active = "Bloqueado" : active = "Desbloqueado"}}</div></md-switch>
+                                <div>
+                                    <div layout="row" layout-align="center" layout-margin>
+                                        <md-switch ng-model="user.is_blocked" ng-change="showConfirm($event,user)">
+                                            {{user.is_blocked === true ? active = "Bloqueado" : active = "Desbloqueado"}}
+                                        </md-switch>
+                                    </div>
                                 </div>
                     </md-list-item>
                 </md-list>
