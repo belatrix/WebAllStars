@@ -30,6 +30,7 @@
         $scope.selected = null;
         $scope.searchText = '';
         $scope.users = array_users;
+        $scope.selected = $scope.users[0];
         stopWaitingEffect();
       }, function (error) {
           showError(error);
@@ -68,6 +69,11 @@
           }
         });
       }; 
+
+      $scope.selectUser = function (user) {
+        console.log("User selected : "+user.pk);
+      }
+
 
       var showSimpleToast = function(messages) {
         $mdToast.show(
