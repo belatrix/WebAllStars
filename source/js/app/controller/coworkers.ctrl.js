@@ -61,6 +61,11 @@
         $mdDialog.show(confirm).then(function() {
         onChange(user);
         }, function() {
+          if(user.is_blocked){
+            user.is_blocked=false;
+          }else{
+            user.is_blocked=true;
+          }
         });
       }; 
 
