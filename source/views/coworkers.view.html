@@ -5,16 +5,25 @@
           <img height="100" width="100" src="image/logo.webp" alt="">
         </div>
         <div layout="row" layout-align="center center">
-          <h2>Cargando...</h2>
+          <h2>{{messages_load}}</h2>
         </div>
         <div layout="row" layout-sm="column" layout-align="center" ng-show="loading">
             <md-progress-circular md-mode="indeterminate" class="md-accent">
             </md-progress-circular>
         </div>
     </div>
+    <div  ng-show="error_messages">
+        <div layout="row" layout-sm="column" layout-align="center center">
+            <ng-messages for="expression" role="alert" style="color:maroon">
+                <ng-message when="stringValue">{{status}}</ng-message></br>
+                <ng-message when="stringValue">{{error_detail}}</ng-message>
+            </ng-messages>
+        </div>
+        
+    </div>
     <div flex-order-gt-xs ng ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
         <div flex="">
-            <div layout-padding >
+            <div layout-padding ng-show="!error_messages">
                 <md-autocomplete
                     md-input-minlength="2"
                     md-input-maxlength="18"
@@ -60,7 +69,7 @@
                             </div>
                             <div flex="25">
                                 <div class="md-list-item-text" align="center" layout="column">
-                                    <md-switch class="md-secondary" ng-model="user.is_blocked" ng-change="onChange(user.is_blocked,user.pk)" aria-label="Switch 1"><div>{{user.is_blocked === true ? active = "Bloqueado" : active = "Desbloqueado"}}</div></md-switch>
+                                    <md-switch class="md-secondary" ng-model="user.is_blocked" ng-change="showConfirm($event,user.is_blocked,user.pk)" aria-label="Switch 1"><div>{{user.is_blocked === true ? active = "Bloqueado" : active = "Desbloqueado"}}</div></md-switch>
                                 </div>
                     </md-list-item>
                 </md-list>

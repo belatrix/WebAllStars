@@ -35,20 +35,15 @@
         },
 
         updateBlockEmployee : {
-          url:'api/employee/{employee_id}/block/{action}/',
+          url:'api/employee/:employee_id/block/:action/',
           params:{
+            employee_id : '@employee_id',
+            action : '@action'         
           },
           actions:{
             'post': {method:'POST', headers:{
               'Accept': 'application/json',
               'Content-Type': 'application/json'
-              },
-              transformRequest: function (data, headersGetter) {
-                       var str = [];
-                       console.log("Request : "+data.employee_id);
-                       for (var d in data)
-                           str.push(encodeURIComponent(d) + "=" + encodeURIComponent(data[d]));
-                       return str.join("&");
               }
             }
           }
