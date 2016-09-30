@@ -9,10 +9,11 @@
         '$state',
         'employeeService',
         'serviceStorage',
-        '$mdDialog'
+        '$mdDialog',
+        '$mdToast'
     ];
 
-    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog) {
+    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast) {
       var waitingEfects=function(messages){
         $scope.loading=true; 
         $scope.messages_load=messages;
@@ -34,17 +35,23 @@
           showError(error);
       });
 
-      var onChange=function(ev,value,id_user){
+      var onChange=function(user){
         waitingEfects("Actualizando...");
-        coworkersService.empĺoyee.updateBlock({employee_id : id_user,action : value},function (response) {
+        coworkersService.empĺoyee.updateBlock({employee_id : user.pk,action : user.is_blocked},function (response) {
         stopWaitingEffect();
-        showAlert(ev);
+        showSimpleToast('EXITO. Se actualizó el registro correctamente');
         },function (error) {
+          if(user.is_blocked){
+            user.is_blocked=false;
+          }else{
+            user.is_blocked=true;
+          }
+          
           showError(error);
         });
       }
 
-      $scope.showConfirm = function(ev,value,id_user) {
+      $scope.showConfirm = function(ev,user) {
         var confirm = $mdDialog.confirm()
               .title('Confirmación')
               .textContent('¿Estas seguro que deseas cambiar el estado?')
@@ -52,20 +59,17 @@
               .ok('Si')
               .cancel('No');
         $mdDialog.show(confirm).then(function() {
-        onChange(ev,value,id_user);
+        onChange(user);
         }, function() {
         });
-      };
+      }; 
 
-      var showAlert = function(ev) {
-        $mdDialog.show(
-          $mdDialog.alert()
-            .parent(angular.element(document.querySelector('#popupContainer')))
-            .clickOutsideToClose(true)
-            .title('Exito..!!')
-            .textContent('Se actualizo el registro correctamente')
-            .ok('Gracias')
-            .targetEvent(ev)
+      var showSimpleToast = function(messages) {
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(messages)
+            .position('top right' )
+            .hideDelay(3000)
         );
       };
 
@@ -75,8 +79,7 @@
       
       var showError=function(error){
         $scope.error_messages=true;
-        $scope.status = "* Status : "+error.status+", "+error.statusText;
-        $scope.error_detail="* Detail : "+angular.toJson(error.config);
+        showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
         $scope.loading=false;
       }
     }
