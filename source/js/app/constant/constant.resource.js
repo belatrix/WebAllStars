@@ -25,7 +25,7 @@
             }
           }
         },
-        employeeList : {
+        employeeList:{
           url:'api/employee/list/',
           params:{
           },
@@ -33,14 +33,13 @@
             'get': {method:'GET'}
           }
         },
-
-        updateBlockEmployee : {
+        updateBlockEmployee: {
           url:'api/employee/:employee_id/block/:action/',
           params:{
-            employee_id : '@employee_id',
-            action : '@action'         
+            employee_id: '@employee_id',
+            action: '@action'         
           },
-          actions:{
+          actions: {
             'post': {method:'POST', headers:{
               'Accept': 'application/json',
               'Content-Type': 'application/json'
@@ -48,6 +47,7 @@
             }
           }
         }
+
     });
 
 })();
