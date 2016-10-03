@@ -1,17 +1,5 @@
 <div layout="row" layout-xs="column">
   <div flex>
-    <div ng-show="loading">
-        <div layout="row" layout-align="center center" layout-margin>
-          <img height="100" width="100" src="image/logo.webp" alt="">
-        </div>
-        <div layout="row" layout-align="center center">
-          <h2>{{messages_load}}</h2>
-        </div>
-        <div layout="row" layout-sm="column" layout-align="center" ng-show="loading">
-            <md-progress-circular md-mode="indeterminate" class="md-accent">
-            </md-progress-circular>
-        </div>
-    </div>
     <div flex-order-gt-xs ng ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
         <div flex="">
             <div layout-padding>
@@ -34,7 +22,7 @@
 
             <md-content flex>
                 <md-list layout-wrap>
-                    <md-list-item  ng-repeat="user in users | filter:searchText | orderBy:'first_name'" 
+                    <md-list-item  ng-repeat="user in users | filter:searchText | orderBy:'-total_score'"
                         ng-click="selectUser(user)"
                         ng-class="{'md-2-line': true ,'selected': user === selected }">
                             <img ng-src="{{ user.avatar }}" class="md-avatar" />
@@ -48,9 +36,9 @@
                                 <div class="md-list-item-text" align="center" layout="column">
                                     <p>Ubicacion</p>
                                     <div align="middle">
-                                        <h3 >{{ user.location.name }} <img ng-src="{{ user.location.icon }}" height="20px" width="30px"/></h3> 
+                                        <h3 >{{ user.location.name }} <img ng-src="{{ user.location.icon }}" height="20px" width="30px"/></h3>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                             <div flex="25">
@@ -72,6 +60,6 @@
             </md-content>
         </div>
     </div>
-    
+
   </div>
 </div>

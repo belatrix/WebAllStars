@@ -1,6 +1,8 @@
 (function() {
   'use strict';
-	angular.module('module.component', []);
+	angular.module('module.component', [
+    'module.component.progressLinear'
+  ]);
 
 
 })();
