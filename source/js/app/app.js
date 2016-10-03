@@ -39,7 +39,7 @@
                       if(response.status === 401 ||
                          response.status === 403 ||
                          response.status===0) {
-
+                          console.log("Me redirecciona por esta validacion");
                           $location.path('/login');
 
                       }
@@ -55,14 +55,11 @@
           hasToken;
 
         checkingSession = function(){
-
+          
           hasToken = serviceStorage.getData('token');
-          if(hasToken){
-            $state.go('activity');
-          }else{
+          if(hasToken == null){
             $state.go('login');
-          }
-
+          }          
         };
 
         $rootScope.$on('$locationChangeStart',function(obj,data){

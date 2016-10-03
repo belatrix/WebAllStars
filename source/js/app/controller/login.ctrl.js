@@ -17,8 +17,9 @@
         $scope.loading=true;
 
       	loginService.signIn(user,function(data){
+          console.log("Token : "+data.token);
           serviceStorage.setData('token',data.token);
-          $state.go('activity');
+          $state.go('coworkers');
         },function(){
           $scope.loading = false;
         });
