@@ -1,17 +1,5 @@
 <div layout="row" layout-xs="column">
   <div flex>
-    <div ng-show="loading">
-        <div layout="row" layout-align="center center" layout-margin>
-          <img height="100" width="100" src="image/logo.webp" alt="">
-        </div>
-        <div layout="row" layout-align="center center">
-          <h2>{{messages_load}}</h2>
-        </div>
-        <div layout="row" layout-sm="column" layout-align="center" ng-show="loading">
-            <md-progress-circular md-mode="indeterminate" class="md-accent">
-            </md-progress-circular>
-        </div>
-    </div>
     <div flex-order-gt-xs ng ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
         <div flex="">
             <div layout-padding>
