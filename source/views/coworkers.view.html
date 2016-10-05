@@ -1,16 +1,16 @@
-<div layout="row" layout-xs="column">
+<div layout="row" layout-xs="column" >
   <div flex>
-    <div flex-order-gt-xs ng ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
+    <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
         <div flex="">
-            <div layout-padding>
+            <div layout-padding ng-cloak>
                 <md-autocomplete
-                    md-input-minlength="2"
-                    md-input-maxlength="18"
                     md-search-text="searchText"
-                    md-items="item in users | filter:searchText"
+                    md-selected-item="ctrl.selectedItem"
+                    md-search-text-change="list2(searchText)"
+                    md-items="item in users"
                     md-item-text="item.last_name"
-                    md-min-lengrh="3"
-                    placeholder="Busqueda">
+                    placeholder="Busqueda"
+                    md-delay="500">
                     <md-item-template>
                         <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.last_name}}</span>
                     </md-item-template>

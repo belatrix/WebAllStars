@@ -10,31 +10,45 @@
         'employeeService',
         'serviceStorage',
         '$mdDialog',
-        '$mdToast'
+        '$mdToast',
+        '$q', '$timeout'
     ];
 
-    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast) {
+    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
       var waitingEfects=function(messages){
         $scope.loading=true; 
         $scope.messages_load=messages;
         $scope.error_messages=false;
       }
-      waitingEfects("Cargando...");
-      coworkersService.empĺoyee.list(function (response) {
-        var array_users=[];
-        for(var i in response.results){
-          var detail_user=response.results[i];
-          array_users.push(detail_user);
-        }
-        $scope.active="Activo";
-        $scope.selected = null;
-        $scope.searchText = '';
-        $scope.users = array_users;
-        $scope.selected = $scope.users[0];
-        stopWaitingEffect();
-      }, function (error) {
-          showError(error);
-      });
+      var listEmployee=function(employee){
+        waitingEfects("Cargando...");
+        var objReq={};
+        objReq.search=employee;
+        coworkersService.empĺoyee.list(objReq,function (response) {
+          var array_users=[];
+          for(var i in response.results){
+            var detail_user=response.results[i];
+            array_users.push(detail_user);
+          }
+          $scope.active="Activo";
+          $scope.selected = null;
+          $scope.searchText = '';
+          $scope.users = array_users;
+          $scope.selected = $scope.users[0];
+          if(employee!=null){
+            $scope.searchText=employee;  
+          }
+          stopWaitingEffect();
+        }, function (error) {
+            showError(error);
+        });
+      }
+
+      $scope.list2=function(employee){
+        listEmployee(employee);
+      }
+
+      listEmployee(null);
 
       var onChange=function(user){
         waitingEfects("Actualizando...");
@@ -94,5 +108,4 @@
         $scope.loading=false;
       }
     }
-
 })();
