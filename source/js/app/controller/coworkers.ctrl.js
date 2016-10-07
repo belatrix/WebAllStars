@@ -15,13 +15,8 @@
     ];
 
     function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
-      var waitingEfects=function(messages){
-        $scope.loading=true; 
-        $scope.messages_load=messages;
-        $scope.error_messages=false;
-      }
+
       var listEmployee=function(employee){
-        waitingEfects("Cargando...");
         var objReq={};
         objReq.search=employee;
         coworkersService.empĺoyee.list(objReq,function (response) {
@@ -44,14 +39,13 @@
         });
       }
 
-      $scope.list2=function(employee){
+      $scope.list_specific=function(employee){
         listEmployee(employee);
       }
 
       listEmployee(null);
 
       var onChange=function(user){
-        waitingEfects("Actualizando...");
         coworkersService.empĺoyee.updateBlock({employee_id : user.pk,action : user.is_blocked},function (response) {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se actualizó el registro correctamente');
@@ -103,7 +97,6 @@
       }
       
       var showError=function(error){
-        $scope.error_messages=true;
         showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
         $scope.loading=false;
       }

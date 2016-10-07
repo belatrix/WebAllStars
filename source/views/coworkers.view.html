@@ -1,12 +1,12 @@
 <div layout="row" layout-xs="column" >
   <div flex>
-    <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
+    <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage">
         <div flex="">
             <div layout-padding ng-cloak>             
                 <md-input-group>
                     <md-input-container class="md-block" flex-gt-sm >
                         <label>Busqueda</label>
-                        <input ng-model="searchText" ng-model-options='{ debounce: 500 }' ng-change="list2(searchText)" >
+                        <input ng-model="searchText" ng-model-options='{ debounce: 500 }' ng-change="list_specific(searchText)" >
                     </md-input-container>
                 </md-input-group>
             </div>
