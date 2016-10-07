@@ -33,6 +33,14 @@
             'get': {method:'GET'}
           }
         },
+        skillList:{
+          url:'api/category/keyword/list/',
+          params:{
+          },
+          actions:{
+            'query': {method:'get',isArray:true}
+          }
+        },
         updateBlockEmployee: {
           url:'api/employee/:employee_id/block/:action/',
           params:{

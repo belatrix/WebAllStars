@@ -1,0 +1,25 @@
+<md-content flex layout-padding>
+  <md-toolbar class="md-accent" style="height: 5%;">
+    <h2 class="md-toolbar-tools">
+      <span flex>Skill List</span>
+      <md-button class="md-icon-button" aria-label="Add Skill" ng-click="addUser($event)">
+        <md-tooltip md-direction="left">
+          Add Skill
+        </md-tooltip>
+        <ng-md-icon icon="add" style="width: 24px; height: 24px;"></ng-md-icon>
+      </md-button>
+    </h2>
+  </md-toolbar>
+  <md-list layout-wrap>
+    <md-list-item ng-repeat="skill in skills">
+      <p>{{skill.name}}</p>
+      </div>
+      <ng-md-icon icon="clear" style="width: 24px; height: 24px;">
+        <md-tooltip md-direction="left">
+          Delete Skill
+        </md-tooltip>
+      </ng-md-icon>
+    </md-list-item>
+  </md-list>
+
+</md-content>
