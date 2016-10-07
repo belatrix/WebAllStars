@@ -34,6 +34,11 @@
             url: "/coworkers",
             templateUrl: "views/coworkers.view.html",
             controller: "controller.coworkers"
+        }).state('skills', {
+            parent:'dashboard',
+            url: "/skills",
+            templateUrl: "views/skills.view.html",
+            controller: "controller.skills",
         }).state('activity', {
             parent:'dashboard',
             url: "/activity",

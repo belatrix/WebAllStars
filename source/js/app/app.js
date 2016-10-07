@@ -5,6 +5,8 @@
         'ngResource',
         'ngMaterial',
         'ngStorage',
+        'ngAnimate',
+        'ngMdIcons',
         'ui.router',
         'config.routes',
         'config.theme',

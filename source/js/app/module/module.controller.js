@@ -6,6 +6,9 @@
 		'module.controller.coworker-detail',
 		'module.controller.header',
 		'module.controller.leftSide',
-		'module.controller.login'
+		'module.controller.login',
+		'module.controller.login',
+		'module.controller.newskill',
+		'module.controller.skills'
 	]);
 })();
