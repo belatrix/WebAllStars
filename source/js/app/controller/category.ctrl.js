@@ -15,13 +15,8 @@
     ];
 
     function controllerCategory($scope,$resourceService,$state,categoryService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
-      var waitingEfects=function(messages){
-        $scope.loading=true; 
-        $scope.messages_load=messages;
-        $scope.error_messages=false;
-      }
+    
       var listCategory=function(){
-        waitingEfects("Cargando...");
         categoryService.category.list(null,function (response) {
           var array_category=[];  
           var i=0;
@@ -41,7 +36,6 @@
       listCategory();
 
       var onChange=function(user){
-        waitingEfects("Actualizando...");
         categoryService.empĺoyee.updateBlock({employee_id : user.pk,action : user.is_blocked},function (response) {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se actualizó el registro correctamente');
@@ -55,24 +49,6 @@
           showError(error);
         });
       }
-
-      $scope.showConfirm = function(ev,user) {
-        var confirm = $mdDialog.confirm()
-              .title('Confirmación')
-              .textContent('¿Estas seguro que deseas cambiar el estado?')
-              .targetEvent(ev)
-              .ok('Si')
-              .cancel('No');
-        $mdDialog.show(confirm).then(function() {
-        onChange(user);
-        }, function() {
-          if(user.is_blocked){
-            user.is_blocked=false;
-          }else{
-            user.is_blocked=true;
-          }
-        });
-      }; 
 
       $scope.selectCategory = function (category) {
         console.log("Category selected : "+category.pk);
@@ -94,9 +70,21 @@
       }
       
       var showError=function(error){
-        $scope.error_messages=true;
         showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
-        $scope.loading=false;
       }
+
+      $scope.showConfirm = function(ev,category) {
+        var confirm = $mdDialog.confirm()
+              .title('Confirmación')
+              .textContent('¿Estas seguro que deseas dar de baja la categoria '+category.name+' ?')
+              .targetEvent(ev)
+              .ok('Si')
+              .cancel('No');
+        $mdDialog.show(confirm).then(function() {
+        //onChange(user);
+        }, function() {
+          category.delete_category=false;
+        });
+      }; 
     }
 })();
