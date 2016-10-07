@@ -5,7 +5,8 @@
 		'module.service.storage',
 		'module.service.login',
 		'module.service.employee',
-		'module.service.skill'
+		'module.service.skill',
+		'module.service.category'
 	]);
 
 

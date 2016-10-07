@@ -1,9 +1,9 @@
 (function() {
   'use strict';
 
-  	angular.module('module.constant.resource', [])
+    angular.module('module.constant.resource', [])
 
-	.constant('resourceServiceConfig',{
+  .constant('resourceServiceConfig',{
 
         remoteURL: 'http://belatrix-connect.herokuapp.com/',
 
@@ -83,8 +83,86 @@
               }
             }
           }
+        },
+        categoryList:{
+          url:'api/admin/category/',
+          params:{
+          },
+          actions:{
+            'get': {method:'GET',isArray: true}
+          }
+        },
+        updateCategory: {
+          url:'api/admin/category/:category_id/',
+          params:{
+            category_id: '@category_id'
+          },
+          actions: {
+            'put': {method:'PUT', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
+          }
+        },
+        registerCategory: {
+          url:'api/admin/category/',
+          params:{
+          },
+          actions: {
+            'post': {method:'POST', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
+          }
+        },
+        deleteCategory: {
+          url:'api/admin/category/:category_id/',
+          params:{
+            category_id: '@category_id'
+          },
+          actions: {
+            'delete': {method:'DELETE', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
+          }
+        },
+        subCategoryList:{
+          url:'api/admin/subcategory/',
+          params:{
+          },
+          actions:{
+            'get': {method:'GET',isArray: true}
+          }
+        },
+        registerSubCategory: {
+          url:'api/admin/subcategory/',
+          params:{
+          },
+          actions: {
+            'post': {method:'POST', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
+          }
+        },
+        updateSubCategory: {
+          url:'api/admin/subcategory/:subcategory_id/',
+          params:{
+            subcategory_id: '@subcategory_id'
+          },
+          actions: {
+            'put': {method:'PUT', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
+          }
         }
-
     });
 
 })();
