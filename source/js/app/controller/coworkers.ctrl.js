@@ -20,7 +20,7 @@
         $scope.error_messages=false;
       }
       waitingEfects("Cargando...");
-      coworkersService.empĺoyee.list(function (response) {
+      coworkersService.employee.list(function (response) {
         var array_users=[];
         for(var i in response.results){
           var detail_user=response.results[i];

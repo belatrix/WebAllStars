@@ -25,6 +25,15 @@
             }
           }
         },
+        employeeById:{
+          url:'api/employee/:employee_id/',
+          params:{
+            employee_id: '@employee_id'
+          },
+          actions:{
+            'get': {method:'GET'}
+          }
+        },
         employeeList:{
           url:'api/employee/list/',
           params:{

@@ -5,8 +5,7 @@
 		'module.controller.header',
 		'module.controller.login',
     	'module.controller.activity',
-    	'module.controller.coworkers'
+			'module.controller.coworkers',
+			'module.controller.skills'
 	]);
-
-
 })();

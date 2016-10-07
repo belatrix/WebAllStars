@@ -8,7 +8,7 @@
 		'$state',
 		function ($resourceService, serviceStorage, $state) {
 
-			this.empĺoyee = {
+			this.employee = {
 		        list: function (query,fnSuccess,fnError) {
 		  				var employeeList = $resourceService.request('employeeList');
 		  				return employeeList.get(query,fnSuccess,fnError);
@@ -17,6 +17,15 @@
 		  				var updateBlock = $resourceService.request('updateBlockEmployee');
 		  				return updateBlock.post(query,fnSuccess,fnError);
 		  		}
+		    };
+
+			/** Get an employee by employee_Id */
+			this.getEmployee = {
+		        user: function (query, fnSuccess, fnError) {
+					var user = $resourceService.request('employeeById');
+
+					return user.get(query, fnSuccess, fnError);
+				}
 		    };
 	}]);
 
