@@ -4,14 +4,19 @@
   </div>
   <div flex>
     <div layout="row" layout-align="center center" layout-margin>
-      <img height="100" width="100" src="image/logo.webp" alt="">
+      <img hide animated-load="rotateIn" height="100" width="100" src="image/logo.webp" alt="">
     </div>
     <div layout="row" layout-align="center center">
-      <h2>Belatrix Connect</h2>
+      <h2 hide animated-load="fadeIn" animated-success="fadeOut">Belatrix Connect</h2>
     </div>
     <!--form ng-init="user={}" ng-submit="getSignIn(user)" name="projectForm"-->
 
-      <md-card error-shake animated-load="bounce" flex-order-gt-xs ng-show="!loading" class="login">
+      <md-card hide 
+        error-shake 
+        animated-load="bounceInUp" 
+        flex-order-gt-xs 
+        ng-show="!loading" 
+        class="login">
         <md-card-title>
           <md-card-title-text>
             <md-content class="md-no-momentum">
