@@ -24,10 +24,28 @@
     <md-tabs md-dynamic-height md-border-bottom>
       <md-tab label="Habilidades">
         <md-content class="md-padding">
-           <p ng-If="!user.skills.length">No skills for {{user.name}}, yet.</p>
-        <md-list ng-If="user.skills.length">
-            <md-list-item class="md-3-line" ng-repeat="item in user.skills">
-                <div class="md-list-item-text">
+           <p ng-If="!skills.length">No se encontraron habilidades para {{ user.first_name }} {{ user.last_name }}.</p>
+        <md-list ng-If="skills.length">
+            <md-list-item class="md-3-line" ng-repeat="item in skills">
+                <md-icon md-svg-icon="verified_user" class="md-avatar">
+                    </md-icon>
+                <div class="md-list-item-text" layout="column">
+                    <h3>{{item.name}}</h3>
+                    <h4>{{item.description}}</h4>
+               </div>
+                <md-divider inset></md-divider>
+            </md-list-item>
+        </md-list>
+        </md-content>
+      </md-tab>
+      <md-tab label="Recomendaciones">
+        <md-content class="md-padding">
+           <p ng-If="!skills.length">No se encontraron recomendaciones para {{ user.first_name }} {{ user.last_name }}.</p>
+        <md-list ng-If="skills.length">
+            <md-list-item class="md-3-line" ng-repeat="item in skills">
+                <md-icon md-svg-icon="verified_user" class="md-avatar">
+                    </md-icon>
+                <div class="md-list-item-text" layout="column">
                     <h3>{{item.name}}</h3>
                     <h4>{{item.description}}</h4>
                </div>

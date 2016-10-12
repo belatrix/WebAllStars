@@ -55,6 +55,15 @@
               }
             }
           }
+        },
+        skillsById:{
+          url:'api/employee/:employee_id/skills/list/',
+          params:{
+            employee_id: '@employee_id'
+          },
+          actions:{
+            'get': {method:'GET'}
+          }
         }
 
     });
