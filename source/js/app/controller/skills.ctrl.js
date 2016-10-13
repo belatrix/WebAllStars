@@ -39,7 +39,11 @@
       $mdToast.show(
         $mdToast.simple()
           .textContent(messages)
+<<<<<<< HEAD
           .position('bottom right')
+=======
+          .position('top right')
+>>>>>>> Feature 4.0 pass all test
           .hideDelay(3000)
       );
     };
@@ -56,7 +60,7 @@
       waitingEfects("Actualizando...");
       skillService.skills.updateState({ keyword_id: skill.id, name: skill.name, is_active: skill.is_active }, function (response) {
         stopWaitingEffect();
-        showSimpleToast('Se actualizó el registro correctamente');
+        showSimpleToast('EXITO. Se actualizó el registro correctamente');
       }, function (error) {
         if (skill.is_active) {
           skill.is_active = false;
@@ -106,6 +110,27 @@
       $scope.save = function () {
         $mdDialog.hide(this.skill);
       };
+    };
+    $scope.addSkill = function ($event, skill) {
+      var self = this;
+      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+      $mdDialog.show({
+        templateUrl: './views/newSkill.view.html',
+        parent: angular.element(document.body),
+        targetEvent: $event,
+        controller: newSkillCtrl,
+        controllerAs: 'ctrl',
+        clickOutsideToClose: true,
+        fullscreen: useFullScreen
+      }).then(function (skill) {
+        onCreate(skill);
+        console.log('You confirm the creation.');
+      }, function () {
+        console.log('You cancelled the dialog.');
+      });
+    };
+    $scope.selectSkill = function (skill) {
+      console.log("Skill selected : " + skill.name);
     };
 
     $scope.addSkill = function ($event, skill) {
