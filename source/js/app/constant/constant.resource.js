@@ -34,7 +34,7 @@
           }
         },
         skillList:{
-          url:'api/category/keyword/list/',
+          url:'api/admin/keyword/',
           params:{
           },
           actions:{
@@ -46,6 +46,35 @@
           params:{
             employee_id: '@employee_id',
             action: '@action'         
+          },
+          actions: {
+            'post': {method:'POST', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
+          }
+        },
+        updateSkillState: {
+          url:'api/admin/keyword/:keyword_id/',
+          params:{
+            keyword_id: '@keyword_id',
+            name: '@name',
+            active: '@is_active'
+          },
+          actions: {
+            'put': {method:'PUT', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
+          }
+        },
+        createSkill: {
+          url:'api/admin/keyword/',
+          params:{
+            keyword_id: '@name',
+            active: '@is_active'         
           },
           actions: {
             'post': {method:'POST', headers:{
