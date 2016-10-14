@@ -28,6 +28,14 @@
 		  		list_sub_category:function (query,fnSuccess,fnError) {
 		  				var subCategoryList = $resourceService.request('subCategoryList');
 		  				return subCategoryList.get(query,fnSuccess,fnError);
+		  		},
+		  		register_sub_category:function (query,fnSuccess,fnError) {
+		  				var registerSubCategory = $resourceService.request('registerSubCategory');
+		  				return registerSubCategory.post(query,fnSuccess,fnError);
+		  		},
+		  		update_sub_category:function (query,fnSuccess,fnError) {
+		  				var updateSubCategory = $resourceService.request('updateSubCategory');
+		  				return updateSubCategory.put(query,fnSuccess,fnError);
 		  		}
 		    };
 	}]);
