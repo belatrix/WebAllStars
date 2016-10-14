@@ -3,19 +3,18 @@
 	angular.module('module.service.skill', [])
 
 	.service('skillService', [
-		'$resourceService',
 		'serviceStorage',
+		'$resourceService',
 		'$state',
-		function ($resourceService, serviceStorage, $state) {
+		function (serviceStorage, $resourceService, $state) {
 
 			/** Get the list of skills by employee_Id */
-			this.getSkillsList = {
-		        skillsList: function (query, fnSuccess, fnError) {
-					var skillsList = $resourceService.request('skillsById');
+			this.getSkillsByEmployeeId = {
+		        list: function (query, fnSuccess, fnError) {
+					var skillsList = $resourceService.request('getSkillsByEmployeeId');
 
 					return skillsList.get(query, fnSuccess, fnError);
 				}
 		    };
 	}]);
-
 })();

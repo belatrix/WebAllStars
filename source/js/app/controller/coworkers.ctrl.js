@@ -38,7 +38,7 @@
 
       var onChange=function(user){
         waitingEfects("Actualizando...");
-        coworkersService.empĺoyee.updateBlock({employee_id : user.pk,action : user.is_blocked},function (response) {
+        coworkersService.employee.updateBlock({employee_id : user.pk,action : user.is_blocked},function (response) {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se actualizó el registro correctamente');
         },function (error) {

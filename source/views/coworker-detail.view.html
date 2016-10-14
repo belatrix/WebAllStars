@@ -40,14 +40,14 @@
       </md-tab>
       <md-tab label="Recomendaciones">
         <md-content class="md-padding">
-           <p ng-If="!skills.length">No se encontraron recomendaciones para {{ user.first_name }} {{ user.last_name }}.</p>
-        <md-list ng-If="skills.length">
-            <md-list-item class="md-3-line" ng-repeat="item in skills">
+           <p ng-If="!starts.length">No se encontraron recomendaciones para {{ user.first_name }} {{ user.last_name }}.</p>
+        <md-list ng-If="starts.length">
+            <md-list-item class="md-3-line" ng-repeat="item in starts">
                 <md-icon md-svg-icon="verified_user" class="md-avatar">
                     </md-icon>
                 <div class="md-list-item-text" layout="column">
-                    <h3>{{item.name}}</h3>
-                    <h4>{{item.description}}</h4>
+                    <h3>{{item.text}}</h3>
+                    <h4>{{item.keyword}}</h4>
                </div>
                 <md-divider inset></md-divider>
             </md-list-item>

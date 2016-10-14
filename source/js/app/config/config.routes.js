@@ -39,11 +39,11 @@
             url: "/activity",
             templateUrl: "views/activity.view.html",
             controller: "controller.activity"
-        }).state('skills', {
+        }).state('coworker-detail', {
             parent:'dashboard',
-            url: "/skills",
-            templateUrl: "views/skills.view.html",
-            controller: "controller.skills"
+            url: "/coworker-detail",
+            templateUrl: "views/coworker-detail.view.html",
+            controller: "controller.coworker-detail"
         });
 
       $urlRouterProvider.otherwise("/login");

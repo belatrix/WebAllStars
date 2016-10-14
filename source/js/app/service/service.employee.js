@@ -20,9 +20,9 @@
 		    };
 
 			/** Get an employee by employee_Id */
-			this.getEmployee = {
+			this.getEmployeeById = {
 		        user: function (query, fnSuccess, fnError) {
-					var user = $resourceService.request('employeeById');
+					var user = $resourceService.request('getEmployeeById');
 
 					return user.get(query, fnSuccess, fnError);
 				}

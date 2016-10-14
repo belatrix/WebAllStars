@@ -1,11 +1,11 @@
 (function() {
   'use strict';
 	angular.module('module.controller', [
-		'module.controller.leftSide',
+    'module.controller.activity',
+		'module.controller.coworkers',
+		'module.controller.coworker-detail',
 		'module.controller.header',
-		'module.controller.login',
-    	'module.controller.activity',
-			'module.controller.coworkers',
-			'module.controller.skills'
+		'module.controller.leftSide',
+		'module.controller.login'
 	]);
 })();

@@ -25,7 +25,7 @@
             }
           }
         },
-        employeeById:{
+        getEmployeeById:{
           url:'api/employee/:employee_id/',
           params:{
             employee_id: '@employee_id'
@@ -56,8 +56,17 @@
             }
           }
         },
-        skillsById:{
+        getSkillsByEmployeeId:{
           url:'api/employee/:employee_id/skills/list/',
+          params:{
+            employee_id: '@employee_id'
+          },
+          actions:{
+            'get': {method:'GET'}
+          }
+        },
+        getStartsByEmployeeId:{
+          url:'api/star/:employee_id/list/',
           params:{
             employee_id: '@employee_id'
           },
