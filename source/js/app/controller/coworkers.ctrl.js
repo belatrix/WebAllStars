@@ -9,11 +9,12 @@
         '$state',
         'employeeService',
         'serviceStorage',
+        '$location',
         '$mdDialog',
-        '$mdToast'
+        '$mdToast',
     ];
 
-    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast) {
+    function controllerCoworkers($scope, $resourceService, $state, coworkersService, serviceStorage, $location, $mdDialog,$mdToast) {
       var waitingEfects=function(messages){
         $scope.loading=true; 
         $scope.messages_load=messages;
@@ -72,6 +73,7 @@
 
       $scope.selectUser = function (user) {
         console.log("User selected : "+user.pk);
+        $location.path("/coworker-detail");
       }
 
 
