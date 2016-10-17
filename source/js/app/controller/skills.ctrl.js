@@ -39,11 +39,7 @@
       $mdToast.show(
         $mdToast.simple()
           .textContent(messages)
-<<<<<<< HEAD
           .position('bottom right')
-=======
-          .position('top right')
->>>>>>> Feature 4.0 pass all test
           .hideDelay(3000)
       );
     };
@@ -60,7 +56,7 @@
       waitingEfects("Actualizando...");
       skillService.skills.updateState({ keyword_id: skill.id, name: skill.name, is_active: skill.is_active }, function (response) {
         stopWaitingEffect();
-        showSimpleToast('EXITO. Se actualizó el registro correctamente');
+        showSimpleToast('Se actualizó el registro correctamente');
       }, function (error) {
         if (skill.is_active) {
           skill.is_active = false;

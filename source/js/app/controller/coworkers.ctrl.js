@@ -81,9 +81,6 @@
       $scope.selectUser = function (user) {
         console.log("User selected : "+user.pk);
       };
-      $scope.findSkills=function(){
-        $state.go('skills');
-      };
 
       var showSimpleToast = function(messages) {
         $mdToast.show(

@@ -84,10 +84,6 @@
             }
           }
         },
-<<<<<<< HEAD
-=======
-        ,
->>>>>>> Feature 4.0 pass all test
         categoryList:{
           url:'api/admin/category/',
           params:{
