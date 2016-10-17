@@ -72,8 +72,10 @@
 
       $scope.selectUser = function (user) {
         console.log("User selected : "+user.pk);
-      }
-
+      };
+      $scope.findSkills=function(){
+        $state.go('skills');
+      };
 
       var showSimpleToast = function(messages) {
         $mdToast.show(
@@ -93,6 +95,7 @@
         showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
         $scope.loading=false;
       }
+      
     }
 
 })();

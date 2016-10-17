@@ -1,0 +1,46 @@
+<md-content flex>
+  <div layout-padding layout="row">
+    <md-button aria-label="Return" href="" class="md-icon-button">
+      <md-tooltip md-direction="down">
+        Go Back
+      </md-tooltip>
+      <ng-md-icon icon="arrow_back" />
+    </md-button>
+
+    <div flex="95">
+      <md-autocomplete md-input-minlength="2" md-input-maxlength="18" md-search-text="searchText" md-items="skill in skills | filter:searchText"
+        md-item-text="skill.name" md-min-lengrh="3" placeholder="Busqueda">
+        <md-item-template>
+          <span md-highlight-text="searchText" md-highlight-flags="^i">{{skill.name}}</span>
+        </md-item-template>
+        <md-not-found>
+          No skill matching "{{searchText}}" were found.
+        </md-not-found>
+      </md-autocomplete>
+    </div>
+  </div>
+  <md-list layout-wrap>
+    <md-list-item ng-repeat="skill in skills | filter:searchText | orderBy:'skill.name'" ng-click="selectSkill(skill)">
+      <div flex="90">
+        <p>{{skill.name}}</p>
+      </div>
+      <div flex="10">
+        <div>
+          <div layout="row" layout-align="center" layout-margin>
+            <md-switch ng-model="skill.is_active" ng-click="showConfirm($event, skill)">
+              {{skill.is_active === true ? switchState = "Activo" : switchState = "Inactivo"}}
+            </md-switch>
+          </div>
+        </div>
+      </div>
+    </md-list-item>
+
+  </md-list>
+
+</md-content>
+<md-button style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="addSkill($event)">
+  <md-tooltip md-direction="left">
+    Add Skill
+  </md-tooltip>
+  <ng-md-icon icon="add"></ng-md-icon>
+</md-button>
