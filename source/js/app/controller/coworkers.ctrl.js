@@ -73,15 +73,12 @@
       $scope.selectUser = function (user) {
         console.log("User selected : "+user.pk);
       };
-      $scope.findSkills=function(){
-        $state.go('skills');
-      };
 
       var showSimpleToast = function(messages) {
         $mdToast.show(
           $mdToast.simple()
             .textContent(messages)
-            .position('top right' )
+            .position('bottom right' )
             .hideDelay(3000)
         );
       };

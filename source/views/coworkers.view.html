@@ -20,7 +20,7 @@
                 </md-autocomplete>
             </div>
 
-            <md-content flex>
+            <md-content class="list" flex>
                 <md-list layout-wrap>
                     <md-list-item  ng-repeat="user in users | filter:searchText | orderBy:'-total_score'"
                         ng-click="selectUser(user)"
@@ -36,7 +36,7 @@
                                 <div class="md-list-item-text" align="center" layout="column">
                                     <p>Ubicacion</p>
                                     <div align="middle">
-                                        <h3 >{{ user.location.name }} <img ng-src="{{ user.location.icon }}" height="20px" width="30px"/></h3>
+                                        <h3 >{{ user.location.name }}</h3> <!--img ng-src="{{ user.location.icon }}" height="20px" width="30px"/-->
                                     </div>
 
                                 </div>
@@ -60,8 +60,5 @@
             </md-content>
         </div>
     </div>
-    <md-button class="md-fab md-fab-right" ng-click="findSkills()">
-        <ng-md-icon icon="add"></ng-md-icon>
-    </md-button>
   </div>
 </div>
