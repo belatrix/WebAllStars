@@ -72,14 +72,13 @@
 
       $scope.selectUser = function (user) {
         console.log("User selected : "+user.pk);
-      }
-
+      };
 
       var showSimpleToast = function(messages) {
         $mdToast.show(
           $mdToast.simple()
             .textContent(messages)
-            .position('top right' )
+            .position('bottom right' )
             .hideDelay(3000)
         );
       };
@@ -93,6 +92,7 @@
         showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
         $scope.loading=false;
       }
+      
     }
 
 })();
