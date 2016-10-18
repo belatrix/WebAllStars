@@ -1,23 +1,14 @@
-<div layout="row" layout-xs="column">
+<div layout="row" layout-xs="column" >
   <div flex>
-    <div flex-order-gt-xs ng ng-cloak="" layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
+    <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage">
         <div flex="">
-            <div layout-padding>
-                <md-autocomplete
-                    md-input-minlength="2"
-                    md-input-maxlength="18"
-                    md-search-text="searchText"
-                    md-items="item in users | filter:searchText"
-                    md-item-text="item.last_name"
-                    md-min-lengrh="3"
-                    placeholder="Busqueda">
-                    <md-item-template>
-                        <span md-highlight-text="searchText" md-highlight-flags="^i">{{item.last_name}}</span>
-                    </md-item-template>
-                    <md-not-found>
-                        No user matching "{{searchText}}" were found.
-                    </md-not-found>
-                </md-autocomplete>
+            <div layout-padding ng-cloak>             
+                <md-input-group>
+                    <md-input-container class="md-block" flex-gt-sm >
+                        <label>Busqueda</label>
+                        <input ng-model="searchText" ng-model-options='{ debounce: 500 }' ng-change="list_specific(searchText)" >
+                    </md-input-container>
+                </md-input-group>
             </div>
 
             <md-content class="list" flex>
