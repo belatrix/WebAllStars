@@ -11,7 +11,7 @@
         'serviceStorage',
         '$location',
         '$mdDialog',
-        '$mdToast',
+        '$mdToast'
     ];
 
     function controllerCoworkers($scope, $resourceService, $state, coworkersService, serviceStorage, $location, $mdDialog,$mdToast) {
