@@ -6,7 +6,6 @@
         'ngMaterial',
         'ngStorage',
         'ngAnimate',
-        'ngMdIcons',
         'ngMessages',
         'ui.router',
         'config.routes',

@@ -36,6 +36,11 @@
 		  		update_sub_category:function (query,fnSuccess,fnError) {
 		  				var updateSubCategory = $resourceService.request('updateSubCategory');
 		  				return updateSubCategory.put(query,fnSuccess,fnError);
+		  		},
+		  		updateBlock:function (query,fnSuccess,fnError) {
+		  				var updateBlock = $resourceService.request('updateBlockEmployee');
+		  				return updateBlock.post(query,fnSuccess,fnError);
+
 		  		}
 		    };
 	}]);
