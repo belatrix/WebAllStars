@@ -1,23 +1,24 @@
 <div layout="row" layout-xs="column" >
   <div flex>
-    <div ng-show="addCategoryModel">
-        <md-input-container class="md-block">
-            <input ng-model="category.name" type="text" placeholder="Categoria">
-        </md-input-container>
-        <md-card-actions layout="row" layout-align="center center">
-            <md-button ng-click="saveCategory(category.name)"
-            class="md-accent md-raised">
-              Agregar
-            </md-button>
-            <md-button ng-click="hideShowCategory()" class="md-primary md-raised">
-                Cancel  
-            </md-button>
-        </md-card-actions>
-    </div>   
+       
     <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
         <md-content flex md-scroll-y> 
             <ui-view layout="column" layout-fill layout-padding>
                 <div class="inset" hide-sm></div>
+                <div ng-show="addCategoryModel">
+                    <md-input-container class="md-block">
+                        <input ng-model="category.name" type="text" placeholder="Nueva Categoria">
+                    </md-input-container>
+                    <md-card-actions layout="row" layout-align="center center">
+                        <md-button ng-click="saveCategory(category.name)"
+                        class="md-accent md-raised">
+                          Agregar
+                        </md-button>
+                        <md-button ng-click="hideShowCategory()" class="md-primary md-raised">
+                            Cancel  
+                        </md-button>
+                    </md-card-actions>
+                </div>
                 <md-button ng-show="btnAddCategory" style="position: fixed !important;" class="md-fab md-fab-bottom-left md-primary" aria-label="Add Skill" ng-click="showAddCategory()">
                   <md-icon md-svg-icon="/svg/add-white.svg" class="md-avatar"></md-icon>
                 </md-button>
@@ -74,7 +75,7 @@
                     <ng-switch on="data.selectedIndex" class="tabpanel-container">
                         <div ng-show="addSubCategoryModel">
                             <md-input-container class="md-block">
-                                <input ng-model="subcategory.name" type="text" placeholder="Sub - Categoria">
+                                <input ng-model="subcategory.name" type="text" placeholder="Nueva Sub Categoria">
                             </md-input-container>
                             <md-card-actions layout="row" layout-align="center center">
                                 <md-button ng-click="saveSubCategory(subcategory.name,selected)"
@@ -87,12 +88,12 @@
                             </md-card-actions>
                         </div>
                         <md-button ng-show="btnAddSubCategory" style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="showAddSubCategory()">
-                           <md-icon md-svg-icon="/svg/add-white.svg" class="md-avatar"></md-icon>
+                            <md-icon md-svg-icon="/svg/add-white.svg" class="md-avatar"></md-icon>
                         </md-button>
                         <md-content class="md-padding autocomplete">
                             <div ng-show="chipsSubCategories">
                                 <div flex layout="column">
-                                    <md-contact-chips ng-model="asyncSubCategories"  md-contacts="delayedQuerySearch($query)" md-contact-name="name" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Sub Categorias">
+                                    <md-contact-chips ng-model="asyncSubCategories"  md-contacts="delayedQuerySearch($query)" md-contact-name="name" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Buscar Sub Categorias">
                                     </md-contact-chips>
                                 </div>
                                 <div>
