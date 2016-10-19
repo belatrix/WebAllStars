@@ -7,33 +7,52 @@
     '$scope',
     '$mdMedia',
     'skillService',
+    'paginationService',
     '$mdDialog',
     '$mdToast'
   ];
 
-  function controllerSkills($scope, $mdMedia, skillService, $mdDialog, $mdToast) {
+  function controllerSkills($scope, $mdMedia, skillService, paginationService, $mdDialog, $mdToast) {
 
     this.$mdMedia = $mdMedia;
-    $scope.blocked = true;
-
+    var self = this;
     var waitingEfects = function (messages) {
-      $scope.loading = true;
-      $scope.messages_load = messages;
-      $scope.error_messages = false;
+      self.loading = true;
+      self.messages_load = messages;
+      self.error_messages = false;
     }
     var onList = function () {
       skillService.skills.list(function (response) {
         var array_skills = response;
         $scope.skills = array_skills;
-        $scope.switchState = "Activo";
-        $scope.selected = null;
-        $scope.selected = $scope.skills[0];
+        self.items = $scope.skills;
+        console.log("A : " + self.items)
+        initController();
       }, function (error) {
         showError(error);
       })
     };
-
+    
     onList();
+   
+    //Pagination Section
+    $scope.pager = {};
+    $scope.setPage  = function (page) {
+      console.log("B : " + self.items.length)
+      if (page < 1 || page > $scope.pager.totalPages) {
+        return;
+      }
+      // get pager object from service
+      $scope.pager = paginationService.GetPager(self.items.length, page);
+      console.log("C    " + $scope.pager.pages.length);
+      // get current page of items vm
+      $scope.skillsPerPage = self.items.slice($scope.pager.startIndex, $scope.pager.endIndex + 1);
+    };
+
+    var initController = function () {
+      // initialize to page 1
+      $scope.setPage(1);
+    };
 
     var showSimpleToast = function (messages) {
       $mdToast.show(
@@ -45,12 +64,11 @@
     };
     var showError = function (error) {
       console.log(error);
-      $scope.error_messages = true;
       showSimpleToast("ERROR EN EL PROCESO. " + error.data.name);
-      $scope.loading = false;
+      self.loading = false;
     };
     var stopWaitingEffect = function () {
-      $scope.loading = false;
+      self.loading = false;
     };
     var onChange = function (skill) {
       waitingEfects("Actualizando...");
@@ -129,9 +147,5 @@
     $scope.selectSkill = function (skill) {
       console.log("Skill selected : " + skill.name);
     };
-
-
-
   }
-
 })();
