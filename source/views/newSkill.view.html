@@ -1,34 +1,37 @@
 <md-dialog>
-    <form name="skillForm" ng-submit="save()">
-        <md-dialog-content>
-            <div layout="column" layout-padding>
-                <div layout-gt-sm="row">
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Skill name</label>
-                        <input ng-model="skill.name" name="name" required>
-                        <div ng-messages="skillForm.name.$error">
-                            <div ng-message="required">This is required.</div>
-                        </div>
-                    </md-input-container>
-                    <md-input-container class="md-block" flex-gt-sm>
-                        <label>Status</label>
-                        <md-select ng-model="skill.is_active">
-                            <md-option ng-repeat="o in options" ng-value="o.value" >
-                                {{o.label}}
-                            </md-option>
-                        </md-select>
-                    </md-input-container>
-                </div>
-            </div>
-        </md-dialog-content>
+	<form name="skillForm" ng-submit="save()">
+		<md-dialog-content>
+			<div layout="column" layout-padding>
+				<div layout-gt-sm="row">
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Skill name</label>
+						<input ng-model="skill.name" name="name" required>
+						<div ng-messages="skillForm.name.$error">
+							<div ng-message="required">This is required.</div>
+						</div>
+					</md-input-container>
+					<md-input-container class="md-block" flex-gt-sm>
+						<label>Status</label>
+						<md-select ng-model="skill.is_active" name="status" required>
+							<md-option ng-repeat="o in options" ng-value="o.value">
+								{{o.label}}
+							</md-option>
+						</md-select>
+						<div ng-messages="skillForm.status.$error">
+							<div ng-message="required">This is required.</div>
+						</div>
+					</md-input-container>
+				</div>
+			</div>
+		</md-dialog-content>
 
-        <md-dialog-actions layout="row">
-            <md-button ng-click="cancel()">
-                Cancel
-            </md-button>
-            <md-button type="submit" class="md-primary md-raised" ng-disabled="skillForm.$invalid">
-                Save
-            </md-button>
-        </md-dialog-actions>
-    </form>
+		<md-dialog-actions layout="row">
+			<md-button ng-click="cancel()">
+				Cancel
+			</md-button>
+			<md-button type="submit" class="md-primary md-raised" ng-disabled="skillForm.$invalid">
+				Save
+			</md-button>
+		</md-dialog-actions>
+	</form>
 </md-dialog>
