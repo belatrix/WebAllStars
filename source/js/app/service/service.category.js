@@ -40,7 +40,6 @@
 		  		updateBlock:function (query,fnSuccess,fnError) {
 		  				var updateBlock = $resourceService.request('updateBlockEmployee');
 		  				return updateBlock.post(query,fnSuccess,fnError);
-
 		  		}
 		    };
 	}]);
