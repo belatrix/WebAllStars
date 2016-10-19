@@ -22,6 +22,7 @@
       $scope.delayedQuerySearch = delayedQuerySearch;
 
       $scope.update_category_edit=true;
+      $scope.chipsSubCategories = true;
       // -- Category
       var listCategory=function(){
         categoryService.category.list(null,function (response) {
@@ -136,12 +137,14 @@
         console.log("Show Add Sub Category ");
         $scope.addSubCategoryModel=true;
         $scope.btnAddSubCategory=false;
+        $scope.chipsSubCategories = false;
       }
 
       $scope.hideShowSubCategory=function(subCategory){
         console.log("Hide Add Sub Category ");
         $scope.addSubCategoryModel=false;
-        $scope.btnAddSubCategory=true;      
+        $scope.btnAddSubCategory=true; 
+        $scope.chipsSubCategories = true;     
       }
 
       $scope.showEditSubCategory=function(subCategory){
@@ -149,6 +152,7 @@
         subCategory.update_sub_category_accept=true;
         subCategory.update_sub_category_edit=true;        
       }
+      
       $scope.hideEditSubCategory=function(subCategory){
         subCategory.update_subcategory=false;
         subCategory.update_sub_category_accept=false;
