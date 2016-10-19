@@ -129,9 +129,6 @@
     $scope.selectSkill = function (skill) {
       console.log("Skill selected : " + skill.name);
     };
-
-
-
   }
 
 })();

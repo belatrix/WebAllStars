@@ -7,7 +7,10 @@
         'ngStorage',
         'ngAnimate',
         'ngMdIcons',
+<<<<<<< HEAD
         'ngMessages',
+=======
+>>>>>>> Upload Final now
         'ui.router',
         'config.routes',
         'config.theme',

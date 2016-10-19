@@ -34,7 +34,7 @@
           }
         },
         skillList:{
-          url:'api/admin/keyword/',
+          url:'api/category/keyword/list/',
           params:{
           },
           actions:{
