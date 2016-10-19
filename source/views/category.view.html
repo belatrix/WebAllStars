@@ -1,5 +1,6 @@
 <div layout="row" layout-xs="column" >
   <div flex>
+<<<<<<< HEAD
     <div ng-show="addCategoryModel">
         <md-input-container class="md-block">
             <input ng-model="category.name" type="text" placeholder="Categoria">
@@ -156,4 +157,79 @@
         </div>  
       </div>
     </div>
+=======
+    <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
+        <md-content flex>
+            <md-list layout-wrap>
+                <md-list-item  ng-repeat="category in category_list | orderBy:'pk'"
+                    ng-click="selectCategory(category)"
+                    ng-class="{'md-2-line': true ,'selected': category === selected }">
+                        <div flex>
+                            <div ng-show="!update_category">
+                            <div class="md-list-item-text" layout="column">
+                                <p>Categoria</p>
+                                <h3>{{ category.name }}</h3>
+                            </div>
+                            </div>
+                            <div ng-show="update_category" layout="column">
+                                <md-checkbox ng-model="category.delete_category" ng-click="showConfirm($event,category)">
+                                    Dar de baja
+                                </md-checkbox>
+                                
+                                <md-input-container flex-gt-sm>
+                                    <input ng-model="category_value" ng-value="category.name" aria-label="option.input.cat">
+                                </md-input-container>
+                                <md-button ng-click="getSignIn(user)"
+                                    class="md-accent md-raised">
+                                    Actualizar
+                                </md-button>
+                            </div>
+                        </div>
+                        <div>
+                            <md-checkbox ng-model="update_category" aria-label="Checkbox 1">
+                                Editar
+                            </md-checkbox>
+                        </div>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </div>
+
+  </div>
+  <div flex>
+    <md-content flex>
+    <p ng-If="!selected.subcategories.length">No hay subcategorias para {{category.name}}, yet.</p>
+    <h2 ng-If="selected.subcategories.length">{{selected.name}}</h2>
+    <md-list layout-wrap>
+        <md-list-item  ng-repeat="item in selected.subcategories" ng-click="false">
+            <div flex>
+                <div  ng-show="!update_subcategory">
+                    <div class="md-list-item-text" layout="column">
+                        <p>{{item.name}}</p>
+                    </div>
+                </div>
+                <div ng-show="update_subcategory" layout="column">
+                    <md-checkbox ng-model="item.delete_category" ng-click="showConfirm($event,item)">
+                        Eliminar Sub Categoria
+                    </md-checkbox>
+
+                    <md-input-container flex-gt-sm>
+                        <input ng-model="subcategory_value" ng-value="item.name" aria-label="option.input.sub">
+                    </md-input-container>
+                    <md-button ng-click="getSignIn(user)" class="md-accent md-raised">
+                        Actualizar
+                    </md-button>
+                </div>
+            </div>
+            <div>
+                <md-checkbox ng-model="update_subcategory" aria-label="Checkbox 1">
+                    Editar
+                </md-checkbox>
+            </div>
+            <md-divider inset></md-divider>
+        </md-list-item>
+    </md-list>
+    </md-content>
+  </div>
+>>>>>>> merge 2
 </div>

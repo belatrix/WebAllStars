@@ -60,7 +60,6 @@
         $scope.listSubCategory(category.subcategories);
         $scope.selected = category;
       }
-
       $scope.showEditCategory=function(category){
         category.update_category=true;
         category.update_category_accept=true;
@@ -121,7 +120,6 @@
             showError(error);
         });
       }
-
       function search(nameKey, myArray){
         var result =false;
           for (var i=0; i < myArray.length; i++) {
@@ -311,9 +309,5 @@
           console.log("Error : "+error);
         });
       }
-
-      
-
-      
     }
 })();
