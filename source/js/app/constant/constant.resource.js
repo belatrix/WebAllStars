@@ -84,13 +84,6 @@
             }
           }
         },
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-        ,
-=======
->>>>>>> merge
->>>>>>> merge
         categoryList:{
           url:'api/admin/category/',
           params:{

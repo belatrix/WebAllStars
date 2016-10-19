@@ -18,6 +18,7 @@
         <md-content flex md-scroll-y> 
             <ui-view layout="column" layout-fill layout-padding>
                 <div class="inset" hide-sm></div>
+                <!--
                 <md-fab-speed-dial md-open="demo.isOpen" md-direction="down" ng-class="md-scale">
                     <md-fab-trigger>
                       <md-button ng-show="btnAddCategory" aria-label="menu" class="md-fab md-warn" ng-click="showAddCategory()">
@@ -25,6 +26,13 @@
                       </md-button>
                     </md-fab-trigger>
                 </md-fab-speed-dial>
+                -->
+                <md-button style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="addSkill($event)">
+                  <md-tooltip md-direction="left">
+                    Add Skill
+                  </md-tooltip>
+                  <ng-md-icon icon="add"></ng-md-icon>
+                </md-button>
                 <ng-switch on="data.selectedIndex" class="tabpanel-container">
                     <md-list>
                         <md-list-item  ng-repeat="category in category_list | orderBy:'name'"
@@ -91,13 +99,19 @@
                                 </md-button>
                             </md-card-actions>
                         </div>
-                        <md-fab-speed-dial md-open="demo.isOpen" md-direction="down" ng-class="md-scale">
+                        <!--<md-fab-speed-dial md-open="demo.isOpen" md-direction="down" ng-class="md-scale">
                             <md-fab-trigger>
                               <md-button ng-show="btnAddSubCategory" aria-label="menu" class="md-fab md-warn" ng-click="showAddSubCategory()">
                               <md-icon class="menu-icon" md-svg-src="svg/add-white.svg"></md-icon>
                               </md-button>
                             </md-fab-trigger>
-                        </md-fab-speed-dial>
+                        </md-fab-speed-dial>-->
+                        <md-button style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="addSkill($event)">
+                          <md-tooltip md-direction="left">
+                            Add Skill
+                          </md-tooltip>
+                          <ng-md-icon icon="add"></ng-md-icon>
+                        </md-button>
                         <md-content class="md-padding autocomplete">
                             <div flex layout="column">
                                 <md-contact-chips ng-model="asyncSubCategories"  md-contacts="delayedQuerySearch($query)" md-contact-name="name" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Sub Categorias">
