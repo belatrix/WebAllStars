@@ -162,6 +162,19 @@
               }
             }
           }
+        },
+        addSubCategory: {
+          url:'/api/admin/category/:category_id/',
+          params:{
+            category_id: '@category_id'
+          },
+          actions: {
+            'patch': {method:'PATCH', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
+          }
         }
     });
 
