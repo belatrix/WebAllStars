@@ -7,52 +7,33 @@
     '$scope',
     '$mdMedia',
     'skillService',
-    'paginationService',
     '$mdDialog',
     '$mdToast'
   ];
 
-  function controllerSkills($scope, $mdMedia, skillService, paginationService, $mdDialog, $mdToast) {
+  function controllerSkills($scope, $mdMedia, skillService, $mdDialog, $mdToast) {
 
     this.$mdMedia = $mdMedia;
-    var self = this;
+    $scope.blocked = true;
+
     var waitingEfects = function (messages) {
-      self.loading = true;
-      self.messages_load = messages;
-      self.error_messages = false;
+      $scope.loading = true;
+      $scope.messages_load = messages;
+      $scope.error_messages = false;
     }
     var onList = function () {
       skillService.skills.list(function (response) {
         var array_skills = response;
         $scope.skills = array_skills;
-        self.items = $scope.skills;
-        console.log("A : " + self.items)
-        initController();
+        $scope.switchState = "Activo";
+        $scope.selected = null;
+        $scope.selected = $scope.skills[0];
       }, function (error) {
         showError(error);
       })
     };
-    
-    onList();
-   
-    //Pagination Section
-    $scope.pager = {};
-    $scope.setPage  = function (page) {
-      console.log("B : " + self.items.length)
-      if (page < 1 || page > $scope.pager.totalPages) {
-        return;
-      }
-      // get pager object from service
-      $scope.pager = paginationService.GetPager(self.items.length, page);
-      console.log("C    " + $scope.pager.pages.length);
-      // get current page of items vm
-      $scope.skillsPerPage = self.items.slice($scope.pager.startIndex, $scope.pager.endIndex + 1);
-    };
 
-    var initController = function () {
-      // initialize to page 1
-      $scope.setPage(1);
-    };
+    onList();
 
     var showSimpleToast = function (messages) {
       $mdToast.show(
@@ -64,11 +45,12 @@
     };
     var showError = function (error) {
       console.log(error);
+      $scope.error_messages = true;
       showSimpleToast("ERROR EN EL PROCESO. " + error.data.name);
-      self.loading = false;
+      $scope.loading = false;
     };
     var stopWaitingEffect = function () {
-      self.loading = false;
+      $scope.loading = false;
     };
     var onChange = function (skill) {
       waitingEfects("Actualizando...");
@@ -125,27 +107,6 @@
         $mdDialog.hide(this.skill);
       };
     };
-    $scope.addSkill = function ($event, skill) {
-      var self = this;
-      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
-      $mdDialog.show({
-        templateUrl: './views/newSkill.view.html',
-        parent: angular.element(document.body),
-        targetEvent: $event,
-        controller: newSkillCtrl,
-        controllerAs: 'ctrl',
-        clickOutsideToClose: true,
-        fullscreen: useFullScreen
-      }).then(function (skill) {
-        onCreate(skill);
-        console.log('You confirm the creation.');
-      }, function () {
-        console.log('You cancelled the dialog.');
-      });
-    };
-    $scope.selectSkill = function (skill) {
-      console.log("Skill selected : " + skill.name);
-    };
 
     $scope.addSkill = function ($event, skill) {
       var self = this;
@@ -168,4 +129,9 @@
     $scope.selectSkill = function (skill) {
       console.log("Skill selected : " + skill.name);
     };
+
+
+
+  }
+
 })();
