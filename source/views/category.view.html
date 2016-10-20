@@ -1,8 +1,8 @@
 <div layout="row" layout-xs="column" >
   <div flex>
-       
+
     <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
-        <md-content flex md-scroll-y> 
+        <md-content flex md-scroll-y>
             <ui-view layout="column" layout-fill layout-padding>
                 <div class="inset" hide-sm></div>
                 <div ng-show="addCategoryModel">
@@ -15,7 +15,7 @@
                           Agregar
                         </md-button>
                         <md-button ng-click="hideShowCategory()" class="md-primary md-raised">
-                            Cancel  
+                            Cancel
                         </md-button>
                     </md-card-actions>
                 </div>
@@ -83,7 +83,7 @@
                                   Agregar
                                 </md-button>
                                 <md-button ng-click="hideShowSubCategory()" class="md-primary md-raised">
-                                    Cancel  
+                                    Cancel
                                 </md-button>
                             </md-card-actions>
                         </div>
@@ -104,7 +104,7 @@
                                         <md-icon md-svg-icon="/svg/clear.svg" class="md-avatar"></md-icon>
                                     </md-button>
                                 </div>
-                            </div>                            
+                            </div>
                             <p ng-If="!selected.subcategories.length">No hay subcategorias para {{selected.name}}.</p>
                             <h2 ng-If="selected.subcategories.length">{{selected.name}}</h2>
                             <md-list>
@@ -147,8 +147,8 @@
                     </ng-switch>
                 </ui-view>
             </md-content>
-        </div>  
+        </div>
       </div>
     </div>
-    
+
 </div>
