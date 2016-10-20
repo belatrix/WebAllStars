@@ -317,7 +317,7 @@
           console.log("Error : "+error);
         });
       }
-      
+     
       var showSimpleToast = function(messages) {
         $mdToast.show(
           $mdToast.simple()
