@@ -34,18 +34,11 @@
 				</div>
 			</div>
 		</md-list-item>
-<<<<<<< HEAD
-	</md-list>
-	<!-- pager -->
-	<section ng-if="pager.pages.length" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-
-=======
 
 	</md-list>
 	<!-- pager -->
 	<section ng-if="pager.pages.length" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
 
->>>>>>> Skills Pagination, new service and modifications to handle pagination in Skill Page
 		<md-button ng-class="{disabled:pager.currentPage === 1}" aria-label="First" ng-click="setPage(1)">
 			<md-tooltip md-direction="top">
 				First
@@ -79,12 +72,8 @@
 </md-content>
 
 <md-button style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="addSkill($event)">
-	<md-tooltip md-direction="left">
-		Add Skill
-	</md-tooltip>
-	<ng-md-icon icon="add"></ng-md-icon>
-<<<<<<< HEAD
+  <md-tooltip md-direction="left">
+    Add Skill
+  </md-tooltip>
+  <ng-md-icon md-svg-icon="add"></ng-md-icon>
 </md-button>
-=======
-</md-button>
->>>>>>> Skills Pagination, new service and modifications to handle pagination in Skill Page
