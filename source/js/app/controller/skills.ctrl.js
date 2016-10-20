@@ -125,7 +125,6 @@
         $mdDialog.hide(this.skill);
       };
     };
-
     $scope.addSkill = function ($event, skill) {
       var self = this;
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -147,5 +146,6 @@
     $scope.selectSkill = function (skill) {
       console.log("Skill selected : " + skill.name);
     };
+
   }
 })();

@@ -8,6 +8,7 @@
 		'module.controller.coworkers',
 		'module.controller.skills',
     'module.controller.category'
+
 	]);
 
 
