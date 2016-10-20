@@ -75,7 +75,7 @@
             showSimpleToast("EXITO. Se agregó el nuevo Rol correctamente");
             listCategory();
         },function (error) {
-          console.log("Error : "+error);
+          showError(error);
         });
         $scope.addCategoryModel=false;
       }
@@ -91,7 +91,7 @@
           showSimpleToast("EXITO. Se actualizó correctamente el Rol "+newValue);
           listCategory();
         }, function (error) {
-          console.log("Error : "+error);
+          showError(error);
         });
         category.update_category=false;
       }
@@ -204,7 +204,7 @@
           $scope.asyncSubCategories=[];
           listCategory();
         }, function (error) {
-          console.log("Error : "+error);
+          showError(error);
         });
       }
 
@@ -221,7 +221,7 @@
           $scope.asyncSubCategories=[];
           listCategory();
         }, function (error) {
-          console.log("Error : "+error);
+          showError(error);
         });
       }
 
@@ -281,7 +281,7 @@
             $scope.btnAddSubCategory=true;
             $scope.chipsSubCategories = true;
         },function (error) {
-          console.log("Error : "+error);
+          showError(error);
         });
       }
 
@@ -314,7 +314,7 @@
           showSimpleToast("EXITO. Se dio de baja al Rol : "+category.name);
           listCategory();
         }, function (error) {
-          console.log("Error : "+error);
+          showError(error);
         });
       }
      
