@@ -8,13 +8,8 @@
 		'module.service.pagination',
 		'module.service.category',
 		'module.service.skill',
-<<<<<<< HEAD
 		'module.service.pagination'
 
-=======
-		'module.service.pagination',
-		'module.service.category'
->>>>>>> fix to merge with feature
 	]);
 
 
