@@ -42,7 +42,7 @@
                                 </div>
                                 <div >
                                     <div ng-show="category.update_category_accept">
-                                        <md-button aria-label="button" ng-click="updateCategory($event,category,category_value)">
+                                        <md-button aria-label="button" ng-click="callUpdateCategoryService(category,category_value)">
                                             <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
                                         </md-button>
                                         <md-button aria-label="button" ng-click="hideEditCategory(category)">
