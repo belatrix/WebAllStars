@@ -38,14 +38,23 @@
           }
           $scope.selected = null;
           $scope.category_list = array_category;
+<<<<<<< HEAD
           $scope.selected = $scope.category_list[1];
           $scope.selectCategory($scope.category_list[1]);
+=======
+          $scope.selected = $scope.category_list[0];
+          $scope.selectCategory($scope.category_list[0]);
+>>>>>>> fix to merge with feature
         },function (error) {
             showError(error);
         });
       }
 
       $scope.showAddCategory=function(){
+<<<<<<< HEAD
+=======
+        console.log("Show Add Category ");
+>>>>>>> fix to merge with feature
         $scope.addCategoryModel=true;
         $scope.btnAddCategory=false;
       }
@@ -56,6 +65,10 @@
       }
 
       $scope.selectCategory = function (category) {
+<<<<<<< HEAD
+=======
+        console.log("Category selected : "+category.subcategories);
+>>>>>>> fix to merge with feature
         $scope.listSubCategory(category.subcategories);
         $scope.selected = category;
       }
@@ -71,34 +84,64 @@
         category.update_category_edit=false;        
       }
       $scope.saveCategory=function(newCategory){
+<<<<<<< HEAD
         categoryService.category.register_category({name : newCategory},function (response) {
             showSimpleToast("EXITO. Se agregó el nuevo Rol correctamente");
             listCategory();
         },function (error) {
           showError(error);
+=======
+        console.log("New Category "+newCategory);
+        categoryService.category.register_category({name : newCategory},function (response) {
+            console.log("Success - Create");
+            listCategory();
+        },function (error) {
+          console.log("Error : "+error);
+>>>>>>> fix to merge with feature
         });
         $scope.addCategoryModel=false;
       }
 
       $scope.updateCategory=function(ev,category,new_value){
+<<<<<<< HEAD
+=======
+        console.log("Inside category with "+category.name+"**"+new_value);
+>>>>>>> fix to merge with feature
         if (new_value!=null) {
           $scope.showConfirm(ev,category,'Actualización','¿Estas seguro que deseas actualizar la categoria '+category.name+' a '+new_value+'?','update_category',new_value);
         }       
       }
 
       $scope.callUpdateCategoryService=function(category,newValue){
+<<<<<<< HEAD
         categoryService.category.update_category({category_id : category.pk ,name : newValue},function (response) {
           showSimpleToast("EXITO. Se actualizó correctamente el Rol "+newValue);
           listCategory();
         }, function (error) {
           showError(error);
+=======
+        console.log("Ahora si a Actualizar");
+        //-- Call Update Service
+        console.log("Nuevo valir ;: "+newValue);
+        categoryService.category.update_category({category_id : category.pk ,name : newValue},function (response) {
+          console.log("Success - Update");
+          listCategory();
+        }, function (error) {
+          console.log("Error : "+error);
+>>>>>>> fix to merge with feature
         });
         category.update_category=false;
       }
 
       //-- List Sub Category
       $scope.listSubCategory=function(sub_categories){
+<<<<<<< HEAD
         categoryService.category.list_sub_category(null,function (response) {
+=======
+        console.log("Llamo a list sub cat");
+        categoryService.category.list_sub_category(null,function (response) {
+          console.log("** Success Sub Categ");
+>>>>>>> fix to merge with feature
           var array_category=[];  
           var i=0;
           for(var i=0;i<response.length;i++){
@@ -125,12 +168,20 @@
       }
 
       $scope.showAddSubCategory=function(){
+<<<<<<< HEAD
+=======
+        console.log("Show Add Sub Category ");
+>>>>>>> fix to merge with feature
         $scope.addSubCategoryModel=true;
         $scope.btnAddSubCategory=false;
         $scope.chipsSubCategories = false;
       }
 
       $scope.hideShowSubCategory=function(subCategory){
+<<<<<<< HEAD
+=======
+        console.log("Hide Add Sub Category ");
+>>>>>>> fix to merge with feature
         $scope.addSubCategoryModel=false;
         $scope.btnAddSubCategory=true; 
         $scope.chipsSubCategories = true;     
@@ -155,6 +206,7 @@
       }  
 
       $scope.clearAllSubCategories=function(ev){
+<<<<<<< HEAD
         $scope.showConfirm(ev,null,'Confirmación','¿Estas seguro que deseas limpiar todo?','clear_sub_categories',null);
       }  
 
@@ -164,6 +216,14 @@
 
       $scope.saveSubCategories=function(ev,category){
         $scope.showConfirm(ev,category,'Confirmación','¿Estas seguro que deseas agregar estas Sub Categorias a este Rol?','add_sub_categories',null);
+=======
+        console.log("Clear all sub categories");
+        $scope.showConfirm(ev,null,'Confirmación','¿Estas seguro que deseas limpiar estas la sub-categorias agregadas','clear_sub_categories',null);
+      }  
+
+      $scope.saveSubCategories=function(){
+        console.log("Data : "+$scope.asyncSubCategories);
+>>>>>>> fix to merge with feature
       } 
 
       $scope.showConfirm = function(ev,category,title,body,event,newValue) {
@@ -182,16 +242,20 @@
             $scope.callUpdateSubCategoryService(category,newValue);
           }else if(event == 'clear_sub_categories'){
             $scope.asyncSubCategories=[];
+<<<<<<< HEAD
           }else if(event == 'add_sub_categories'){
             $scope.callAddSubCategoryService(category);
           }else if(event == 'delete_sub_category'){
             $scope.callDeleteSubCategoryService(category,newValue);
+=======
+>>>>>>> fix to merge with feature
           }
         }, function() {
           
         });
       };
 
+<<<<<<< HEAD
       $scope.callDeleteSubCategoryService=function(category,subcategory){
         var id_sub_category =[];
         for(var i=0;i<category.subcategories.length;i++){
@@ -225,6 +289,8 @@
         });
       }
 
+=======
+>>>>>>> fix to merge with feature
       function querySearch (criteria) {
         cachedQuery = cachedQuery || criteria;
         return cachedQuery ? $scope.listSubCategories.filter(createFilterFor(cachedQuery)) : [];       
@@ -268,12 +334,25 @@
       $scope.btnAddCategory=true;
       $scope.btnAddSubCategory=true;
       listCategory();
+<<<<<<< HEAD
+=======
+
+      var showSimpleToast = function(messages) {
+        $mdToast.show(
+          $mdToast.simple()
+            .textContent(messages)
+            .position('top right' )
+            .hideDelay(3000)
+        );
+      };
+>>>>>>> fix to merge with feature
       
       var showError=function(error){
         showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
       }     
    
       $scope.saveSubCategory=function(newSubCategory,category){
+<<<<<<< HEAD
         $scope.addSubCategoryModel=false;
         categoryService.category.register_sub_category({name : newSubCategory},function (response) {
             showSimpleToast("EXITO. Se agregó la nueva categoria");
@@ -282,10 +361,21 @@
             $scope.chipsSubCategories = true;
         },function (error) {
           showError(error);
+=======
+        console.log("New Category "+newSubCategory+"**"+category);
+        $scope.addSubCategoryModel=false;
+        categoryService.category.register_sub_category({name : newSubCategory},function (response) {
+            console.log("Success - Create");
+            $scope.selectCategory(category);
+            $scope.btnAddSubCategory=true;
+        },function (error) {
+          console.log("Error : "+error);
+>>>>>>> fix to merge with feature
         });
       }
 
       $scope.updateSubCategory=function(ev,subcategory,new_value){
+<<<<<<< HEAD
         $scope.showConfirm(ev,subcategory,'Confirmación','¿Estas seguro que deseas actualizar la sub-categoria '+subcategory.name+' a '+new_value+'?','update_sub_category',new_value);
       }
       
@@ -293,6 +383,18 @@
         //-- Call Update Service
         categoryService.category.update_sub_category({subcategory_id : category.pk ,name : newValue},function (response) {
           showSimpleToast("EXITO. Se actualizó correctamente la categoria : "+newValue);
+=======
+        console.log("updateSubCategory SubCategory ");
+        $scope.showConfirm(ev,subcategory,'Confirmación','¿Estas seguro que deseas actualizar la  sub-categoria '+subcategory.name+' a '+new_value+'?','update_sub_category',new_value);
+      }
+      
+      $scope.callUpdateSubCategoryService=function(category,newValue){
+        console.log("Ahora si a Actualizar");
+        //-- Call Update Service
+        console.log("Nuevo valir ;: "+newValue);
+        categoryService.category.update_sub_category({subcategory_id : category.pk ,name : newValue},function (response) {
+          console.log("Success - Update");
+>>>>>>> fix to merge with feature
           listCategory();
         }, function (error) {
           console.log("Error : "+error);
@@ -300,6 +402,7 @@
         category.update_category=false;
       }
 
+<<<<<<< HEAD
       $scope.deleteSubCategory=function(ev,category,subcategory){
         $scope.showConfirm(ev,category,'Confirmación','¿Deseas remover la categoria '+subcategory.name+' del Rol '+category.name+' ?','delete_sub_category',subcategory);
       }
@@ -326,5 +429,43 @@
             .hideDelay(3000)
         );
       };      
+=======
+
+
+
+      
+       
+
+      
+
+      
+
+      $scope.deleteSubCategory=function(ev,category){
+        console.log("Delete SubCategory ");
+        $scope.showConfirm(ev,category,'Confirmación','¿Estas seguro que deseas dar de baja a la  sub-categoria '+category.name+' ?','delete','');
+      }
+
+      $scope.deleteCategory=function(ev,category){
+        console.log("Delete Category ");
+        $scope.showConfirm(ev,category,'Confirmación','¿Estas seguro que deseas dar de baja la categoria '+category.name+' ?','delete_category','');
+      }
+
+      
+
+      $scope.callDeleteCategoryService=function(category){
+        console.log("Ahora si a borrar");
+        //-- Call Delete category
+        categoryService.category.delete_category({category_id : category.pk},function (response) {
+          console.log("Success - Delete");
+          listCategory();
+        }, function (error) {
+          console.log("Error : "+error);
+        });
+      }
+
+      
+
+      
+>>>>>>> fix to merge with feature
     }
 })();

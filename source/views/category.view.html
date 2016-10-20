@@ -7,7 +7,11 @@
                 <div class="inset" hide-sm></div>
                 <div ng-show="addCategoryModel">
                     <md-input-container class="md-block">
+<<<<<<< HEAD
                         <input ng-model="category.name" type="text" placeholder="Nuevo Rol">
+=======
+                        <input ng-model="category.name" type="text" placeholder="Nueva Categoria">
+>>>>>>> fix to merge with feature
                     </md-input-container>
                     <md-card-actions layout="row" layout-align="center center">
                         <md-button ng-click="saveCategory(category.name)"
@@ -30,7 +34,11 @@
                                 <div flex layout="column">
                                     <div ng-show="!category.update_category">
                                     <div class="md-list-item-text" layout="column">
+<<<<<<< HEAD
                                         <p>Rol</p>
+=======
+                                        <p>Categoria</p>
+>>>>>>> fix to merge with feature
                                         <h3>{{ category.name }}</h3>
                                     </div>
                                     </div>
@@ -42,7 +50,11 @@
                                 </div>
                                 <div >
                                     <div ng-show="category.update_category_accept">
+<<<<<<< HEAD
                                         <md-button aria-label="button" ng-click="callUpdateCategoryService(category,category_value)">
+=======
+                                        <md-button aria-label="button" ng-click="updateCategory($event,category,category_value)">
+>>>>>>> fix to merge with feature
                                             <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
                                         </md-button>
                                         <md-button aria-label="button" ng-click="hideEditCategory(category)">
@@ -71,11 +83,19 @@
         <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-cloak="">
             <md-content flex md-scroll-y>
                 <ui-view layout="column" layout-fill layout-padding>
+<<<<<<< HEAD
                     <div class="inset" hides-sm></div>
                     <ng-switch on="data.selectedIndex" class="tabpanel-container">
                         <div ng-show="addSubCategoryModel">
                             <md-input-container class="md-block">
                                 <input ng-model="subcategory.name" type="text" placeholder="Nueva Categoria">
+=======
+                    <div class="inset" hide-sm></div>
+                    <ng-switch on="data.selectedIndex" class="tabpanel-container">
+                        <div ng-show="addSubCategoryModel">
+                            <md-input-container class="md-block">
+                                <input ng-model="subcategory.name" type="text" placeholder="Nueva Sub Categoria">
+>>>>>>> fix to merge with feature
                             </md-input-container>
                             <md-card-actions layout="row" layout-align="center center">
                                 <md-button ng-click="saveSubCategory(subcategory.name,selected)"
@@ -93,11 +113,19 @@
                         <md-content class="md-padding autocomplete">
                             <div ng-show="chipsSubCategories">
                                 <div flex layout="column">
+<<<<<<< HEAD
                                     <md-contact-chips ng-model="asyncSubCategories"  md-contacts="delayedQuerySearch($query)" md-contact-name="name" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Buscar Categorias">
                                     </md-contact-chips>
                                 </div>
                                 <div>
                                     <md-button aria-label="button" ng-click="saveSubCategories($event,selected)">
+=======
+                                    <md-contact-chips ng-model="asyncSubCategories"  md-contacts="delayedQuerySearch($query)" md-contact-name="name" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Buscar Sub Categorias">
+                                    </md-contact-chips>
+                                </div>
+                                <div>
+                                    <md-button aria-label="button" ng-click="saveSubCategories()">
+>>>>>>> fix to merge with feature
                                         <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
                                     </md-button>
                                     <md-button aria-label="button" ng-click="clearAllSubCategories($event)">
@@ -105,7 +133,11 @@
                                     </md-button>
                                 </div>
                             </div>                            
+<<<<<<< HEAD
                             <p ng-If="!selected.subcategories.length">No hay Categoria para {{selected.name}}.</p>
+=======
+                            <p ng-If="!selected.subcategories.length">No hay subcategorias para {{selected.name}}.</p>
+>>>>>>> fix to merge with feature
                             <h2 ng-If="selected.subcategories.length">{{selected.name}}</h2>
                             <md-list>
 
@@ -135,7 +167,11 @@
                                              <md-button aria-label="button" ng-click="showEditSubCategory(subcategory)">
                                                 <md-icon md-svg-icon="/svg/edit.svg" class="md-avatar"></md-icon>
                                             </md-button>
+<<<<<<< HEAD
                                             <md-button aria-label="button" ng-click="deleteSubCategory($event,selected,subcategory)">
+=======
+                                            <md-button aria-label="button" ng-click="deleteSubCategory($event,subcategory)">
+>>>>>>> fix to merge with feature
                                                 <md-icon md-svg-icon="/svg/delete.svg" class="md-avatar"></md-icon>
                                             </md-button>
                                         </div>
