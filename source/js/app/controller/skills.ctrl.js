@@ -107,7 +107,6 @@
         $mdDialog.hide(this.skill);
       };
     };
-
     $scope.addSkill = function ($event, skill) {
       var self = this;
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
@@ -130,8 +129,27 @@
       console.log("Skill selected : " + skill.name);
     };
 
-
-
+    $scope.addSkill = function ($event, skill) {
+      var self = this;
+      var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
+      $mdDialog.show({
+        templateUrl: './views/newSkill.view.html',
+        parent: angular.element(document.body),
+        targetEvent: $event,
+        controller: newSkillCtrl,
+        controllerAs: 'ctrl',
+        clickOutsideToClose: true,
+        fullscreen: useFullScreen
+      }).then(function (skill) {
+        onCreate(skill);
+        console.log('You confirm the creation.');
+      }, function () {
+        console.log('You cancelled the dialog.');
+      });
+    };
+    $scope.selectSkill = function (skill) {
+      console.log("Skill selected : " + skill.name);
+    };
   }
 
 })();
