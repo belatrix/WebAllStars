@@ -20,7 +20,8 @@
         .icon("lock", "svg/lock.svg", 24)
         .icon("person", "svg/person.svg", 24)
         .icon("logout", "svg/ic_close_light.svg", 24)
-        .icon("close", "svg/close.svg", 24);
+        .icon("close", "svg/close.svg", 24)
+        .icon("verified_user", "svg/verified_user.svg", 24);
 
       $mdThemingProvider.theme('default').primaryPalette('deep-orange')
         .accentPalette('blue');
