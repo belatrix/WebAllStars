@@ -40,6 +40,10 @@
 		  		updateBlock:function (query,fnSuccess,fnError) {
 		  				var updateBlock = $resourceService.request('updateBlockEmployee');
 		  				return updateBlock.post(query,fnSuccess,fnError);
+		  		},
+		  		addSubCategory:function (query,fnSuccess,fnError) {
+		  				var addSubCategory = $resourceService.request('addSubCategory');
+		  				return addSubCategory.patch(query,fnSuccess,fnError);
 		  		}
 		    };
 	}]);
