@@ -32,9 +32,9 @@
         showError(error);
       })
     };
-    
+
     onList();
-   
+
     //Pagination Section
     $scope.pager = {};
     $scope.setPage  = function (page) {
@@ -125,6 +125,7 @@
         $mdDialog.hide(this.skill);
       };
     };
+
     $scope.addSkill = function ($event, skill) {
       var self = this;
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
