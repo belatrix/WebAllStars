@@ -1,0 +1,154 @@
+<div layout="row" layout-xs="column" >
+  <div flex>
+
+    <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-show="!loading">
+        <md-content flex md-scroll-y>
+            <ui-view layout="column" layout-fill layout-padding>
+                <div class="inset" hide-sm></div>
+                <div ng-show="addCategoryModel">
+                    <md-input-container class="md-block">
+                        <input ng-model="category.name" type="text" placeholder="Nueva Categoria">
+                    </md-input-container>
+                    <md-card-actions layout="row" layout-align="center center">
+                        <md-button ng-click="saveCategory(category.name)"
+                        class="md-accent md-raised">
+                          Agregar
+                        </md-button>
+                        <md-button ng-click="hideShowCategory()" class="md-primary md-raised">
+                            Cancel
+                        </md-button>
+                    </md-card-actions>
+                </div>
+                <md-button ng-show="btnAddCategory" style="position: fixed !important;" class="md-fab md-fab-bottom-left md-primary" aria-label="Add Skill" ng-click="showAddCategory()">
+                  <md-icon md-svg-icon="/svg/add-white.svg" class="md-avatar"></md-icon>
+                </md-button>
+                <ng-switch on="data.selectedIndex" class="tabpanel-container">
+                    <md-list>
+                        <md-list-item  ng-repeat="category in category_list | orderBy:'name'"
+                            ng-click="selectCategory(category)"
+                            ng-class="{'md-2-line': true ,'selected': category === selected }">
+                                <div flex layout="column">
+                                    <div ng-show="!category.update_category">
+                                    <div class="md-list-item-text" layout="column">
+                                        <p>Categoria</p>
+                                        <h3>{{ category.name }}</h3>
+                                    </div>
+                                    </div>
+                                    <div ng-show="category.update_category" layout="column">
+                                        <md-input-container flex-gt-sm>
+                                            <input ng-model="category_value" ng-value="category.name" aria-label="option.input.cat">
+                                        </md-input-container>
+                                    </div>
+                                </div>
+                                <div >
+                                    <div ng-show="category.update_category_accept">
+                                        <md-button aria-label="button" ng-click="updateCategory($event,category,category_value)">
+                                            <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
+                                        </md-button>
+                                        <md-button aria-label="button" ng-click="hideEditCategory(category)">
+                                            <md-icon md-svg-icon="/svg/clear.svg" class="md-avatar"></md-icon>
+                                        </md-button>
+                                    </div>
+                                    <div ng-hide="category.update_category_edit">
+                                         <md-button aria-label="button" ng-click="showEditCategory(category)">
+                                            <md-icon md-svg-icon="/svg/edit.svg" class="md-avatar"></md-icon>
+                                        </md-button>
+                                        <md-button aria-label="button" ng-click="deleteCategory($event,category)">
+                                            <md-icon md-svg-icon="/svg/delete.svg" class="md-avatar"></md-icon>
+                                        </md-button>
+                                    </div>
+                                </div>
+                        </md-list-item>
+                    </md-list>
+                </ng-switch>
+            </ui-view>
+        </md-content>
+    </div>
+  </div>
+  <div flex>
+    <!-- List Sub Category by Category. -->
+    <div flex="34">
+        <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage" ng-cloak="">
+            <md-content flex md-scroll-y>
+                <ui-view layout="column" layout-fill layout-padding>
+                    <div class="inset" hide-sm></div>
+                    <ng-switch on="data.selectedIndex" class="tabpanel-container">
+                        <div ng-show="addSubCategoryModel">
+                            <md-input-container class="md-block">
+                                <input ng-model="subcategory.name" type="text" placeholder="Nueva Sub Categoria">
+                            </md-input-container>
+                            <md-card-actions layout="row" layout-align="center center">
+                                <md-button ng-click="saveSubCategory(subcategory.name,selected)"
+                                class="md-accent md-raised">
+                                  Agregar
+                                </md-button>
+                                <md-button ng-click="hideShowSubCategory()" class="md-primary md-raised">
+                                    Cancel
+                                </md-button>
+                            </md-card-actions>
+                        </div>
+                        <md-button ng-show="btnAddSubCategory" style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="showAddSubCategory()">
+                            <md-icon md-svg-icon="/svg/add-white.svg" class="md-avatar"></md-icon>
+                        </md-button>
+                        <md-content class="md-padding autocomplete">
+                            <div ng-show="chipsSubCategories">
+                                <div flex layout="column">
+                                    <md-contact-chips ng-model="asyncSubCategories"  md-contacts="delayedQuerySearch($query)" md-contact-name="name" md-require-match="true" md-highlight-flags="i" filter-selected="true" placeholder="Buscar Sub Categorias">
+                                    </md-contact-chips>
+                                </div>
+                                <div>
+                                    <md-button aria-label="button" ng-click="saveSubCategories()">
+                                        <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
+                                    </md-button>
+                                    <md-button aria-label="button" ng-click="clearAllSubCategories($event)">
+                                        <md-icon md-svg-icon="/svg/clear.svg" class="md-avatar"></md-icon>
+                                    </md-button>
+                                </div>
+                            </div>
+                            <p ng-If="!selected.subcategories.length">No hay subcategorias para {{selected.name}}.</p>
+                            <h2 ng-If="selected.subcategories.length">{{selected.name}}</h2>
+                            <md-list>
+
+                                <md-list-item  ng-repeat="subcategory in selected.subcategories" ng-click="false">
+                                    <div flex>
+                                        <div  ng-show="!subcategory.update_subcategory">
+                                            <div class="md-list-item-text" layout="column">
+                                                <p>{{subcategory.name}}</p>
+                                            </div>
+                                        </div>
+                                        <div ng-show="subcategory.update_subcategory" layout="column">
+                                           <md-input-container flex-gt-sm>
+                                                <input ng-model="subcategory_value" ng-value="subcategory.name" aria-label="option.input.sub">
+                                            </md-input-container>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div ng-show="subcategory.update_sub_category_accept">
+                                            <md-button aria-label="button" ng-click="updateSubCategory($event,subcategory,subcategory_value)">
+                                                <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
+                                            </md-button>
+                                            <md-button aria-label="button" ng-click="hideEditSubCategory(subcategory)">
+                                                <md-icon md-svg-icon="/svg/clear.svg" class="md-avatar"></md-icon>
+                                            </md-button>
+                                        </div>
+                                        <div ng-hide="subcategory.update_sub_category_edit">
+                                             <md-button aria-label="button" ng-click="showEditSubCategory(subcategory)">
+                                                <md-icon md-svg-icon="/svg/edit.svg" class="md-avatar"></md-icon>
+                                            </md-button>
+                                            <md-button aria-label="button" ng-click="deleteSubCategory($event,subcategory)">
+                                                <md-icon md-svg-icon="/svg/delete.svg" class="md-avatar"></md-icon>
+                                            </md-button>
+                                        </div>
+                                    </div>
+                                    <md-divider inset></md-divider>
+                                </md-list-item>
+                            </md-list>
+                        </md-content>
+                    </ng-switch>
+                </ui-view>
+            </md-content>
+        </div>
+      </div>
+    </div>
+
+</div>
