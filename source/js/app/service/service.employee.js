@@ -8,7 +8,7 @@
 		'$state',
 		function ($resourceService, serviceStorage, $state) {
 
-			this.employee = {
+			this.empĺoyee = {
 		        list: function (query,fnSuccess,fnError) {
 		  				var employeeList = $resourceService.request('employeeList');
 		  				return employeeList.get(query,fnSuccess,fnError);
