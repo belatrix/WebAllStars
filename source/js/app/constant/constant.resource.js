@@ -25,6 +25,15 @@
             }
           }
         },
+        getEmployeeById:{
+          url:'api/employee/:employee_id/',
+          params:{
+            employee_id: '@employee_id'
+          },
+          actions:{
+            'get': {method:'GET'}
+          }
+        },
         employeeList:{
           url:'api/employee/list/',
           params:{
@@ -54,6 +63,24 @@
               }
             }
           }
+		}, 
+		getSkillsByEmployeeId:{
+          url:'api/employee/:employee_id/skills/list/',
+          params:{
+            employee_id: '@employee_id'
+          },
+          actions:{
+            'get': {method:'GET'}
+          }
+        },
+        getStartsByEmployeeId:{
+          url:'api/star/:employee_id/list/',
+          params:{
+            employee_id: '@employee_id'
+          },
+          actions:{
+            'get': {method:'GET'}
+          }
         },
         updateSkillState: {
           url:'api/admin/keyword/:keyword_id/',
@@ -74,7 +101,7 @@
           url:'api/admin/keyword/',
           params:{
             keyword_id: '@name',
-            active: '@is_active'         
+			active: '@is_active'
           },
           actions: {
             'post': {method:'POST', headers:{
