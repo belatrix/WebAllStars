@@ -28,15 +28,17 @@
                       if (serviceStorage.getData('token')) {
                           config.headers.Authorization = 'Token ' + serviceStorage.getData('token');
                       }
+                      $rootScope.$broadcast('$request');
                       $rootScope.$broadcast('loadingBefore');
                       return config;
                   },
                   'response': function(response) {
+                    $rootScope.$broadcast('$responseSuccess');
                     $rootScope.$broadcast('loadingAfter');
                     return response;
                   },
                   'responseError': function(response) {
-
+                      $rootScope.$broadcast('$responseError');
                       $rootScope.$broadcast('loadingAfter');
                       if(response.status === 401 ||
                          response.status === 403 ||
@@ -57,11 +59,11 @@
           hasToken;
 
         checkingSession = function(){
-          
+
           hasToken = serviceStorage.getData('token');
           if(hasToken == null){
             $state.go('login');
-          }          
+          }
         };
 
         $rootScope.$on('$locationChangeStart',function(obj,data){
