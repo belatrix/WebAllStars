@@ -10,7 +10,7 @@
 
     function controllerActivity($scope, activityService) {
 
-      activityService.employee.list(function (response) {
+      activityService.empĺoyee.list(function (response) {
 
         console.log(response.results);
 

@@ -9,37 +9,44 @@
         '$state',
         'employeeService',
         'serviceStorage',
-        '$location',
         '$mdDialog',
-        '$mdToast'
+        '$mdToast',
+        '$q', '$timeout'
     ];
 
-    function controllerCoworkers($scope, $resourceService, $state, coworkersService, serviceStorage, $location, $mdDialog,$mdToast) {
-      var waitingEfects=function(messages){
-        $scope.loading=true; 
-        $scope.messages_load=messages;
-        $scope.error_messages=false;
+    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
+
+      var listEmployee=function(employee){
+        var objReq={};
+        objReq.search=employee;
+        coworkersService.empĺoyee.list(objReq,function (response) {
+          var array_users=[];
+          for(var i in response.results){
+            var detail_user=response.results[i];
+            array_users.push(detail_user);
+          }
+          $scope.active="Activo";
+          $scope.selected = null;
+          $scope.searchText = '';
+          $scope.users = array_users;
+          $scope.selected = $scope.users[0];
+          if(employee!=null){
+            $scope.searchText=employee;  
+          }
+          stopWaitingEffect();
+        }, function (error) {
+            showError(error);
+        });
       }
-      waitingEfects("Cargando...");
-      coworkersService.employee.list(function (response) {
-        var array_users=[];
-        for(var i in response.results){
-          var detail_user=response.results[i];
-          array_users.push(detail_user);
-        }
-        $scope.active="Activo";
-        $scope.selected = null;
-        $scope.searchText = '';
-        $scope.users = array_users;
-        $scope.selected = $scope.users[0];
-        stopWaitingEffect();
-      }, function (error) {
-          showError(error);
-      });
+
+      $scope.list_specific=function(employee){
+        listEmployee(employee);
+      }
+
+      listEmployee(null);
 
       var onChange=function(user){
-        waitingEfects("Actualizando...");
-        coworkersService.employee.updateBlock({employee_id : user.pk,action : user.is_blocked},function (response) {
+        coworkersService.empĺoyee.updateBlock({employee_id : user.pk,action : user.is_blocked},function (response) {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se actualizó el registro correctamente');
         },function (error) {
@@ -89,11 +96,9 @@
       }
       
       var showError=function(error){
-        $scope.error_messages=true;
         showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
         $scope.loading=false;
       }
       
     }
-
 })();
