@@ -32,9 +32,9 @@
         showError(error);
       })
     };
-    
+
     onList();
-   
+
     //Pagination Section
     $scope.pager = {};
     $scope.setPage  = function (page) {
@@ -147,5 +147,6 @@
     $scope.selectSkill = function (skill) {
       console.log("Skill selected : " + skill.name);
     };
+
   }
 })();
