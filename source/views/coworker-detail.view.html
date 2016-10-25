@@ -42,25 +42,19 @@
         <md-content class="md-padding">
            <p ng-If="!starts.length">No se encontraron recomendaciones para {{ user.first_name }} {{ user.last_name }}.</p>
         <md-list ng-If="starts.length">
-            <md-list-item class="md-3-line" ng-repeat="item in starts">
+            <md-list-item class="md-2-line" ng-repeat="item in starts">
                 <img ng-src="{{ item.from_user.avatar }}" class="md-avatar" />
-                <div flex="40">
-                    <div class="md-list-item-text" layout="column">
-                        <p>Co worker</p>
-                        <h3>{{item.from_user.first_name}} {{item.from_user.last_name}}</h3>
-                    </div>
+                <div class="md-list-item-text" layout="column" flex="40">
+                    <p>Co worker</p>
+                    <h3>{{item.from_user.first_name}} {{item.from_user.last_name}}</h3>
                </div>
-               <div flex="25">
-                    <div class="md-list-item-text" layout="column">
-                        <p>Comentario</p>
-                        <h3>{{item.text}}</h3>
-                    </div>
+               <div class="md-list-item-text" layout="column" flex="25">
+                    <p>Comentario</p>
+                    <h3>{{item.text}}</h3>
                </div>
-               <div flex="25">
-                    <div class="md-list-item-text" layout="column">
-                        <p>Recomendaciones</p>
-                        <h3>{{item.keyword}}</h3>
-                    </div>
+               <div class="md-list-item-text" layout="column" flex="25">
+                    <p>Recomendaciones</p>
+                    <h3 style="color:rgb(68,138,255);">{{item.keyword.name}}</h3>
                </div>
                 <md-divider inset></md-divider>
             </md-list-item>
