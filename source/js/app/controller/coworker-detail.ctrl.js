@@ -10,11 +10,13 @@
       'skillService',
       'startService',
       '$mdDialog',
+      '$mdSidenav',
       '$mdToast',
+      '$mdUtil',
       '$stateParams'
     ];
 
-    function controllerCoworkerDetail($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast, $stateParams) {
+    function controllerCoworkerDetail($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdSidenav, $mdToast, $mdUtil, $stateParams) {
       var showSimpleToast = function(messages) {
             $mdToast.show (
               $mdToast.simple()
@@ -27,6 +29,19 @@
             showSimpleToast("ERROR EN EL PROCESO. Status: "+error.status+", "+error.statusText);
             $scope.loading = false;
           };
+
+      $scope.toggleRight = buildToggler('right');
+
+      function buildToggler(navID) {
+        var debounceFn = $mdUtil.debounce(function(){
+              $mdSidenav(navID)
+                .toggle()
+                .then(function () {
+                  //$log.debug("toggle " + navID + " is done");
+                });
+            },300);
+        return debounceFn;
+      }
 
       if($stateParams.employee_id) {
           employeeService.getEmployeeById.user({employee_id : $stateParams.employee_id},

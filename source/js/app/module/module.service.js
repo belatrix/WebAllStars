@@ -9,7 +9,8 @@
 		'module.service.category',
 		'module.service.skill',
 		'module.service.start',
-		'module.service.pagination'
+		'module.service.pagination',
+		'module.service.activity'
 	]);
 
 

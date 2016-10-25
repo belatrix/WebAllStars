@@ -1,0 +1,56 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-z5"
+            md-component-id="right">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <md-button class="md-icon-button"
+        ng-click="close()"
+        aria-label="Menu">
+        <md-icon md-svg-icon="arrow_back">
+        </md-icon>
+      </md-button>
+      <h1 class="md-toolbar-tools">
+        Message
+      </h1>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding>
+
+    <md-content class="list" flex>
+      <md-list layout-wrap>
+        <md-list-item ng-repeat="message in employeeMessage">
+          <div flex="25">
+              <div class="md-list-item-text" align="center" layout="column">
+                  <div align="middle">
+                      <img ng-src="{{message.avatar}}" class="md-avatar" />
+                  </div>
+              </div>
+          </div>
+          <div flex="75">
+              <div class="md-list-item-text">
+                  <p>{{ message.text }}</p>
+              </div>
+          </div>
+        </md-list-item>
+      </md-list>
+    </md-content>
+
+    <md-input-container class="md-block" flex-gt-sm>
+      <div layout-gt-sm="row">
+        <label>Enter Message</label>
+        <textarea ng-model="userMessage"></textarea>
+        <md-button class="md-icon-button"
+                   ng-click="sendMessage()">
+          <md-icon md-svg-icon="arrow_forward"></md-icon>
+        </md-button>
+      </div>
+    </md-input-container>
+
+  </md-content>
+
+</md-sidenav>
+
+<md-content class="main" id="container" flex>
+  <ui-view></ui-view>
+</md-content>

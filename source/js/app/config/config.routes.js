@@ -22,6 +22,10 @@
               'content@': {
                 templateUrl: 'layout/leftSide.view.html',
                 controller: 'controller.leftSide',
+              },
+              'message@': {
+                templateUrl: 'layout/rightSide.view.html',
+                controller: 'controller.rightSide',
               }
             }
         }).state('login', {
@@ -53,10 +57,7 @@
             parent:'dashboard',
             url: "/coworker-detail",
             templateUrl: "views/coworker-detail.view.html",
-            controller: "controller.coworker-detail",
-            params: {
-              employee_id: null
-            }
+            controller: "controller.coworker-detail"
         });
 
       $urlRouterProvider.otherwise("/login");
