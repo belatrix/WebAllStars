@@ -11,7 +11,7 @@
                     <div layout="column">
                     <div flex class="md-display-2">
                         {{ user.first_name }} {{ user.last_name }}
-                        <md-button class="md-accent md-raised"> Mensaje </md-button>
+                        <md-button class="md-accent md-raised" ng-click="toggleRight()" aria-label="Mensaje"> Mensaje </md-button>
                     </div>
                     <div flex class="md-subhead">{{ user.skype_id }}</div>
                     <div flex class="md-subhead">{{ user.location  }}</div>

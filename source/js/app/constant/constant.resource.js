@@ -63,7 +63,16 @@
               }
             }
           }
-		}, 
+		},
+    getMessageByEmployeeId:{
+          url:'api/activity/get/message/employee/:employee_id/all/',
+          params:{
+            employee_id: '@employee_id'
+          },
+          actions:{
+            'get': {method:'GET'}
+          }
+        },
 		getSkillsByEmployeeId:{
           url:'api/employee/:employee_id/skills/list/',
           params:{

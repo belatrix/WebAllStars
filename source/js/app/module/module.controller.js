@@ -7,8 +7,9 @@
 		'module.controller.activity',
 		'module.controller.coworkers',
 		'module.controller.skills',
-    'module.controller.category',
-		'module.controller.coworker-detail'
+		'module.controller.category',
+		'module.controller.coworker-detail',
+		'module.controller.rightSide'
 
 	]);
 
