@@ -23,7 +23,11 @@
     }
     var onList = function () {
       skillService.skills.list(function (response) {
-        var array_skills = response;
+        var array_skills = [];
+        for (var i in response.results) {
+          var detail_skill = response.results[i];
+          array_skills.push(detail_skill);
+        }
         $scope.skills = array_skills;
         self.items = $scope.skills;
         console.log("A : " + self.items)
@@ -32,9 +36,9 @@
         showError(error);
       })
     };
-    
+
     onList();
-   
+
     //Pagination Section
     $scope.pager = {};
     $scope.setPage  = function (page) {
@@ -75,6 +79,7 @@
       skillService.skills.updateState({ keyword_id: skill.id, name: skill.name, is_active: skill.is_active }, function (response) {
         stopWaitingEffect();
         showSimpleToast('Se actualizó el registro correctamente');
+        onList();
       }, function (error) {
         if (skill.is_active) {
           skill.is_active = false;
@@ -90,6 +95,16 @@
       skillService.skills.create({ name: skill.name, is_active: skill.is_active }, function (response) {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se ha creado el registro correctamente');
+        onList();
+      }, function (error) {
+        showError(error);
+      });
+    };
+    var onDelete = function (skill) {
+      waitingEfects("Creando...");
+      skillService.skills.delete({ kind: 'keyword', id: skill.id }, function (response) {
+        stopWaitingEffect();
+        showSimpleToast('EXITO. Se ha eliminado el registro correctamente');
         onList();
       }, function (error) {
         showError(error);
@@ -113,7 +128,19 @@
         }
       });
     };
-    function newSkillCtrl($scope, $mdDialog) {
+    function skillDialogCtrl($scope, $mdDialog, skillData, operation) {
+      $scope.skill = skillData;
+      switch (operation) {
+        case 'U':
+          $scope.operation = 'Editting';
+          break;
+        case 'A':
+          $scope.operation = 'Adding';
+          break;
+        default:
+          $scope.operation = 'Adding';
+          break;
+      }
       $scope.options = [
         { value: false, label: 'false' },
         { value: true, label: 'true' },
@@ -122,30 +149,58 @@
         $mdDialog.cancel();
       };
       $scope.save = function () {
-        $mdDialog.hide(this.skill);
+        $mdDialog.hide($scope.skill);
       };
     };
-    $scope.addSkill = function ($event, skill) {
+    $scope.manageSkill = function ($event, skill, operation) {
+      var tempData = undefined;
+      var operation = operation;
+      if (skill === undefined) {
+        tempData = {};
+      } else {
+        tempData = {
+          id: skill.id,
+          name: skill.name,
+          is_active: skill.is_active
+        };
+      }
       var self = this;
       var useFullScreen = ($mdMedia('sm') || $mdMedia('xs'));
       $mdDialog.show({
         templateUrl: './views/newSkill.view.html',
         parent: angular.element(document.body),
         targetEvent: $event,
-        controller: newSkillCtrl,
-        controllerAs: 'ctrl',
+        controller: skillDialogCtrl,
         clickOutsideToClose: true,
-        fullscreen: useFullScreen
+        fullscreen: useFullScreen,
+        locals: {
+          skillData: tempData,
+          operation: operation
+        }
       }).then(function (skill) {
-        onCreate(skill);
-        console.log('You confirm the creation.');
+        if (operation == 'A')
+          onCreate(skill);
+        else
+          onChange(skill);
+        console.log('You confirm the edition.');
       }, function () {
         console.log('You cancelled the dialog.');
       });
     };
-    $scope.selectSkill = function (skill) {
-      console.log("Skill selected : " + skill.name);
+    $scope.deleteSkill = function (ev, skill) {
+      var confirm = $mdDialog.confirm()
+        .title('Confirmación')
+        .textContent('¿Estas seguro que deseas eliminar este registro?')
+        .targetEvent(ev)
+        .ok('Si')
+        .cancel('No');
+      $mdDialog.show(confirm).then(function () {
+        onDelete(skill);
+      }, function () {
+        console.log('You cancelled the dialog.');
+      });
     };
+
 
   }
 })();
