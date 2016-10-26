@@ -47,7 +47,11 @@
           params:{
           },
           actions:{
-            'query': {method:'get',isArray:true}
+            'query': {method:'get', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
           }
         },
         updateBlockEmployee: {
@@ -116,7 +120,11 @@
           params:{
           },
           actions:{
-            'get': {method:'GET',isArray: true}
+            'get': {method:'GET', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
           }
         },
         updateCategory: {
@@ -162,7 +170,11 @@
           params:{
           },
           actions:{
-            'get': {method:'GET',isArray: true}
+            'get': {method:'GET', headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+              }
+            }
           }
         },
         registerSubCategory: {

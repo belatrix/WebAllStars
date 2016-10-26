@@ -29,10 +29,12 @@
           var array_category=[];  
           var i=0;
           var array_sub_categories = [];
-          for(var i=0;i<response.length;i++){
+          var response_list=response.results;
+          for(var i=0;i<response_list.length;i++){
             //-- Only active Category
-            if(response[i].is_active == true){
-              var detail_category=response[i];
+            if(response_list[i].is_active == true){
+              var detail_category=response_list[i];
+              console.log();
               array_category.push(detail_category);  
             }
           }
@@ -101,8 +103,9 @@
         categoryService.category.list_sub_category(null,function (response) {
           var array_category=[];  
           var i=0;
-          for(var i=0;i<response.length;i++){
-            var detail_sub_category=response[i];
+          var result_sub_category=response.results;
+          for(var i=0;i<result_sub_category.length;i++){
+            var detail_sub_category=result_sub_category[i];
             if(search(detail_sub_category.pk,sub_categories) == false){
               detail_sub_category._lowername = detail_sub_category.name.toLowerCase();
               array_category.push(detail_sub_category);
