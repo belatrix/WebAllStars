@@ -11,10 +11,11 @@
       'startService',
       '$mdDialog',
       '$mdToast',
+      '$state',
       '$stateParams'
     ];
 
-    function controllerCoworkerDetail($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast, $stateParams) {
+    function controllerCoworkerDetail($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast, $state, $stateParams) {
       var showSimpleToast = function(messages) {
             $mdToast.show (
               $mdToast.simple()
@@ -58,9 +59,12 @@
               showError(error);
           });
       } else if (!$stateParams.employee_id != $stateParams.employee_id === null){
-          $state.go('coworker');
+          $state.go('coworkers');
       }
-      
 
+      $scope.goBack = function () {
+        $state.go('coworkers');
+        console.log("User selected sdsdsd");
+      };
     }
 })();
