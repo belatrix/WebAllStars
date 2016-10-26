@@ -49,6 +49,11 @@
             url: "/activity",
             templateUrl: "views/activity.view.html",
             controller: "controller.activity"
+        }).state('coworker-detail', {
+            parent:'dashboard',
+            url: "/coworker-detail",
+            templateUrl: "views/coworker-detail.view.html",
+            controller: "controller.coworker-detail"
         });
 
       $urlRouterProvider.otherwise("/login");
