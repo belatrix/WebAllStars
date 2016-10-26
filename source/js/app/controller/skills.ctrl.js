@@ -23,7 +23,8 @@
     }
     var onList = function () {
       skillService.skills.list(function (response) {
-        var array_skills = response;
+        console.log("Exitooooo");
+        var array_skills = response.results;
         $scope.skills = array_skills;
         self.items = $scope.skills;
         console.log("A : " + self.items)
