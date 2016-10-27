@@ -93,18 +93,18 @@
 			return directive;
 
 			function link($scope,element){
-				var q = angular.element(element);
+				var q = angular.element(element, $attr);
 
 				q.on('click',function(){
-					
+
 					if($attr.animatedClick){
 
 						q.addClass('animated '+ $attr.animatedClick).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
 				    		q.removeClass('animated ' + $attr.animatedClick);
 			 			});
 
-					}					
-				
+					}
+
 				});
 
 

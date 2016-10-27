@@ -1,33 +1,49 @@
 <md-content class="list" flex>
+	<div layout-padding layout="row">
 
-  <div layout-padding layout="row">
-    <div flex="95">
-      <md-autocomplete md-input-minlength="2" md-input-maxlength="18" md-search-text="searchText" md-items="skill in skills | filter:searchText"
-        md-item-text="skill.name" md-min-lengrh="3" placeholder="Busqueda">
-        <md-item-template>
-          <span md-highlight-text="searchText" md-highlight-flags="^i">{{skill.name}}</span>
-        </md-item-template>
-        <md-not-found>
-          No skill matching "{{searchText}}" were found.
-        </md-not-found>
-      </md-autocomplete>
-    </div>
-  </div>
-  <md-list layout-wrap>
-    <md-list-item ng-repeat="skill in skills | filter:searchText | orderBy:'skill.name'" ng-click="selectSkill(skill)">
-      <div flex="90">
-        <p>{{skill.name}}</p>
-      </div>
-      <div flex="10">
-        <div>
-          <div layout="row" layout-align="center" layout-margin>
-            <md-switch ng-model="skill.is_active" ng-click="showConfirm($event, skill)">
-              {{skill.is_active === true ? switchState = "Activo" : switchState = "Inactivo"}}
-            </md-switch>
-          </div>
-        </div>
-      </div>
-    </md-list-item>
+		<div flex>
+			<md-autocomplete md-input-minlength="2" md-input-maxlength="18" md-search-text="searchText" md-items="skill in skills | filter:searchText"
+				md-item-text="skill.name" md-min-lengrh="3" placeholder="Busqueda">
+				<md-item-template>
+					<span md-highlight-text="searchText" md-highlight-flags="^i">{{skill.name}}</span>
+				</md-item-template>
+				<md-not-found>
+					No skill matching "{{searchText}}" were found.
+				</md-not-found>
+			</md-autocomplete>
+		</div>
+	</div>
+	<md-list layout-wrap>
+		<md-list-item ng-repeat="skill in skillsPerPage | filter:searchText | orderBy:'skill.name'" ng-click="selectSkill(skill)">
+			<div flex="90">
+				<p>{{skill.name}}</p>
+			</div>
+			<div flex="5">
+				<md-button class="md-icon-button" aria-label="Delete Skill" ng-click="deleteSkill($event, skill)">
+					<md-tooltip md-direction="top">
+						Delete Skill
+					</md-tooltip>
+					<md-icon md-svg-icon="delete"></md-icon>
+				</md-button>
+			</div>
+			<div flex="5">
+				<md-button class="md-icon-button" aria-label="Edit Skill" ng-click="manageSkill($event, skill,'U')">
+					<md-tooltip md-direction="top">
+						Edit Skill
+					</md-tooltip>
+					<md-icon md-svg-icon="edit"></md-icon>
+				</md-button>
+			</div>
+			<div flex="10">
+				<div>
+					<div layout="row" layout-align="center" layout-margin>
+						<md-switch ng-model="skill.is_active" ng-click="showConfirm($event, skill)">
+							{{skill.is_active === true ? switchState = "Activo" : switchState = "Inactivo"}}
+						</md-switch>
+					</div>
+				</div>
+			</div>
+		</md-list-item>
 	</md-list>
 	<!-- pager -->
 	<section ng-if="pager.pages.length" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
@@ -36,13 +52,13 @@
 			<md-tooltip md-direction="top">
 				First
 			</md-tooltip>
-			<ng-md-icon icon="fast_rewind"></ng-md-icon>
+			<md-icon md-svg-icon="/svg/fast_rewind.svg" class="md-avatar"></md-icon>
 		</md-button>
 		<md-button ng-class="{disabled:pager.currentPage === 1}" aria-label="Previous" ng-click="setPage(pager.currentPage - 1)">
 			<md-tooltip md-direction="top">
 				Previous
 			</md-tooltip>
-			<ng-md-icon icon="skip_previous"></ng-md-icon>
+			<md-icon md-svg-icon="/svg/skip_previous.svg" class="md-avatar"></md-icon>
 		</md-button>
 		<md-button ng-repeat="page in pager.pages" ng-class="{active:pager.currentPage === page}" ng-click="setPage(page)">
 			{{page}}
@@ -51,22 +67,22 @@
 			<md-tooltip md-direction="top">
 				Next
 			</md-tooltip>
-			<ng-md-icon icon="skip_next"></ng-md-icon>
+			<md-icon md-svg-icon="/svg/skip_next.svg" class="md-avatar"></md-icon>
 		</md-button>
 		<md-button ng-class="{disabled:pager.currentPage === pager.totalPages}" aria-label="Last" ng-click="setPage(pager.totalPages)">
 			<md-tooltip md-direction="top">
 				Last
 			</md-tooltip>
-			<ng-md-icon icon="fast_forward"></ng-md-icon>
+			<md-icon md-svg-icon="/svg/fast_forward.svg" class="md-avatar"></md-icon>
 		</md-button>
 
 	</section>
 
 </md-content>
 
-<md-button style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="addSkill($event)">
-  <md-tooltip md-direction="left">
-    Add Skill
-  </md-tooltip>
-  <ng-md-icon md-svg-icon="add"></ng-md-icon>
+<md-button class="md-fab md-fab-fixed-right" aria-label="Eat cake" ng-click="manageSkill($event,undefined,'A')">
+	<md-tooltip md-direction="left">
+		Add Skill
+	</md-tooltip>
+  <md-icon md-svg-icon="add-white"></md-icon>
 </md-button>

@@ -19,8 +19,11 @@
                         </md-button>
                     </md-card-actions>
                 </div>
-                <md-button ng-show="btnAddCategory" style="position: fixed !important;" class="md-fab md-fab-bottom-left md-primary" aria-label="Add Skill" ng-click="showAddCategory()">
-                  <md-icon md-svg-icon="/svg/add-white.svg" class="md-avatar"></md-icon>
+                <md-button class="md-fab md-fab-fixed-left" aria-label="Eat cake" ng-click="showAddCategory()">
+                	<md-tooltip md-direction="right">
+                		Add Rol
+                	</md-tooltip>
+                  <md-icon md-svg-icon="add-white"></md-icon>
                 </md-button>
                 <ng-switch on="data.selectedIndex" class="tabpanel-container">
                     <md-list>
@@ -42,19 +45,31 @@
                                 </div>
                                 <div >
                                     <div ng-show="category.update_category_accept">
-                                        <md-button aria-label="button" ng-click="callUpdateCategoryService(category,category_value)">
-                                            <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
+                                        <md-button class="md-icon-button" aria-label="button" ng-click="callUpdateCategoryService(category,category_value)">
+                                          <md-tooltip md-direction="left">
+                                            Accept
+                                          </md-tooltip>
+                                            <md-icon md-svg-icon="check"></md-icon>
                                         </md-button>
-                                        <md-button aria-label="button" ng-click="hideEditCategory(category)">
-                                            <md-icon md-svg-icon="/svg/clear.svg" class="md-avatar"></md-icon>
+                                        <md-button class="md-icon-button" aria-label="button" ng-click="hideEditCategory(category)">
+                                          <md-tooltip md-direction="right">
+                                            Clear
+                                          </md-tooltip>
+                                            <md-icon md-svg-icon="clear"></md-icon>
                                         </md-button>
                                     </div>
                                     <div ng-hide="category.update_category_edit">
-                                         <md-button aria-label="button" ng-click="showEditCategory(category)">
-                                            <md-icon md-svg-icon="/svg/edit.svg" class="md-avatar"></md-icon>
+                                         <md-button class="md-icon-button" aria-label="button" ng-click="showEditCategory(category)">
+                                           <md-tooltip md-direction="left">
+                                             Edit Role
+                                           </md-tooltip>
+                                            <md-icon md-svg-icon="edit"></md-icon>
                                         </md-button>
-                                        <md-button aria-label="button" ng-click="deleteCategory($event,category)">
-                                            <md-icon md-svg-icon="/svg/delete.svg" class="md-avatar"></md-icon>
+                                        <md-button class="md-icon-button" aria-label="button" ng-click="deleteCategory($event,category)">
+                                          <md-tooltip md-direction="right">
+                                            Delete Rol
+                                          </md-tooltip>
+                                            <md-icon md-svg-icon="delete"></md-icon>
                                         </md-button>
                                     </div>
                                 </div>
@@ -87,8 +102,11 @@
                                 </md-button>
                             </md-card-actions>
                         </div>
-                        <md-button ng-show="btnAddSubCategory" style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="showAddSubCategory()">
-                            <md-icon md-svg-icon="/svg/add-white.svg" class="md-avatar"></md-icon>
+                        <md-button class="md-fab md-fab-fixed-right" aria-label="Eat cake" ng-click="showAddSubCategory()">
+                        	<md-tooltip md-direction="left">
+                        		Add Category
+                        	</md-tooltip>
+                          <md-icon md-svg-icon="add-white"></md-icon>
                         </md-button>
                         <md-content class="md-padding autocomplete">
                             <div ng-show="chipsSubCategories">
@@ -98,10 +116,16 @@
                                 </div>
                                 <div>
                                     <md-button aria-label="button" ng-click="saveSubCategories($event,selected)">
-                                        <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
+                                      <md-tooltip md-direction="left">
+                                        Accept
+                                      </md-tooltip>
+                                        <md-icon md-svg-icon="check"></md-icon>
                                     </md-button>
                                     <md-button aria-label="button" ng-click="clearAllSubCategories($event)">
-                                        <md-icon md-svg-icon="/svg/clear.svg" class="md-avatar"></md-icon>
+                                      <md-tooltip md-direction="right">
+                                        Accept
+                                      </md-tooltip>
+                                        <md-icon md-svg-icon="clear"></md-icon>
                                     </md-button>
                                 </div>
                             </div>
@@ -124,19 +148,31 @@
                                     </div>
                                     <div>
                                         <div ng-show="subcategory.update_sub_category_accept">
-                                            <md-button aria-label="button" ng-click="updateSubCategory($event,subcategory,subcategory_value)">
-                                                <md-icon md-svg-icon="/svg/check.svg" class="md-avatar"></md-icon>
+                                            <md-button class="md-icon-button" aria-label="button" ng-click="updateSubCategory($event,subcategory,subcategory_value)">
+                                              <md-tooltip md-direction="left">
+                                                Accept
+                                              </md-tooltip>
+                                                <md-icon md-svg-icon="check"></md-icon>
                                             </md-button>
-                                            <md-button aria-label="button" ng-click="hideEditSubCategory(subcategory)">
-                                                <md-icon md-svg-icon="/svg/clear.svg" class="md-avatar"></md-icon>
+                                            <md-button class="md-icon-button" aria-label="button" ng-click="hideEditSubCategory(subcategory)">
+                                              <md-tooltip md-direction="right">
+                                                Clear
+                                              </md-tooltip>
+                                                <md-icon md-svg-icon="clear"></md-icon>
                                             </md-button>
                                         </div>
                                         <div ng-hide="subcategory.update_sub_category_edit">
-                                             <md-button aria-label="button" ng-click="showEditSubCategory(subcategory)">
-                                                <md-icon md-svg-icon="/svg/edit.svg" class="md-avatar"></md-icon>
+                                             <md-button class="md-icon-button" aria-label="button" ng-click="showEditSubCategory(subcategory)">
+                                               <md-tooltip md-direction="left">
+                                                 Edit Category
+                                               </md-tooltip>
+                                                <md-icon md-svg-icon="edit"></md-icon>
                                             </md-button>
-                                            <md-button aria-label="button" ng-click="deleteSubCategory($event,selected,subcategory)">
-                                                <md-icon md-svg-icon="/svg/delete.svg" class="md-avatar"></md-icon>
+                                            <md-button class="md-icon-button" aria-label="button" ng-click="deleteSubCategory($event,selected,subcategory)">
+                                              <md-tooltip md-direction="left">
+                                                Delete Category
+                                              </md-tooltip>
+                                                <md-icon md-svg-icon="delete"></md-icon>
                                             </md-button>
                                         </div>
                                     </div>

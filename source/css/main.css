@@ -1,0 +1,11 @@
+.md-fab-fixed-right{
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+}
+
+.md-fab-fixed-left{
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+}
