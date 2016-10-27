@@ -1,13 +1,7 @@
 <md-content class="list" flex>
 	<div layout-padding layout="row">
-		<!--md-button aria-label="Return" href="" class="md-icon-button">
-      <md-tooltip md-direction="down">
-        Go Back
-      </md-tooltip>
-      <ng-md-icon icon="arrow_back" />
-    </md-button-->
 
-		<div flex="95">
+		<div flex>
 			<md-autocomplete md-input-minlength="2" md-input-maxlength="18" md-search-text="searchText" md-items="skill in skills | filter:searchText"
 				md-item-text="skill.name" md-min-lengrh="3" placeholder="Busqueda">
 				<md-item-template>
@@ -21,22 +15,24 @@
 	</div>
 	<md-list layout-wrap>
 		<md-list-item ng-repeat="skill in skillsPerPage | filter:searchText | orderBy:'skill.name'" ng-click="selectSkill(skill)">
-			<div flex="10">
-				<md-button style="min-width: 0px; !important;" aria-label="Delete Skill" ng-click="deleteSkill($event, skill)">
+			<div flex="90">
+				<p>{{skill.name}}</p>
+			</div>
+			<div flex="5">
+				<md-button class="md-icon-button" aria-label="Delete Skill" ng-click="deleteSkill($event, skill)">
 					<md-tooltip md-direction="top">
 						Delete Skill
 					</md-tooltip>
-					<md-icon style="width: 24px; !important;" md-svg-icon="/svg/delete.svg" class="md-avatar"></md-icon>
+					<md-icon md-svg-icon="delete"></md-icon>
 				</md-button>
-				<md-button style="min-width: 0px; !important;" aria-label="Edit Skill" ng-click="manageSkill($event, skill,'U')">
+			</div>
+			<div flex="5">
+				<md-button class="md-icon-button" aria-label="Edit Skill" ng-click="manageSkill($event, skill,'U')">
 					<md-tooltip md-direction="top">
 						Edit Skill
 					</md-tooltip>
-					<md-icon style="width: 24px; !important;" md-svg-icon="/svg/edit.svg" class="md-avatar"></md-icon>
+					<md-icon md-svg-icon="edit"></md-icon>
 				</md-button>
-			</div>
-			<div flex="95">
-				<p>{{skill.name}}</p>
 			</div>
 			<div flex="10">
 				<div>
@@ -84,10 +80,9 @@
 
 </md-content>
 
-<md-button style="position: fixed !important;" class="md-fab md-fab-bottom-right md-primary" aria-label="Add Skill" ng-click="manageSkill($event,undefined,'A')">
+<md-button class="md-fab md-fab-fixed-right" aria-label="Eat cake" ng-click="manageSkill($event,undefined,'A')">
 	<md-tooltip md-direction="left">
 		Add Skill
 	</md-tooltip>
-	<md-icon md-svg-icon="/svg/add-white.svg" class="md-avatar"></md-icon>
+  <md-icon md-svg-icon="add-white"></md-icon>
 </md-button>
-
