@@ -80,6 +80,7 @@
 
       $scope.selectUser = function (user) {
         console.log("User selected : "+user.pk);
+        $state.go('coworker-detail', {employee_id: user.pk})
       };
 
       var showSimpleToast = function(messages) {

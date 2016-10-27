@@ -53,7 +53,10 @@
             parent:'dashboard',
             url: "/coworker-detail",
             templateUrl: "views/coworker-detail.view.html",
-            controller: "controller.coworker-detail"
+            controller: "controller.coworker-detail",
+            params: {
+              employee_id: null
+            }
         });
 
       $urlRouterProvider.otherwise("/login");

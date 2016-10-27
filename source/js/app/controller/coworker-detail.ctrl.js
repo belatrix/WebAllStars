@@ -10,12 +10,13 @@
       'skillService',
       'startService',
       '$mdDialog',
-      '$mdToast'
+      '$mdToast',
+      '$state',
+      '$stateParams'
     ];
 
-    function controllerCoworkerDetail($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast) {
-      var id = 85,
-          showSimpleToast = function(messages) {
+    function controllerCoworkerDetail($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast, $state, $stateParams) {
+      var showSimpleToast = function(messages) {
             $mdToast.show (
               $mdToast.simple()
                 .textContent(messages)
@@ -28,34 +29,42 @@
             $scope.loading = false;
           };
 
-      employeeService.getEmployeeById.user({employee_id : id},
-        function (response) {
-          $scope.user = {
-            userId: response.pk,
-            username: response.username,
-            first_name: response.first_name,
-            last_name: response.last_name,
-            skype_id: response.skype_id,
-            img: response.avatar,
-            location: response.location.name
-          };
-       }, function (error) {
-            showError(error);
-      });
+      if($stateParams.employee_id) {
+          employeeService.getEmployeeById.user({employee_id : $stateParams.employee_id},
+            function (response) {
+              $scope.user = {
+                userId: response.pk,
+                username: response.username,
+                first_name: response.first_name,
+                last_name: response.last_name,
+                skype_id: response.skype_id,
+                img: response.avatar,
+                location: response.location.name
+              };
+           }, function (error) {
+                showError(error);
+          });
 
-      skillService.getSkillsByEmployeeId.list({employee_id : id},
-        function (response) {
-          $scope.skills = response.results;
-        }, function (error) {
-          showError(error);
-      });
+          skillService.getSkillsByEmployeeId.list({employee_id : $stateParams.employee_id},
+            function (response) {
+              $scope.skills = response.results;
+            }, function (error) {
+              showError(error);
+          });
 
-      startService.getStartsByEmployeeId.list({employee_id : id},
-        function (response) {
-          $scope.starts = response.results;
-        }, function (error) {
-          showError(error);
-      });
+          startService.getStartsByEmployeeId.list({employee_id : $stateParams.employee_id},
+            function (response) {
+              $scope.starts = response.results;
+            }, function (error) {
+              showError(error);
+          });
+      } else if (!$stateParams.employee_id != $stateParams.employee_id === null){
+          $state.go('coworkers');
+      }
 
+      $scope.goBack = function () {
+        $state.go('coworkers');
+        console.log("User selected sdsdsd");
+      };
     }
 })();
