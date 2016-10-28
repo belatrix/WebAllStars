@@ -58,7 +58,7 @@
             }, function (error) {
               showError(error);
           });
-      } else if (!$stateParams.employee_id != $stateParams.employee_id === null){
+      } else if (!$stateParams.employee_id){
           $state.go('coworkers');
       }
 
