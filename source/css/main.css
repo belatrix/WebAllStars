@@ -1,11 +1,24 @@
 .md-fab-fixed-right{
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }
 
 .md-fab-fixed-left{
-  position: fixed;
-  bottom: 10px;
-  left: 10px;
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+}
+.avatar-user{
+    max-height: 75px;
+    max-width: 75px;
+    margin-top: 5px;
+    margin-left: 26px;
+    margin-right: 16px;
+    border-radius: 50%;
+    box-sizing: border-box;
+}
+
+.md-list-item-text .label-blue{
+    color:rgb(68,138,255);
 }

@@ -6,9 +6,7 @@
                 <md-icon md-svg-icon="arrow_back"></md-icon>
               </md-button>
                 <div flex="10">
-                  <img alt="{{ user.username }}"
-                    style="max-height: 75px; max-width: 75px; margin-top: 5px; margin-left: 26px; margin-right: 16px; border-radius: 50%; box-sizing: border-box;" 
-                    src="{{ user.img }}" data-pin-nopin="true">
+                  <img alt="{{ user.username }}" class="avatar-user" src="{{ user.img }}" data-pin-nopin="true">
                 </div>
                 <div flex="90">
                     <div layout="column">
@@ -33,8 +31,8 @@
                 <md-icon md-svg-icon="verified_user" class="md-avatar">
                     </md-icon>
                 <div class="md-list-item-text" layout="column">
-                    <h3>{{item.name}}</h3>
-                    <h4>{{item.description}}</h4>
+                    <h3>{{ item.name }}</h3>
+                    <h4>{{ item.description }}</h4>
                </div>
                 <md-divider inset></md-divider>
             </md-list-item>
@@ -49,15 +47,15 @@
                 <img ng-src="{{ item.from_user.avatar }}" class="md-avatar" />
                 <div class="md-list-item-text" layout="column" flex="40">
                     <p>Co worker</p>
-                    <h3>{{item.from_user.first_name}} {{item.from_user.last_name}}</h3>
+                    <h3>{{ item.from_user.first_name }} {{ item.from_user.last_name }}</h3>
                </div>
                <div class="md-list-item-text" layout="column" flex="25">
                     <p>Comentario</p>
-                    <h3>{{item.text}}</h3>
+                    <h3>{{ item.text }}</h3>
                </div>
                <div class="md-list-item-text" layout="column" flex="25">
                     <p>Recomendaciones</p>
-                    <h3 style="color:rgb(68,138,255);">{{item.keyword.name}}</h3>
+                    <h3 class="label-blue">{{ item.keyword.name }}</h3>
                </div>
                 <md-divider inset></md-divider>
             </md-list-item>
