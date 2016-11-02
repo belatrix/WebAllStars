@@ -10,6 +10,7 @@
         'ui.router',
         'config.routes',
         'config.theme',
+        'config.i18n',        
         'module.controller',
         'module.service',
         'module.constant',
