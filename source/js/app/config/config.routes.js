@@ -22,6 +22,10 @@
               'content@': {
                 templateUrl: 'layout/leftSide.view.html',
                 controller: 'controller.leftSide',
+              },
+              'chat@':{
+                templateUrl: 'layout/rightSide.view.html',
+                controller: 'controller.rightSide'
               }
             }
         }).state('login', {

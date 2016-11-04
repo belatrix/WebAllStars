@@ -7,14 +7,17 @@
               </md-button>
                 <div flex="10">
                   <img alt="{{ user.username }}"
-                    style="max-height: 75px; max-width: 75px; margin-top: 5px; margin-left: 26px; margin-right: 16px; border-radius: 50%; box-sizing: border-box;" 
+                    style="max-height: 75px; max-width: 75px; margin-top: 5px; margin-left: 26px; margin-right: 16px; border-radius: 50%; box-sizing: border-box;"
                     src="{{ user.img }}" data-pin-nopin="true">
                 </div>
                 <div flex="90">
                     <div layout="column">
                     <div flex class="md-display-2">
                         {{ user.first_name }} {{ user.last_name }}
-                        <md-button class="md-accent md-raised"> Mensaje </md-button>
+                      <md-button class="md-accent md-raised"
+                        ng-click="toggleRight()"
+                        aria-label="Chat"> Mensaje
+                      </md-button>
                     </div>
                     <div flex class="md-subhead">{{ user.skype_id }}</div>
                     <div flex class="md-subhead">{{ user.location  }}</div>

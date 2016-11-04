@@ -1,0 +1,28 @@
+<md-sidenav class="md-sidenav-right md-whiteframe-4dp"
+  md-component-id="right">
+
+  <md-toolbar>
+    <div class="md-toolbar-tools">
+      <h1 class="md-toolbar-tools">
+        Chat
+      </h1>
+      <md-button class="md-icon-button"
+        ng-click="close()"
+        aria-label="Chat">
+        <md-icon md-svg-icon="arrow_forward">
+        </md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding>
+
+  </md-content>
+
+</md-sidenav>
+
+<md-content class="main" id="container" flex >
+
+  <ui-view></ui-view>
+
+</md-content>
