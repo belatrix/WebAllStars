@@ -16,9 +16,8 @@
 					<md-input-container class="md-block" flex-gt-sm>
 						<label>Status</label>
 						<md-select ng-model="skill.is_active" name="status" required>
-							<md-option ng-repeat="o in options" ng-value="o.value">
-								{{o.label}}
-							</md-option>
+							<md-option ng-value="true">Activo</md-option>
+							<md-option ng-value="false">Inactivo</md-option>
 						</md-select>
 						<div ng-messages="skillForm.status.$error">
 							<div ng-message="required">This is required.</div>

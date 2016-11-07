@@ -121,7 +121,7 @@
         params: {
         },
         actions: {
-          'get': { method: 'GET', isArray: true }
+          'get': { method: 'GET' }
         }
       },
       updateCategory: {
@@ -170,7 +170,7 @@
         params: {
         },
         actions: {
-          'get': { method: 'GET', isArray: true }
+          'get': { method: 'GET' }
         }
       },
       registerSubCategory: {

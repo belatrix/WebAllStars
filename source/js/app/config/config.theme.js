@@ -21,6 +21,10 @@
         .icon("person", "svg/person.svg", 24)
         .icon("logout", "svg/ic_close_light.svg", 24)
         .icon("close", "svg/close.svg", 24)
+        .icon("edit", "svg/edit.svg", 24)
+        .icon("delete", "svg/delete.svg", 24)
+        .icon("check", "svg/check.svg", 24)
+        .icon("clear", "svg/clear.svg", 24)
         .icon("verified_user", "svg/verified_user.svg", 24);
 
       $mdThemingProvider.theme('default').primaryPalette('deep-orange')
