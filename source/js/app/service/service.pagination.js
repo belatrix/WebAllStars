@@ -13,6 +13,14 @@
 				service.GetPager = GetPager;
 				return service;
 
+				function range(start, end) {
+				    var foo = [];
+				    for (var i = start; i <= end; i++) {
+				        foo.push(i);
+				    }
+				    return foo;
+				}
+
 				// service implementation
 				function GetPager(totalItems, currentPage, pageSize) {
 					// default page size is 20
@@ -44,7 +52,8 @@
 					var startIndex = (currentPage - 1) * pageSize;
 					var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 					// create an array of pages to ng-repeat in the pager control
-					var pages = _.range(startPage, endPage + 1);
+					var pages = range(startPage, endPage + 1);
+					//var pages = [1,2,3];
 					// return object with all pager properties required by the view
 					return {
 						totalItems: totalItems,

@@ -7,17 +7,17 @@
 			<div layout="column" layout-padding>
 				<div layout-gt-sm="row">
 					<md-input-container class="md-block" flex-gt-sm>
-						<label>Skill name</label>
+						<label><div translate="lbl_new_skill"></div></label>
 						<input ng-model="skill.name" name="name" required>
 						<div ng-messages="skillForm.name.$error">
 							<div ng-message="required">This is required.</div>
 						</div>
 					</md-input-container>
 					<md-input-container class="md-block" flex-gt-sm>
-						<label>Status</label>
+						<label><div translate="lbl_status"></div></label>
 						<md-select ng-model="skill.is_active" name="status" required>
-							<md-option ng-value="true">Activo</md-option>
-							<md-option ng-value="false">Inactivo</md-option>
+							<md-option ng-value="true"><div translate="lbl_active"></div></md-option>
+							<md-option ng-value="false"><div translate="lbl_inactive"></div></md-option>
 						</md-select>
 						<div ng-messages="skillForm.status.$error">
 							<div ng-message="required">This is required.</div>
@@ -29,10 +29,10 @@
 
 		<md-dialog-actions layout="row">
 			<md-button ng-click="cancel()">
-				Cancel
+				<div translate="lbl_btncancelar"></div>
 			</md-button>
 			<md-button type="submit" class="md-primary md-raised" ng-disabled="skillForm.$invalid">
-				Save
+				<div translate="lbl_btnsave"></div>
 			</md-button>
 		</md-dialog-actions>
 	</form>

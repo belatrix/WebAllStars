@@ -11,10 +11,11 @@
         'serviceStorage',
         '$mdDialog',
         '$mdToast',
-        '$q', '$timeout'
+        '$q', '$timeout',
+        '$translate'
     ];
 
-    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
+    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout,$translate) {
 
       var listEmployee=function(employee){
         var objReq={};

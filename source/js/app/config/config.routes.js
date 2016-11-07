@@ -22,6 +22,10 @@
               'content@': {
                 templateUrl: 'layout/leftSide.view.html',
                 controller: 'controller.leftSide',
+              },
+              'footer@': {
+                templateUrl: 'layout/footer.view.html',
+                controller: 'controller.footer',
               }
             }
         }).state('login', {
