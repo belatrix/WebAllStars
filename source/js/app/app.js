@@ -9,8 +9,7 @@
         'ngMessages',
         'ui.router',
         'config.routes',
-        'config.theme',
-        'config.i18n',        
+        'config.theme',       
         'module.controller',
         'module.service',
         'module.constant',
@@ -28,7 +27,8 @@
         lblUbication:'Ubication',
         lblRecomendation:'Recomendation',
         lblLocked:'Locked',
-        lblUnLocked:'UnLocked',
+        lblUnLocked:'Unlocked',
+        lblFindCoworkers:'Find Coworker',
         //-- Categories
         lblRol : 'Rol',
         lblFindCategory : 'Find Categories',
@@ -70,6 +70,7 @@
         lblRecomendation:'Recomendación',
         lblLocked:'Bloqueado',
         lblUnLocked:'Desbloqueado',
+        lblFindCoworkers:'Buscar Trabajador',
         // -- Categoria
         lblRol : 'Rol',
         lblFindCategory : 'Buscar Categorias',
@@ -100,7 +101,7 @@
         lbl_status : 'Estado'
         
       });
-      $translateProvider.preferredLanguage('es');
+      $translateProvider.preferredLanguage('en');
     });
 
     app.config(function ($httpProvider, $resourceProvider) {

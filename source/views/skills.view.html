@@ -37,9 +37,17 @@
 			<div flex="10">
 				<div>
 					<div layout="row" layout-align="center" layout-margin>
-						<md-switch ng-model="skill.is_active" ng-click="showConfirm($event, skill)">
+						<!--<md-switch ng-model="skill.is_active" ng-click="showConfirm($event, skill)">
 							{{skill.is_active === true ? switchState = "Activo" : switchState = "Inactivo"}}
-						</md-switch>
+						</md-switch>-->
+						<md-switch ng-model="skill.is_active" ng-click="showConfirm($event, skill)">
+                        </md-switch>
+                        <div ng-if="skill.is_active === true">
+                          <div translate="lbl_active"></div>  
+                        </div>
+                        <div ng-if="skill.is_active === false">
+                          <div translate="lbl_inactive"></div>
+                        </div>
 					</div>
 				</div>
 			</div>

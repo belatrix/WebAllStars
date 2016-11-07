@@ -7,7 +7,7 @@
             <div class="md-toolbar-tools">
                 <md-input-container class="md-block" md-no-float flex-gt-sm>
                     <md-icon md-svg-icon="search"></md-icon>
-                    <input ng-model="searchText" ng-model-options='{ debounce: 500 }' ng-change="list_specific(searchText)" type="text" placeholder="Buscar" >
+                    <input ng-model="searchText" ng-model-options='{ debounce: 500 }' ng-change="list_specific(searchText)" type="text" placeholder="{{ 'lblFindCoworkers' | translate }}">
                 </md-input-container>
             </div>
         
@@ -40,9 +40,17 @@
                             <div flex="25">
                                 <div>
                                     <div layout="row" layout-align="center" layout-margin>
-                                        <md-switch ng-model="user.is_blocked" ng-click="showConfirm($event,user)">
+                                        <!--<md-switch ng-model="user.is_blocked" ng-click="showConfirm($event,user)">
                                             {{user.is_blocked === true ? active = "Bloqueado" : active = "Desbloqueado"}}
+                                        </md-switch>-->
+                                        <md-switch ng-model="user.is_blocked" ng-click="showConfirm($event,user)">
                                         </md-switch>
+                                        <div ng-if="user.is_blocked === true">
+                                          <div translate="lblLocked"></div>  
+                                        </div>
+                                        <div ng-if="user.is_blocked === false">
+                                          <div translate="lblUnLocked">  
+                                        </div>
                                     </div>
                                 </div>
                     </md-list-item>

@@ -52,7 +52,7 @@
 					var startIndex = (currentPage - 1) * pageSize;
 					var endIndex = Math.min(startIndex + pageSize - 1, totalItems - 1);
 					// create an array of pages to ng-repeat in the pager control
-					var pages = range(startPage, endPage + 1);
+					var pages = range(startPage, endPage );
 					//var pages = [1,2,3];
 					// return object with all pager properties required by the view
 					return {
