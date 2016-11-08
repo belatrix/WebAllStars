@@ -9,8 +9,8 @@
 		'module.controller.coworkers',
 		'module.controller.skills',
     'module.controller.category',
-		'module.controller.coworker-detail'
-
+		'module.controller.coworker-detail',
+		'module.controller.footer'
 	]);
 
 
