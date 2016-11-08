@@ -10,6 +10,11 @@
   "coworkers.switch.locked": "Bloqueado",
   "coworkers.switch.unlocked": "Desbloqueado",
   "coworkers.text.findcoworkers": "Buscar Trabajador",
+
+  "coworkers.detail.tab1": "HABILIDADES",
+  "coworkers.detail.tab2": "RECOMENDACIONES",
+  "coworkers.detail.messages.nothabilities" : "No se encontraron habilidades para ",
+  "coworkers.detail.messages.notrecomendation" : "No se encontraron recomendaciones para",
   
   "category.subtitle.rol": "Rol",
   "category.text.findcategory": "Buscar Categorias",
@@ -20,6 +25,7 @@
   "btn.add": "Agregar",
   "btn.save": "Guardar",
   "btn.cancel": "Cancelar",
+  "btn.message": "Mensaje",
 
   "tooltip.add.rol": "Agregar Rol",
   "tooltip.add.category": "Agregar Categoria",
@@ -32,10 +38,10 @@
   "tooltip.next": "Siguiente",
   "tooltip.last": "Ultimo ",
   
-  "skills.switch.active": "Activo",
-  "skills.switch.inactive": "Inactivo",
   "skills.text.findskills": "Buscar Habilidades",
   "skills.text.newskills": "Nombre de Habilidad",
+  "skills.switch.active": "Activo",
+  "skills.switch.inactive": "Inactivo",
   "skills.combo.status": "Estado",
 
   "footer.language": "Idioma :",
