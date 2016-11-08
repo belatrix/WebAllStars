@@ -14,6 +14,7 @@
         'module.service',
         'module.constant',
         'module.component'
+        ,'pascalprecht.translate'
     ]).config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
             prefix: 'js/app/config/i18n/locale-',
