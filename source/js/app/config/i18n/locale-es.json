@@ -6,7 +6,7 @@
 
   "coworkers.subtitle.coworkers": "Trabajadores",
   "coworkers.subtitle.ubication": "Ubicación",
-  "coworkers.subtitle.recomendation": "Recomendación",
+  "coworkers.subtitle.recomendation": "Recomendación",  
   "coworkers.switch.locked": "Bloqueado",
   "coworkers.switch.unlocked": "Desbloqueado",
   "coworkers.text.findcoworkers": "Buscar Trabajador",
@@ -15,6 +15,7 @@
   "category.text.findcategory": "Buscar Categorias",
   "category.text.newcategory": "Nueva Categoria",
   "category.text.newrol": "Nueva Rol",
+  "category.emptylist": "No hay Categoria",
 
   "btn.add": "Agregar",
   "btn.save": "Guardar",
@@ -38,7 +39,7 @@
   "skills.combo.status": "Estado",
 
   "footer.language": "Idioma :",
-  
+
   "header.menu.logout": "Cerrar Sesión"
 
 }

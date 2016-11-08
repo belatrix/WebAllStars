@@ -3,7 +3,7 @@
 
 		<div flex>
 			<md-autocomplete md-input-minlength="2" md-input-maxlength="18" md-search-text="searchText" md-items="skill in skills | filter:searchText"
-				md-item-text="skill.name" md-min-lengrh="3" placeholder="{{ 'lbl_FindSkills' | translate }}">
+				md-item-text="skill.name" md-min-lengrh="3" placeholder="{{ 'skills.text.findskills' | translate }}">
 				<md-item-template>
 					<span md-highlight-text="searchText" md-highlight-flags="^i">{{skill.name}}</span>
 				</md-item-template>
@@ -21,7 +21,7 @@
 			<div flex="5">
 				<md-button class="md-icon-button" aria-label="Delete Skill" ng-click="deleteSkill($event, skill)">
 					<md-tooltip md-direction="top">
-						<div translate="tooltip.add.delete"></div>
+						<div translate="tooltip.delete"></div>
 					</md-tooltip>
 					<md-icon md-svg-icon="delete"></md-icon>
 				</md-button>
@@ -29,7 +29,7 @@
 			<div flex="5">
 				<md-button class="md-icon-button" aria-label="Edit Skill" ng-click="manageSkill($event, skill,'U')">
 					<md-tooltip md-direction="top">
-						<div translate="tooltip.add.edit"></div>
+						<div translate="tooltip.edit"></div>
 					</md-tooltip>
 					<md-icon md-svg-icon="edit"></md-icon>
 				</md-button>
@@ -43,10 +43,10 @@
 						<md-switch ng-model="skill.is_active" ng-click="showConfirm($event, skill)">
                         </md-switch>
                         <div ng-if="skill.is_active === true">
-                          <div translate="lbl_active"></div>  
+                          <div translate="skills.switch.active"></div>  
                         </div>
                         <div ng-if="skill.is_active === false">
-                          <div translate="lbl_inactive"></div>
+                          <div translate="skills.switch.inactive"></div>
                         </div>
 					</div>
 				</div>
@@ -58,13 +58,13 @@
 
 		<md-button ng-class="{disabled:pager.currentPage === 1}" aria-label="First" ng-click="setPage(1)">
 			<md-tooltip md-direction="top">
-				<div translate="lbl_tooltip_first"></div>
+				<div translate="tooltip.first"></div>
 			</md-tooltip>
 			<md-icon md-svg-icon="/svg/fast_rewind.svg" class="md-avatar"></md-icon>
 		</md-button>
 		<md-button ng-class="{disabled:pager.currentPage === 1}" aria-label="Previous" ng-click="setPage(pager.currentPage - 1)">
 			<md-tooltip md-direction="top">
-				<div translate="lbl_tooltip_previous"></div>
+				<div translate="tooltip.previous"></div>
 			</md-tooltip>
 			<md-icon md-svg-icon="/svg/skip_previous.svg" class="md-avatar"></md-icon>
 		</md-button>
@@ -73,13 +73,13 @@
 		</md-button>
 		<md-button ng-class="{disabled:pager.currentPage === pager.totalPages}" aria-label="Next" ng-click="setPage(pager.currentPage + 1)">
 			<md-tooltip md-direction="top">
-				<div translate="lbl_tooltip_next"></div>
+				<div translate="tooltip.next"></div>
 			</md-tooltip>
 			<md-icon md-svg-icon="/svg/skip_next.svg" class="md-avatar"></md-icon>
 		</md-button>
 		<md-button ng-class="{disabled:pager.currentPage === pager.totalPages}" aria-label="Last" ng-click="setPage(pager.totalPages)">
 			<md-tooltip md-direction="top">
-				<div translate="lbl_tooltip_last"></div>
+				<div translate="tooltip.last"></div>
 			</md-tooltip>
 			<md-icon md-svg-icon="/svg/fast_forward.svg" class="md-avatar"></md-icon>
 		</md-button>

@@ -15,6 +15,7 @@
   "category.text.findcategory": "Find Categories",
   "category.text.newcategory": "New Categories",
   "category.text.newrol": "New Rol",
+  "category.emptylist": "There isn't category",
 
   "tooltip.add.rol": "Add Rol",
   "tooltip.add.category": "Add Category",
