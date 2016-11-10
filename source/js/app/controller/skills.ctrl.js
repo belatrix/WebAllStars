@@ -20,18 +20,18 @@
       self.loading = true;
       self.messages_load = messages;
       self.error_messages = false;
-    }
+    };
     var onList = function () {
       skillService.skills.list(function (response) {
         console.log("Exitooooo");
         var array_skills = response.results;
         $scope.skills = array_skills;
         self.items = $scope.skills;
-        console.log("A : " + self.items)
+        console.log("A : " + self.items);
         initController();
       }, function (error) {
         showError(error);
-      })
+      });
     };
 
     onList();
@@ -39,7 +39,7 @@
     //Pagination Section
     $scope.pager = {};
     $scope.setPage  = function (page) {
-      console.log("B : " + self.items.length)
+      console.log("B : " + self.items.length);
       if (page < 1 || page > $scope.pager.totalPages) {
         return;
       }
@@ -148,10 +148,10 @@
       $scope.save = function () {
         $mdDialog.hide($scope.skill);
       };
-    };
-    $scope.manageSkill = function ($event, skill, operation) {
-      var tempData = undefined;
-      var operation = operation;
+    }
+    $scope.manageSkill = function ($event, skill, operation_) {
+      var tempData;
+      var operation = operation_;
       if (skill === undefined) {
         tempData = {};
       } else {
