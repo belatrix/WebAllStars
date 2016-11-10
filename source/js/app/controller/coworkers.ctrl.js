@@ -30,18 +30,18 @@
           $scope.searchText = '';
           $scope.users = array_users;
           $scope.selected = $scope.users[0];
-          if(employee!=null){
-            $scope.searchText=employee;  
+          if(employee !== null){
+            $scope.searchText=employee;
           }
           stopWaitingEffect();
         }, function (error) {
             showError(error);
         });
-      }
+      };
 
       $scope.list_specific=function(employee){
         listEmployee(employee);
-      }
+      };
 
       listEmployee(null);
 
@@ -55,10 +55,10 @@
           }else{
             user.is_blocked=true;
           }
-          
+
           showError(error);
         });
-      }
+      };
 
       $scope.showConfirm = function(ev,user) {
         var confirm = $mdDialog.confirm()
@@ -76,11 +76,11 @@
             user.is_blocked=true;
           }
         });
-      }; 
+      };
 
       $scope.selectUser = function (user) {
         console.log("User selected : "+user.pk);
-        $state.go('coworker-detail', {employee_id: user.pk})
+        $state.go('coworker-detail', {employee_id: user.pk});
       };
 
       var showSimpleToast = function(messages) {
@@ -94,12 +94,12 @@
 
       var stopWaitingEffect=function(){
         $scope.loading=false;
-      }
-      
+      };
+
       var showError=function(error){
         showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
         $scope.loading=false;
-      }
-      
+      };
+
     }
 })();
