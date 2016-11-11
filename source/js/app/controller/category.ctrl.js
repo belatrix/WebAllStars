@@ -185,7 +185,6 @@
             $scope.callUpdateSubCategoryService(category,newValue);
           }else if(event == 'clear_sub_categories'){
             $scope.asyncSubCategories=[];
-            $scope.asyncSubCategories="";
           }else if(event == 'add_sub_categories'){
             $scope.callAddSubCategoryService(category);
           }else if(event == 'delete_sub_category'){
