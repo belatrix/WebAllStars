@@ -5,7 +5,7 @@
 
     controllerCoworkerDetail.$inject=[
     	'$scope',
-      'employeeService',
+      'employeeService',      
       'loginService',
       'skillService',
       'startService',
@@ -22,7 +22,7 @@
                 .textContent(messages)
                 .position('top right' )
                 .hideDelay(3000)
-          );},
+          )},
           showError = function(error){
             $scope.error_messages = true;
             showSimpleToast("ERROR EN EL PROCESO. Status: "+error.status+", "+error.statusText);

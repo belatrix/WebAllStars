@@ -16,7 +16,7 @@
 
       }, function (error) {
 
-      });
+      })
 
       var imagePath = 'https://trello-avatars.s3.amazonaws.com/8e19c573c63d0ff0a4be0fe5c352891b/170.png';
 
@@ -94,7 +94,7 @@
       $scope.selected = $scope.users[0];
       $scope.selectUser = function (user) {
         $scope.selected = user;
-      };
+      }
 
     }
 
