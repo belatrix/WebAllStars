@@ -3,9 +3,9 @@
   angular.module('module.controller.coworkers', [])
     .controller('controller.coworkers', controllerCoworkers);
 
-    controllerCoworkers.$inject=['$scope','$resourceService','$state','employeeService','serviceStorage','$mdDialog','$mdToast','$q', '$timeout'];
+    controllerCoworkers.$inject=['$scope','$resourceService','$state','employeeService','serviceStorage','$mdDialog','$mdToast','$q', '$timeout','$translate'];
 
-    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
+    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout,$translate) {
 
       /* private */
       function list_Employee(employee){
