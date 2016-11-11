@@ -9,13 +9,19 @@
         'ngMessages',
         'ui.router',
         'config.routes',
-        'config.theme',
+        'config.theme',       
         'module.controller',
         'module.service',
         'module.constant',
         'module.component'
-    ]);
-
+        ,'pascalprecht.translate'
+    ]).config(function ($translateProvider) {
+        $translateProvider.useStaticFilesLoader({
+            prefix: 'js/app/config/i18n/locale-',
+            suffix: '.json'
+        });
+      $translateProvider.preferredLanguage('en');
+    });
 
     app.config(function ($httpProvider, $resourceProvider) {
       $resourceProvider.defaults.stripTrailingSlashes = false;
@@ -53,7 +59,6 @@
       }]);
 
     });
-
     app.run( function( $rootScope ,$resourceService, $state, serviceStorage) {
       var checkingSession,
           hasToken;

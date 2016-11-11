@@ -9,10 +9,11 @@
       '$mdDialog',
       '$mdUtil',
       '$mdSidenav',
-      'loginService'
+      'loginService',
+      '$translate'
     ];
 
-    function controllerHeader($scope, $state, $mdDialog, $mdUtil, $mdSidenav, loginService) {
+    function controllerHeader($scope, $state, $mdDialog, $mdUtil, $mdSidenav, loginService, $translate) {
 
       $scope.toggleLeft = buildToggler('left');
 
@@ -36,6 +37,9 @@
         loginService.logOut();
       };
 
+      $scope.switchLanguage = function(lang) {
+        $translate.use(lang);
+      };
     }
 
 })();
