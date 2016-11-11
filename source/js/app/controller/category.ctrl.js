@@ -27,8 +27,6 @@
       var listCategory=function(){
         categoryService.category.list(null,function (response) {
           var array_category=[];
-          var i=0;
-          var array_sub_categories = [];
           var response_list=response.results;
           for(var j=0;j<response_list.length;j++){
             //-- Only active Category
@@ -102,7 +100,6 @@
       $scope.listSubCategory=function(sub_categories){
         categoryService.category.list_sub_category(null,function (response) {
           var array_category=[];
-          var k=0;
           var result_sub_category=response.results;
           for(var i=0;i<result_sub_category.length;i++){
             var detail_sub_category=result_sub_category[i];
