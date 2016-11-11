@@ -3,28 +3,20 @@
   angular.module('module.controller.skills', [])
     .controller('controller.skills', controllerSkills);
 
-  controllerSkills.$inject = [
-    '$scope',
-    '$mdMedia',
-    'skillService',
-    'paginationService',
-    '$mdDialog',
-    '$mdToast'
-  ];
+  controllerSkills.$inject = ['$scope','$mdMedia','skillService','paginationService','$mdDialog','$mdToast'];
 
   function controllerSkills($scope, $mdMedia, skillService, paginationService, $mdDialog, $mdToast) {
 
     this.$mdMedia = $mdMedia;
     var self = this;
-    var waitingEfects = function (messages) {
+    var waitingEffects = function (messages) {
       self.loading = true;
       self.messages_load = messages;
       self.error_messages = false;
     };
     function onList() {
       skillService.skills.list(function (response) {
-        var array_skills = response.results;
-        $scope.skills = array_skills;
+        $scope.skills = response.results;
         self.items = $scope.skills;
         initController();
       }, function (error) {
@@ -60,7 +52,6 @@
       );
     }
     function showError(error) {
-      console.log(error);
       showSimpleToast("ERROR EN EL PROCESO. " + error.data.name);
       self.loading = false;
     }
@@ -68,7 +59,7 @@
       self.loading = false;
     }
     function onChange(skill) {
-      waitingEfects("Actualizando...");
+      waitingEffects("Actualizando...");
       skillService.skills.updateState({ keyword_id: skill.id, name: skill.name, is_active: skill.is_active }, function () {
         stopWaitingEffect();
         showSimpleToast('Se actualizó el registro correctamente');
@@ -79,7 +70,7 @@
       });
     }
     function onCreate(skill) {
-      waitingEfects("Creando...");
+      waitingEffects("Creando...");
       skillService.skills.create({ name: skill.name, is_active: skill.is_active }, function () {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se ha creado el registro correctamente');
@@ -89,7 +80,7 @@
       });
     }
     function onDelete(skill) {
-      waitingEfects("Creando...");
+      waitingEffects("Creando...");
       skillService.skills.delete({ kind: 'keyword', id: skill.id }, function () {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se ha eliminado el registro correctamente');
@@ -165,9 +156,7 @@
           onCreate(skill);
         else
           onChange(skill);
-        console.log('You confirm the edition.');
       }, function () {
-        console.log('You cancelled the dialog.');
       });
     };
     $scope.deleteSkill = function (ev, skill) {
@@ -180,7 +169,7 @@
       $mdDialog.show(confirm).then(function () {
         onDelete(skill);
       }, function () {
-        console.log('You cancelled the dialog.');
+
       });
     };
 
