@@ -45,7 +45,7 @@
                 showError(error);
           });
 
-          skillService.listByEmployeedId({employee_id : $stateParams.employee_id},
+          skillService.listByEmployeeId({employee_id : $stateParams.employee_id},
             function (response) {
               $scope.skills = response.results;
             }, function (error) {
