@@ -1,21 +1,11 @@
 (function() {
   'use strict';
   angular.module('module.controller.coworker-detail', [])
-    .controller('controller.coworker-detail', controllerCoworkerDetail);
+    .controller('controller.coworker-detail', coworkerDetailController);
 
-    controllerCoworkerDetail.$inject=[
-    	'$scope',
-      'employeeService',      
-      'loginService',
-      'skillService',
-      'startService',
-      '$mdDialog',
-      '$mdToast',
-      '$state',
-      '$stateParams'
-    ];
+    coworkerDetailController.$inject=['$scope','employeeService','loginService','skillService','startService','$mdDialog','$mdToast','$state','$stateParams'];
 
-    function controllerCoworkerDetail($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast, $state, $stateParams) {
+    function coworkerDetailController($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast, $state, $stateParams) {
       var showSimpleToast = function(messages) {
             $mdToast.show (
               $mdToast.simple()

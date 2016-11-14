@@ -1,11 +1,11 @@
 (function() {
   'use strict';
   angular.module('module.controller.coworkers', [])
-    .controller('controller.coworkers', controllerCoworkers);
+    .controller('controller.coworkers', coworkersController);
 
-    controllerCoworkers.$inject=['$scope','$resourceService','$state','employeeService','serviceStorage','$mdDialog','$mdToast','$q', '$timeout','$translate'];
+    coworkersController.$inject=['$scope','$resourceService','$state','employeeService','serviceStorage','$mdDialog','$mdToast','$q', '$timeout','$translate'];
 
-    function controllerCoworkers($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout,$translate) {
+    function coworkersController($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout,$translate) {
 
       /* private */
       function list_Employee(employee){
@@ -34,7 +34,7 @@
       }
 
       /* public */
-      $scope.list_specific=function(employee){
+      $scope.listSpecific=function(employee){
         list_Employee(employee);
       }
 
