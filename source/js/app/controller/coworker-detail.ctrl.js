@@ -52,7 +52,7 @@
               showError(error);
           });
 
-          startService.getStartsByEmployeeId.list({employee_id : $stateParams.employee_id},
+          startService.list({employee_id : $stateParams.employee_id},
             function (response) {
               $scope.starts = response.results;
             }, function (error) {
