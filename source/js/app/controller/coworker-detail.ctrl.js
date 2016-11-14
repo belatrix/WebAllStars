@@ -45,7 +45,7 @@
                 showError(error);
           });
 
-          skillService.getSkillsByEmployeeId.list({employee_id : $stateParams.employee_id},
+          skillService.listByEmployeedId({employee_id : $stateParams.employee_id},
             function (response) {
               $scope.skills = response.results;
             }, function (error) {
@@ -64,7 +64,6 @@
 
       $scope.goBack = function () {
         $state.go('coworkers');
-        console.log("User selected sdsdsd");
       };
     }
 })();

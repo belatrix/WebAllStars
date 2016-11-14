@@ -15,7 +15,7 @@
       self.error_messages = false;
     };
     function onList() {
-      skillService.skills.list(function (response) {
+      return skillService.list(function (response) {
         $scope.skills = response.results;
         self.items = $scope.skills;
         initController();
@@ -60,7 +60,7 @@
     }
     function onChange(skill) {
       waitingEffects("Actualizando...");
-      skillService.skills.updateState({ keyword_id: skill.id, name: skill.name, is_active: skill.is_active }, function () {
+      return skillService.updateState({ keyword_id: skill.id, name: skill.name, is_active: skill.is_active }, function () {
         stopWaitingEffect();
         showSimpleToast('Se actualizó el registro correctamente');
         onList();
@@ -71,7 +71,7 @@
     }
     function onCreate(skill) {
       waitingEffects("Creando...");
-      skillService.skills.create({ name: skill.name, is_active: skill.is_active }, function () {
+      return skillService.create({ name: skill.name, is_active: skill.is_active }, function () {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se ha creado el registro correctamente');
         onList();
@@ -81,7 +81,7 @@
     }
     function onDelete(skill) {
       waitingEffects("Creando...");
-      skillService.skills.delete({ kind: 'keyword', id: skill.id }, function () {
+      return skillService.delete({ kind: 'keyword', id: skill.id }, function () {
         stopWaitingEffect();
         showSimpleToast('EXITO. Se ha eliminado el registro correctamente');
         onList();
