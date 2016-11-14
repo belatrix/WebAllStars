@@ -7,7 +7,10 @@
             <div class="md-toolbar-tools">
                 <md-input-container class="md-block" md-no-float flex-gt-sm>
                     <md-icon md-svg-icon="search"></md-icon>
-                    <input ng-model="searchText" ng-model-options='{ debounce: 500 }' ng-change="listSpecific(searchText)" type="text" placeholder="{{ 'coworkers.text.findcoworkers' | translate }}">
+                    <input ng-model="searchText" 
+                           ng-model-options='{ debounce: 500 }' 
+                           ng-change="listSpecific(searchText)" 
+                           type="text" placeholder="{{ 'coworkers.text.findcoworkers' | translate }}">
                 </md-input-container>
             </div>
 
