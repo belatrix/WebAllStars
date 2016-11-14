@@ -12,7 +12,7 @@
                     updateState: updateState,
                     create: create,
                     delete: delete_,
-                    listByEmployeedId: listByEmployeedId
+                    listByEmployeeId: listByEmployeedId
                 };
 
                 function list(query,fnSuccess,fnError) {
