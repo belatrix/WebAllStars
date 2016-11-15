@@ -3,9 +3,9 @@
   angular.module('module.controller.category', [])
     .controller('controller.category', categoryController);
 
-    categoryController.$inject=['$scope','$resourceService','$state','categoryService','serviceStorage','$mdDialog','$mdToast','$q', '$timeout'];
+    categoryController.$inject=['$scope','$resourceService','$state','categoryService','storageService','$mdDialog','$mdToast','$q', '$timeout'];
 
-    function categoryController($scope,$resourceService,$state,categoryService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
+    function categoryController($scope,$resourceService,$state,categoryService,storageService,$mdDialog,$mdToast,$q, $timeout) {
       var cachedQuery,lastSearch;
       var pendingSearch,cancelSearch = angular.noop;
       $scope.asyncSubCategories = [];

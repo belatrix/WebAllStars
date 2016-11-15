@@ -4,9 +4,9 @@
 
 		.service('paginationService', [
 			'$resourceService',
-			'serviceStorage',
+			'storageService',
 			'$state',
-			function ($resourceService, serviceStorage, $state) {
+			function ($resourceService, storageService, $state) {
 
 				// service definition
 				var service = {};

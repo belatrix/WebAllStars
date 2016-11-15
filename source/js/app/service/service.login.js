@@ -5,9 +5,9 @@
 
 	.service('loginService', [
 		'$resourceService',
-		'serviceStorage',
+		'storageService',
 		'$state',
-		function ($resourceService, serviceStorage, $state) {
+		function ($resourceService, storageService, $state) {
 
 			this.signIn = function (query,fnSuccess,fnError) {
 				console.log("***"+query.username+"***"+query.password);
@@ -16,7 +16,7 @@
 			};
 
 			this.logOut = function () {
-				serviceStorage.deleteData('token');
+				storageService.deleteData('token');
 				$state.go('login');
 			}
 

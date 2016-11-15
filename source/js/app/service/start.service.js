@@ -4,9 +4,9 @@
 	angular.module('module.service.start', [])
 
 	.factory('startService', startService);
-	startService.$inject = ['serviceStorage','$resourceService','$state'];
+	startService.$inject = ['storageService','$resourceService','$state'];
 
-		function startService(serviceStorage, $resourceService, $state) {
+		function startService(storageService, $resourceService, $state) {
 
 			return {
 				list: list

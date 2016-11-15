@@ -4,9 +4,9 @@
 
 	.service('employeeService', [
 		'$resourceService',
-		'serviceStorage',
+		'storageService',
 		'$state',
-		function ($resourceService, serviceStorage, $state) {
+		function ($resourceService, storageService, $state) {
 
 			this.empĺoyee = {
 		        list: function (query,fnSuccess,fnError) {

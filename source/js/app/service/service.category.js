@@ -4,9 +4,9 @@
 
 	.service('categoryService', [
 		'$resourceService',
-		'serviceStorage',
+		'storageService',
 		'$state',
-		function ($resourceService, serviceStorage, $state) {
+		function ($resourceService, storageService, $state) {
 
 			this.category = {
 		        list: function (query,fnSuccess,fnError) {

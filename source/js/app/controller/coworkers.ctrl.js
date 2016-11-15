@@ -3,9 +3,9 @@
     angular.module('module.controller.coworkers', [])
         .controller('controller.coworkers', coworkersController);
 
-    coworkersController.$inject = ['$scope', '$state', '$q', '$timeout', '$translate', '$mdDialog', '$mdToast', '$resourceService', 'employeeService', 'serviceStorage'];
+    coworkersController.$inject = ['$scope', '$state', '$q', '$timeout', '$translate', '$mdDialog', '$mdToast', '$resourceService', 'employeeService', 'storageService'];
 
-    function coworkersController($scope, $state, $q, $timeout, $translate, $mdDialog, $mdToast, $resourceService, employeeService, serviceStorage) {
+    function coworkersController($scope, $state, $q, $timeout, $translate, $mdDialog, $mdToast, $resourceService, employeeService, storageService) {
         $scope.users = [];
         $scope.active = "Activo";
         $scope.loading = false;
