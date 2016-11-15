@@ -1,104 +1,120 @@
 (function() {
-  'use strict';
-  angular.module('module.controller.coworkers', [])
-    .controller('controller.coworkers', coworkersController);
+    'use strict';
+    angular.module('module.controller.coworkers', [])
+        .controller('controller.coworkers', coworkersController);
 
-    coworkersController.$inject=['$scope','$resourceService','$state','employeeService','serviceStorage','$mdDialog','$mdToast','$q', '$timeout','$translate'];
+    coworkersController.$inject = ['$scope', '$state', '$q', '$timeout', '$translate', '$mdDialog', '$mdToast', '$resourceService', 'employeeService', 'serviceStorage'];
 
-    function coworkersController($scope,$resourceService,$state,coworkersService,serviceStorage,$mdDialog,$mdToast,$q, $timeout,$translate) {
+    function coworkersController($scope, $state, $q, $timeout, $translate, $mdDialog, $mdToast, $resourceService, employeeService, serviceStorage) {
+        $scope.users = [];
+        $scope.active = "Activo";
+        $scope.loading = false;
+        $scope.selected = null;
+        $scope.searchText = null;
+        $scope.selected = null;
 
-      /* private */
-      function list_Employee(employee){
-          var objReq={};
-          objReq.search=employee;
-          $scope.active="Activo";
-          $scope.selected = null;
-          $scope.searchText = '';
+        $scope.listSpecific = listSpecific;
+        $scope.selectUser = selectUser;
+        $scope.showConfirm = showConfirm;
 
-          coworkersService.empĺoyee.list(objReq,function (response) {
-            var array_users=[];
-            for(var i in response.results){
-              var detail_user=response.results[i];
-              array_users.push(detail_user);
-            }
+        _init();
 
-            $scope.users = array_users;
-            $scope.selected = $scope.users[0];
-            if(employee!=null){
-              $scope.searchText=employee;
-            }
-            stopWaitingEffect();
-          }, function (error) {
-              showError(error);
-          });
-      }
+        /*private functions*/
+        function _init() {
+            _list_Employee(null);
+        }
 
-      /* public */
-      $scope.listSpecific=function(employee){
-        list_Employee(employee);
-      }
+        function _list_Employee(employee) {
+            var objReq = {};
+            objReq.search = employee;
+            $scope.active = "Activo";
+            $scope.selected = null;
+            $scope.searchText = '';
 
-      list_Employee(null);
+            employeeService.empĺoyee.list(objReq, function(response) {
+                var array_users = [];
+                for (var i in response.results) {
+                    var detail_user = response.results[i];
+                    array_users.push(detail_user);
+                }
 
-      /* private */
-      function onChange(user){
-        coworkersService.empĺoyee.updateBlock({employee_id : user.pk,action : user.is_blocked},function (response) {
-        stopWaitingEffect();
-        showSimpleToast('EXITO. Se actualizó el registro correctamente');
-        },function (error) {
-          if(user.is_blocked){
-            user.is_blocked=false;
-          }else{
-            user.is_blocked=true;
-          }
+                $scope.users = array_users;
+                $scope.selected = $scope.users[0];
+                if (employee !== null) {
+                    $scope.searchText = employee;
+                }
+                _stopWaitingEffect();
+            }, function(error) {
+                _showError(error);
+            });
+        }
 
-          showError(error);
-        });
-      }
-      /* public */
-      $scope.showConfirm = function(ev,user) {
-        var confirm = $mdDialog.confirm()
-              .title('Confirmación')
-              .textContent('¿Estas seguro que deseas cambiar el estado?')
-              .targetEvent(ev)
-              .ok('Si')
-              .cancel('No');
-        $mdDialog.show(confirm).then(function() {
-        onChange(user);
-        }, function() {
-          if(user.is_blocked){
-            user.is_blocked=false;
-          }else{
-            user.is_blocked=true;
-          }
-        });
-      };
+        function _showError(error) {
+            _showSimpleToast("ERROR EN EL PROCESO. Status : " + error.status + ", " + error.statusText);
+            $scope.loading = false;
+        }
 
-      /* public */
-      $scope.selectUser = function (user) {
-        $state.go('coworker-detail', {employee_id: user.pk})
-      };
+        function _stopWaitingEffect() {
+            $scope.loading = false;
+        }
 
-      /* private */
-      function showSimpleToast(messages){
-        $mdToast.show(
-          $mdToast.simple()
-            .textContent(messages)
-            .position('bottom right' )
-            .hideDelay(3000)
-        );
-      }
+        function _showSimpleToast(messages) {
+            $mdToast.show(
+                $mdToast.simple()
+                .textContent(messages)
+                .position('bottom right')
+                .hideDelay(3000)
+            );
+        }
 
-       /* private */
-      function stopWaitingEffect(){
-        $scope.loading=false;
-      }
+        function _onChange(user) {
+            employeeService.empĺoyee.updateBlock({
+                employee_id: user.pk,
+                action: user.is_blocked
+            }, function(response) {
+                _stopWaitingEffect();
+                _showSimpleToast('EXITO. Se actualizó el registro correctamente');
+            }, function(error) {
+                if (user.is_blocked) {
+                    user.is_blocked = false;
+                } else {
+                    user.is_blocked = true;
+                }
 
-       /* private */
-      function showError(error){
-        showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
-        $scope.loading=false;
-      }
+                _showError(error);
+            });
+        }
+        /*end private functions*/
+
+        /*public functions*/
+        function listSpecific(employee) {
+            _list_Employee(employee);
+        }
+
+        function selectUser(user) {
+            $state.go('coworker-detail', {
+                employee_id: user.pk
+            });
+        }
+
+        function showConfirm(ev, user) {
+            var confirm = $mdDialog.confirm()
+                .title('Confirmación')
+                .textContent('¿Estas seguro que deseas cambiar el estado?')
+                .targetEvent(ev)
+                .ok('Si')
+                .cancel('No');
+            $mdDialog.show(confirm).then(function() {
+                _onChange(user);
+            }, function() {
+                if (user.is_blocked) {
+                    user.is_blocked = false;
+                } else {
+                    user.is_blocked = true;
+                }
+            });
+        }
+        /*end public functions*/
 
     }
 })();
