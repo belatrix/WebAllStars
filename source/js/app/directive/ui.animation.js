@@ -42,7 +42,7 @@
 
 			return directive;
 
-			function link($scope,element){
+			function link($scope,element,$attr){
 				var q = angular.element(element);
 
 				if($attr.animatedSuccess){
