@@ -1,7 +1,6 @@
 (function() {
     'use strict';
-    angular.module('module.controller.header', [])
-        .controller('controllerHeader', controllerHeader);
+    angular.module('module.controller').controller('controllerHeader', controllerHeader);
 
     controllerHeader.$inject = ['$scope', '$state', '$mdDialog', '$mdUtil', '$mdSidenav', '$translate', 'loginService'];
 

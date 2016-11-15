@@ -4,8 +4,7 @@
     /*jshint validthis: true */
     /*jshint maxparams: 8 */
     angular
-    .module('module.service.storage',[])
-    .service('serviceStorage', serviceStorage);
+    .module('module.service').service('serviceStorage', serviceStorage);
 
     serviceStorage.$inject = ['$sessionStorage'];
 
@@ -22,7 +21,7 @@
       this.deleteData = function(name){
 
          delete $sessionStorage[name];
-      
+
       };
 
       this.data = {};

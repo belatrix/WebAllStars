@@ -1,6 +1,6 @@
 (function () {
 	'use strict';
-	angular.module('module.service.pagination', [])
+	angular.module('module.service')
 
 		.service('paginationService', [
 			'$resourceService',

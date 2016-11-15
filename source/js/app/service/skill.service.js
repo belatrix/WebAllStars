@@ -1,8 +1,7 @@
 (function() {
 	'use strict';
-	angular.module('module.service.skill', [])
+	angular.module('module.service').factory('skillService', skillService);
 
-		.factory('skillService', skillService);
 		skillService.$inject = 	['$resourceService','serviceStorage','$state'];
 
 			function skillService($resourceService, serviceStorage, $state) {

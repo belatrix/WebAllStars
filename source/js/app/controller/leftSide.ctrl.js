@@ -1,7 +1,6 @@
 (function() {
     'use strict';
-    angular.module('module.controller.leftSide', [])
-        .controller('controller.leftSide', controllerLeftSide);
+    angular.module('module.controller').controller('controller.leftSide', controllerLeftSide);
 
     controllerLeftSide.$inject = ['$scope', '$mdSidenav', '$mdUtil', '$log'];
 

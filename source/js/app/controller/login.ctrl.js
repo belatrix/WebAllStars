@@ -1,7 +1,7 @@
 (function() {
     'use strict';
-    angular.module('module.controller.login', [])
-        .controller('controller.login', controllerLogin);
+    angular.module('module.controller').controller('controller.login', controllerLogin);
+
     controllerLogin.$inject = ['$scope', '$state', '$resourceService', 'loginService', 'serviceStorage'];
 
     function controllerLogin($scope, $state, $resourceService, loginService, serviceStorage) {

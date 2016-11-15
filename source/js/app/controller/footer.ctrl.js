@@ -1,7 +1,6 @@
 (function() {
     'use strict';
-    angular.module('module.controller.footer', [])
-        .controller('controller.footer', controllerFooter);
+    angular.module('module.controller').controller('controller.footer', controllerFooter);
 
     controllerFooter.$inject = ['$scope', '$mdSidenav', '$mdUtil', '$log', '$translate'];
 

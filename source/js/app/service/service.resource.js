@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('module.service.resource', [])
+	angular.module('module.service')
 
 	.service('$resourceService', ['resourceServiceConfig', '$resource', function (config, $resource) {
 
@@ -9,7 +9,7 @@
 										config[url].params,
 										config[url].actions,
 										config[url].options);
-				return resource;				
+				return resource;
 			};
 	}]);
 

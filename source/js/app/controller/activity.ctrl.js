@@ -1,7 +1,6 @@
 (function() {
   'use strict';
-  angular.module('module.controller.activity', [])
-    .controller('controller.activity', controllerActivity);
+  angular.module('module.controller').controller('controller.activity', controllerActivity);
 
     controllerActivity.$inject=[
     	'$scope',

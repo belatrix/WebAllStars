@@ -1,9 +1,7 @@
 
 (function() {
 	'use strict';
-	angular.module('module.service.activity', [])
-
-	.service('activityService', [
+	angular.module('module.service').service('activityService', [
 		'$resourceService',
 		'serviceStorage',
 		'$state',

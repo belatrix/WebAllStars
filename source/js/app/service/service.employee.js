@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('module.service.employee', [])
+	angular.module('module.service')
 
 	.service('employeeService', [
 		'$resourceService',

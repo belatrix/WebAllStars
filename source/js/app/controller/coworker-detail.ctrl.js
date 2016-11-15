@@ -1,7 +1,6 @@
 (function() {
     'use strict';
-    angular.module('module.controller.coworker-detail', [])
-        .controller('controller.coworker-detail', coworkerDetailController);
+    angular.module('module.controller').controller('controller.coworker-detail', coworkerDetailController);
 
     coworkerDetailController.$inject = ['$scope', '$state', '$stateParams', '$mdDialog', '$mdToast', 'employeeService', 'loginService', 'skillService', 'startService'];
 

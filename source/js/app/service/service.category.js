@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	angular.module('module.service.category', [])
+	angular.module('module.service')
 
 	.service('categoryService', [
 		'$resourceService',
