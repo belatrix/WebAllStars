@@ -66,7 +66,7 @@
         checkingSession = function(){
 
           hasToken = serviceStorage.getData('token');
-          if(hasToken === null){
+          if(hasToken == null){
             $state.go('login');
           }
         };

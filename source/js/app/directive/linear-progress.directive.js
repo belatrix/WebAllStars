@@ -4,16 +4,16 @@
     /*jshint validthis: true */
     /*jshint maxparams: 8 */
 
-    angular.module('module.component.progressLinear',[])
-            .directive('progressLinear', progressLinear);
+    angular.module('module.component.linearProgress',[])
+            .directive('linearProgress', linearProgress);
 
-    function progressLinear($rootScope){
+    function linearProgress($rootScope){
 
         var directive = {
             restrict: 'E',
             scope:{
             },
-            templateUrl: 'views/directive/progressLinear.html',
+            templateUrl: 'views/directive/linearProgress.html',
             link: link,
             controller: controller
         };

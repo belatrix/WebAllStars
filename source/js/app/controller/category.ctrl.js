@@ -1,20 +1,11 @@
 (function() {
   'use strict';
   angular.module('module.controller.category', [])
-    .controller('controller.category', controllerCategory);
+    .controller('controller.category', categoryController);
 
-    controllerCategory.$inject=[
-        '$scope',
-        '$resourceService',
-        '$state',
-        'categoryService',
-        'serviceStorage',
-        '$mdDialog',
-        '$mdToast',
-        '$q', '$timeout'
-    ];
+    categoryController.$inject=['$scope','$resourceService','$state','categoryService','serviceStorage','$mdDialog','$mdToast','$q', '$timeout'];
 
-    function controllerCategory($scope,$resourceService,$state,categoryService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
+    function categoryController($scope,$resourceService,$state,categoryService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
       var cachedQuery,lastSearch;
       var pendingSearch,cancelSearch = angular.noop;
       $scope.asyncSubCategories = [];
@@ -24,17 +15,14 @@
       $scope.update_category_edit=true;
       $scope.chipsSubCategories = true;
       // -- Category
-      var listCategory=function(){
+      function listCategory(){
         categoryService.category.list(null,function (response) {
           var array_category=[];
-          var i=0;
-          var array_sub_categories = [];
           var response_list=response.results;
-          for(var j=0;j<response_list.length;j++){
+          for(var i=0;i<response_list.length;i++){
             //-- Only active Category
-            if(response_list[j].is_active === true){
-              var detail_category=response_list[j];
-              console.log();
+            if(response_list[i].is_active == true){
+              var detail_category=response_list[i];
               array_category.push(detail_category);
             }
           }
@@ -45,7 +33,7 @@
         },function (error) {
             showError(error);
         });
-      };
+      }
 
       $scope.showAddCategory=function(){
         $scope.addCategoryModel=true;
@@ -83,7 +71,7 @@
       };
 
       $scope.updateCategory=function(ev,category,new_value){
-        if (new_value !== null) {
+        if (new_value!=null) {
           $scope.showConfirm(ev,category,'Actualización','¿Estas seguro que deseas actualizar la categoria '+category.name+' a '+new_value+'?','update_category',new_value);
         }
       };
@@ -102,11 +90,10 @@
       $scope.listSubCategory=function(sub_categories){
         categoryService.category.list_sub_category(null,function (response) {
           var array_category=[];
-          var k=0;
           var result_sub_category=response.results;
           for(var i=0;i<result_sub_category.length;i++){
             var detail_sub_category=result_sub_category[i];
-            if(search(detail_sub_category.pk,sub_categories) === false){
+            if(search(detail_sub_category.pk,sub_categories) == false){
               detail_sub_category._lowername = detail_sub_category.name.toLowerCase();
               array_category.push(detail_sub_category);
             }
@@ -158,7 +145,7 @@
       };
 
       $scope.clearAllSubCategories=function(ev){
-        $scope.showConfirm(ev,null,'Confirmación','¿Estas seguro de que deseas limpiar todo?','clear_sub_categories',null);
+        $scope.showConfirm(ev,null,'Confirmación','¿Estas seguro que deseas limpiar todo?','clear_sub_categories',null);
       };
 
       $scope.clearAllSubCategories=function(ev){
@@ -213,10 +200,10 @@
 
       $scope.callAddSubCategoryService=function(category){
         var id_sub_category =[];
-        for(var i = 0 ; i < $scope.asyncSubCategories.length; i++){
+        for(var i=0;i<$scope.asyncSubCategories.length;i++){
           id_sub_category.push($scope.asyncSubCategories[i].pk);
         }
-        for(var j = 0; j < category.subcategories.length; j++){
+        for(var j=0;j<category.subcategories.length;j++){
           id_sub_category.push(category.subcategories[j].pk);
         }
         categoryService.category.addSubCategory({category_id : category.pk, subcategories:id_sub_category},function (response) {
@@ -234,7 +221,6 @@
       }
 
       function delayedQuerySearch(criteria) {
-        console.log("Entre");
         cachedQuery = criteria;
         if ( !pendingSearch || !debounceSearch() )  {
           cancelSearch();
@@ -243,7 +229,7 @@
             $timeout(function() {
               resolve( querySearch());
               refreshDebounce();
-            }, Math.random() * 500, true);
+            }, Math.random() * 500, true)
           });
         }
         return pendingSearch;
@@ -252,7 +238,7 @@
       function createFilterFor(query) {
         var lowercaseQuery = angular.lowercase(query);
         return function filterFn(contact) {
-          return (contact._lowername.indexOf(lowercaseQuery) != -1);
+          return (contact._lowername.indexOf(lowercaseQuery) != -1);;
         };
       }
 
@@ -272,9 +258,9 @@
       $scope.btnAddSubCategory=true;
       listCategory();
 
-      var showError=function(error){
+      function showError(error){
         showSimpleToast("ERROR EN EL PROCESO. Status : "+error.status+", "+error.statusText);
-      };
+      }
 
       $scope.saveSubCategory=function(newSubCategory,category){
         $scope.addSubCategoryModel=false;
@@ -321,13 +307,13 @@
         });
       };
 
-      var showSimpleToast = function(messages) {
+      function showSimpleToast(messages) {
         $mdToast.show(
           $mdToast.simple()
             .textContent(messages)
             .position('bottom right' )
             .hideDelay(3000)
         );
-      };
+      }
     }
 })();
