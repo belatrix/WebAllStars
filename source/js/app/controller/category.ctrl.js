@@ -18,8 +18,6 @@
       function listCategory(){
         categoryService.category.list(null,function (response) {
           var array_category=[];
-          var i=0;
-          var array_sub_categories = [];
           var response_list=response.results;
           for(var i=0;i<response_list.length;i++){
             //-- Only active Category
@@ -40,28 +38,28 @@
       $scope.showAddCategory=function(){
         $scope.addCategoryModel=true;
         $scope.btnAddCategory=false;
-      }
+      };
 
       $scope.hideShowCategory=function(){
         $scope.addCategoryModel = false;
         $scope.btnAddCategory = true;
-      }
+      };
 
       $scope.selectCategory = function (category) {
         $scope.listSubCategory(category.subcategories);
         $scope.selected = category;
-      }
+      };
 
       $scope.showEditCategory=function(category){
         category.update_category=true;
         category.update_category_accept=true;
         category.update_category_edit=true;
-      }
+      };
       $scope.hideEditCategory=function(category){
         category.update_category=false;
         category.update_category_accept=false;
         category.update_category_edit=false;
-      }
+      };
       $scope.saveCategory=function(newCategory){
         categoryService.category.register_category({name : newCategory},function (response) {
             showSimpleToast("EXITO. Se agregó el nuevo Rol correctamente");
@@ -70,13 +68,13 @@
           showError(error);
         });
         $scope.addCategoryModel=false;
-      }
+      };
 
       $scope.updateCategory=function(ev,category,new_value){
         if (new_value!=null) {
           $scope.showConfirm(ev,category,'Actualización','¿Estas seguro que deseas actualizar la categoria '+category.name+' a '+new_value+'?','update_category',new_value);
         }
-      }
+      };
 
       $scope.callUpdateCategoryService=function(category,newValue){
         categoryService.category.update_category({category_id : category.pk ,name : newValue},function (response) {
@@ -86,13 +84,12 @@
           showError(error);
         });
         category.update_category=false;
-      }
+      };
 
       //-- List Sub Category
       $scope.listSubCategory=function(sub_categories){
         categoryService.category.list_sub_category(null,function (response) {
           var array_category=[];
-          var i=0;
           var result_sub_category=response.results;
           for(var i=0;i<result_sub_category.length;i++){
             var detail_sub_category=result_sub_category[i];
@@ -105,7 +102,7 @@
         },function (error) {
             showError(error);
         });
-      }
+      };
 
       function search(nameKey, myArray){
         var result =false;
@@ -121,43 +118,43 @@
         $scope.addSubCategoryModel=true;
         $scope.btnAddSubCategory=false;
         $scope.chipsSubCategories = false;
-      }
+      };
 
       $scope.hideShowSubCategory=function(subCategory){
         $scope.addSubCategoryModel=false;
         $scope.btnAddSubCategory=true;
         $scope.chipsSubCategories = true;
-      }
+      };
 
       $scope.showEditSubCategory=function(subCategory){
         subCategory.update_subcategory=true;
         subCategory.update_sub_category_accept=true;
         subCategory.update_sub_category_edit=true;
-      }
+      };
 
       $scope.hideEditSubCategory=function(subCategory){
         subCategory.update_subcategory=false;
         subCategory.update_sub_category_accept=false;
         subCategory.update_sub_category_edit=false;
-      }
+      };
 
       $scope.hideEditSubCategory=function(subCategory){
         subCategory.update_subcategory=false;
         subCategory.update_sub_category_accept=false;
         subCategory.update_sub_category_edit=false;
-      }
+      };
 
       $scope.clearAllSubCategories=function(ev){
         $scope.showConfirm(ev,null,'Confirmación','¿Estas seguro que deseas limpiar todo?','clear_sub_categories',null);
-      }
+      };
 
       $scope.clearAllSubCategories=function(ev){
         $scope.showConfirm(ev,null,'Confirmación','¿Estas seguro que deseas limpiar todo?','clear_sub_categories',null);
-      }
+      };
 
       $scope.saveSubCategories=function(ev,category){
         $scope.showConfirm(ev,category,'Confirmación','¿Estas seguro que deseas agregar estas Sub Categorias a este Rol?','add_sub_categories',null);
-      }
+      };
 
       $scope.showConfirm = function(ev,category,title,body,event,newValue) {
         var confirm = $mdDialog.confirm()
@@ -199,15 +196,15 @@
         }, function (error) {
           showError(error);
         });
-      }
+      };
 
       $scope.callAddSubCategoryService=function(category){
         var id_sub_category =[];
         for(var i=0;i<$scope.asyncSubCategories.length;i++){
           id_sub_category.push($scope.asyncSubCategories[i].pk);
         }
-        for(var i=0;i<category.subcategories.length;i++){
-          id_sub_category.push(category.subcategories[i].pk);
+        for(var j=0;j<category.subcategories.length;j++){
+          id_sub_category.push(category.subcategories[j].pk);
         }
         categoryService.category.addSubCategory({category_id : category.pk, subcategories:id_sub_category},function (response) {
           showSimpleToast("EXITO. Se agregó las nuevas categorias al Rol  : "+category.name);
@@ -216,7 +213,7 @@
         }, function (error) {
           showError(error);
         });
-      }
+      };
 
       function querySearch (criteria) {
         cachedQuery = cachedQuery || criteria;
@@ -275,11 +272,11 @@
         },function (error) {
           showError(error);
         });
-      }
+      };
 
       $scope.updateSubCategory=function(ev,subcategory,new_value){
         $scope.showConfirm(ev,subcategory,'Confirmación','¿Estas seguro que deseas actualizar la sub-categoria '+subcategory.name+' a '+new_value+'?','update_sub_category',new_value);
-      }
+      };
 
       $scope.callUpdateSubCategoryService=function(category,newValue){
         //-- Call Update Service
@@ -290,15 +287,15 @@
           console.log("Error : "+error);
         });
         category.update_category=false;
-      }
+      };
 
       $scope.deleteSubCategory=function(ev,category,subcategory){
         $scope.showConfirm(ev,category,'Confirmación','¿Deseas remover la categoria '+subcategory.name+' del Rol '+category.name+' ?','delete_sub_category',subcategory);
-      }
+      };
 
       $scope.deleteCategory=function(ev,category){
         $scope.showConfirm(ev,category,'Confirmación','¿Estas seguro que deseas dar de baja el Rol '+category.name+' ?','delete_category','');
-      }
+      };
 
       $scope.callDeleteCategoryService=function(category){
         //-- Call Delete category
@@ -308,7 +305,7 @@
         }, function (error) {
           showError(error);
         });
-      }
+      };
 
       function showSimpleToast(messages) {
         $mdToast.show(
@@ -317,6 +314,6 @@
             .position('bottom right' )
             .hideDelay(3000)
         );
-      };
+      }
     }
 })();

@@ -12,7 +12,7 @@
                     updateState: updateState,
                     create: create,
                     delete: delete_,
-                    listByEmployeeId: listByEmployeedId
+                    listByEmployeeId: listByEmployeeId
                 };
 
                 function list(query,fnSuccess,fnError) {
@@ -35,7 +35,7 @@
                     return deleteKeyword.delete(query, fnSuccess, fnError);
                 }
 
-                function listByEmployeedId(query, fnSuccess, fnError) {
+                function listByEmployeeId(query, fnSuccess, fnError) {
                     var skillsList = $resourceService.request('getSkillsByEmployeeId');
                     return skillsList.get(query, fnSuccess, fnError);
 
