@@ -2,15 +2,15 @@
   <div flex>
     <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage">
         <div flex="">
-            
-        
+
+
             <div class="md-toolbar-tools">
                 <md-input-container class="md-block" md-no-float flex-gt-sm>
                     <md-icon md-svg-icon="search"></md-icon>
                     <input ng-model="searchText" ng-model-options='{ debounce: 500 }' ng-change="list_specific(searchText)" type="text" placeholder="Buscar" >
                 </md-input-container>
             </div>
-        
+
             <md-content class="list" flex>
                 <md-list layout-wrap>
                     <md-list-item  ng-repeat="user in users | filter:searchText | orderBy:'-total_score'"
@@ -27,7 +27,7 @@
                                 <div class="md-list-item-text" align="center" layout="column">
                                     <p>Ubicacion</p>
                                     <div align="middle">
-                                        <h3 >{{ user.location.name }}</h3> 
+                                        <h3 >{{ user.location.name }}</h3>
                                     </div>
                                 </div>
                             </div>
