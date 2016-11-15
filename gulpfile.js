@@ -44,6 +44,7 @@ gulp.task('index', function () {
         './source/js/app/**/*.js',
         './source/css/initialize.css',
         './source/css/lib/**/*.css',
+        '!./source/css/lib/animate.css/',
         './source/css/main.css'
       ], {read: false});
 
