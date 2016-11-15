@@ -33,6 +33,10 @@
     "angular-translate": "^2.13.0",   
     "angular-translate-loader-static-files": "^2.13.0"
   },
+  "devDependencies": {
+    "jasmine-core": "jasmine#^2.5.2",
+    "jasmine-jquery": "^2.1.1"
+  },
   "install": {
     "path": {
       "css": "source/css/lib",
