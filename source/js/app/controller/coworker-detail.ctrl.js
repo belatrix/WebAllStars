@@ -1,21 +1,11 @@
 (function() {
   'use strict';
   angular.module('module.controller.coworker-detail', [])
-    .controller('controller.coworker-detail', controllerCoworkerDetail);
+    .controller('controller.coworker-detail', coworkerDetailController);
 
-    controllerCoworkerDetail.$inject=[
-    	'$scope',
-      'employeeService',      
-      'loginService',
-      'skillService',
-      'startService',
-      '$mdDialog',
-      '$mdToast',
-      '$state',
-      '$stateParams'
-    ];
+    coworkerDetailController.$inject=['$scope','employeeService','loginService','skillService','startService','$mdDialog','$mdToast','$state','$stateParams'];
 
-    function controllerCoworkerDetail($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast, $state, $stateParams) {
+    function coworkerDetailController($scope, employeeService, loginService, skillService, startService, $mdDialog, $mdToast, $state, $stateParams) {
       var showSimpleToast = function(messages) {
             $mdToast.show (
               $mdToast.simple()
@@ -45,14 +35,14 @@
                 showError(error);
           });
 
-          skillService.getSkillsByEmployeeId.list({employee_id : $stateParams.employee_id},
+          skillService.listByEmployeeId({employee_id : $stateParams.employee_id},
             function (response) {
               $scope.skills = response.results;
             }, function (error) {
               showError(error);
           });
 
-          startService.getStartsByEmployeeId.list({employee_id : $stateParams.employee_id},
+          startService.list({employee_id : $stateParams.employee_id},
             function (response) {
               $scope.starts = response.results;
             }, function (error) {
@@ -64,7 +54,6 @@
 
       $scope.goBack = function () {
         $state.go('coworkers');
-        console.log("User selected sdsdsd");
       };
     }
 })();
