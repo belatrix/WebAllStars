@@ -1,30 +1,26 @@
 (function() {
-  'use strict';
-  angular.module('module.controller.login', [])
-    .controller('controller.login', controllerLogin);
-    controllerLogin.$inject=[
-    	'$scope',
-    	'$resourceService',
-      '$state',
-      'loginService',
-      'serviceStorage'
-    ];
+    'use strict';
+    angular.module('module.controller.login', [])
+        .controller('controller.login', controllerLogin);
+    controllerLogin.$inject = ['$scope', '$state', '$resourceService', 'loginService', 'serviceStorage'];
 
-    function controllerLogin($scope, $resourceService, $state, loginService, serviceStorage) {
+    function controllerLogin($scope, $state, $resourceService, loginService, serviceStorage) {
 
-      $scope.getSignIn=function(user){
+        $scope.loading = false;
 
-        $scope.loading=true;
+        $scope.getSignIn = getSignIn;
 
-      	loginService.signIn(user,function(data){
-          console.log("Token : "+data.token);
-          serviceStorage.setData('token',data.token);
-          $state.go('coworkers');
-        },function(){
-          $scope.loading = false;
-        });
+        function getSignIn(user) {
+            $scope.loading = true;
 
-      };
+            loginService.signIn(user, function(data) {
+                console.log("Token : " + data.token);
+                serviceStorage.setData('token', data.token);
+                $state.go('coworkers');
+            }, function() {
+                $scope.loading = false;
+            });
+        }
 
     }
 
