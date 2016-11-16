@@ -10,7 +10,8 @@
                     <input ng-model="searchText" 
                            ng-model-options='{ debounce: 500 }' 
                            ng-change="listSpecific(searchText)" 
-                           type="text" placeholder="{{ 'coworkers.text.findcoworkers' | translate }}">
+                           placeholder="{{ 'coworkers.text.findcoworkers' | translate }}"
+                           type="text">
                 </md-input-container>
             </div>
 
@@ -43,7 +44,8 @@
                             <div flex="25">
                                 <div>
                                     <div layout="row" layout-align="center" layout-margin>
-                                        <md-switch ng-model="user.is_blocked" ng-click="showConfirm($event,user)">
+                                        <md-switch ng-model="user.is_blocked"
+                                                   ng-click="showConfirm($event,user)">
                                         </md-switch>
                                         <div ng-if="user.is_blocked === true">
                                           <div translate="coworkers.switch.locked"></div>
