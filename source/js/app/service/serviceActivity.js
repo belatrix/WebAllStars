@@ -1,19 +1,19 @@
-
 (function() {
-	'use strict';
-	angular.module('module.service').service('activityService', [
-		'$resourceService',
-		'serviceStorage',
-		'$state',
-		function ($resourceService, serviceStorage, $state) {
+    'use strict';
+    angular.module('module.service').service('activityService', activityService);
 
-			this.empĺoyee = {
-        list: function (query,fnSuccess,fnError) {
-  				var employeeList = $resourceService.request('employeeList');
-  				return employeeList.get(query,fnSuccess,fnError);
-  			}
-      };
+    categoryService.$inject = ['$state', '$resourceService', 'serviceStorage'];
 
-	}]);
+    function activityService($state, $resourceService, serviceStorage) {
+        return {
+            empĺoyee: {
+                list: list
+            }
+        };
 
+        function list(query, fnSuccess, fnError) {
+            var employeeList = $resourceService.request('employeeList');
+            return employeeList.get(query, fnSuccess, fnError);
+        }
+    }
 })();
