@@ -3,29 +3,31 @@
     /*jshint latedef: false */
     /*jshint validthis: true */
     /*jshint maxparams: 8 */
-    angular
-    .module('module.service').service('serviceStorage', serviceStorage);
+    angular.module('module.service').factory('serviceStorage', serviceStorage);
 
     serviceStorage.$inject = ['$sessionStorage'];
 
     function serviceStorage($sessionStorage) {
+        var data = {};
+        return {
+            data: data,
+            setData: setData,
+            getData: getData,
+            deleteData: deleteData
+        };
 
-      this.setData = function(name,data){
-        $sessionStorage[name] = data;
-      };
+        function setData(name, data) {
+            $sessionStorage[name] = data;
+        }
 
-      this.getData = function(name){
-         return $sessionStorage[name];
-      };
+        function getData(name) {
+            return $sessionStorage[name];
+        }
 
-      this.deleteData = function(name){
-
-         delete $sessionStorage[name];
-
-      };
-
-      this.data = {};
+        function deleteData(name) {
+            delete $sessionStorage[name];
+        }
 
     }
 
-}(angular));
+})();
