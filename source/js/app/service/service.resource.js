@@ -1,16 +1,22 @@
 (function() {
-	'use strict';
-	angular.module('module.service')
+    'use strict';
+    angular.module('module.service').factory('$resourceService', $resourceService);
 
-	.service('$resourceService', ['resourceServiceConfig', '$resource', function (config, $resource) {
+    $resourceService.$inject = ['$resource', 'config'];
 
-			this.request=function(url){
-				var resource = $resource(config.remoteURL + config[url].url,
-										config[url].params,
-										config[url].actions,
-										config[url].options);
-				return resource;
-			};
-	}]);
+    function $resourceService($resource, config) {
+        return {
+            request: request
+        }
+
+        function request(url) {
+            return $resource(
+                config.remoteURL + config[url].url,
+                config[url].params,
+                config[url].actions,
+                config[url].options
+            );
+        }
+    }
 
 })();
