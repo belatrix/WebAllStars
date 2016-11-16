@@ -1,25 +1,26 @@
-
 (function() {
-	'use strict';
-	angular.module('module.service')
+    'use strict';
+    angular.module('module.service').factory('loginService', loginService);
 
-	.service('loginService', [
-		'$resourceService',
-		'serviceStorage',
-		'$state',
-		function ($resourceService, serviceStorage, $state) {
+    loginService.$inject = ['$state', '$resourceService', 'serviceStorage'];
 
-			this.signIn = function (query,fnSuccess,fnError) {
-				console.log("***"+query.username+"***"+query.password);
-				var auth = $resourceService.request('auth');
-				return auth.post(query,fnSuccess,fnError);
-			};
+    function loginService($state, $resourceService, serviceStorage) {
+        return {
+            signIn: signIn,
+            logOut: logOut
+        };
 
-			this.logOut = function () {
-				serviceStorage.deleteData('token');
-				$state.go('login');
-			}
+        function signIn(query, fnSuccess, fnError) {
+            console.log("***" + query.username + "***" + query.password);
+            var auth = $resourceService.request('auth');
+            return auth.post(query, fnSuccess, fnError);
+        }
 
-	}]);
+        function logOut() {
+            serviceStorage.deleteData('token');
+            $state.go('login');
+        }
+
+    }
 
 })();
