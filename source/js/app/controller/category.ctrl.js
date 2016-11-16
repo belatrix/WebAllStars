@@ -3,9 +3,9 @@
   angular.module('module.controller.category', [])
     .controller('controller.category', categoryController);
 
-    categoryController.$inject=['$scope','$resourceService','$state','categoryService','serviceStorage','$mdDialog','$mdToast','$q', '$timeout'];
+    categoryController.$inject=['$scope','$resourceService','$state','categoryService','storageService','$mdDialog','$mdToast','$q', '$timeout'];
 
-    function categoryController($scope,$resourceService,$state,categoryService,serviceStorage,$mdDialog,$mdToast,$q, $timeout) {
+    function categoryController($scope,$resourceService,$state,categoryService,storageService,$mdDialog,$mdToast,$q, $timeout) {
       var cachedQuery,lastSearch;
       var pendingSearch,cancelSearch = angular.noop;
       $scope.asyncSubCategories = [];
@@ -16,7 +16,7 @@
       $scope.chipsSubCategories = true;
       // -- Category
       function listCategory(){
-        categoryService.category.list(null,function (response) {
+        return categoryService.list(null,function (response) {
           var array_category=[];
           var response_list=response.results;
           for(var i=0;i<response_list.length;i++){
@@ -61,7 +61,7 @@
         category.update_category_edit=false;
       };
       $scope.saveCategory=function(newCategory){
-        categoryService.category.register_category({name : newCategory},function (response) {
+        return categoryService.register_category({name : newCategory},function (response) {
             showSimpleToast("EXITO. Se agregó el nuevo Rol correctamente");
             listCategory();
         },function (error) {
@@ -77,7 +77,7 @@
       };
 
       $scope.callUpdateCategoryService=function(category,newValue){
-        categoryService.category.update_category({category_id : category.pk ,name : newValue},function (response) {
+        return categoryService.update_category({category_id : category.pk ,name : newValue},function (response) {
           showSimpleToast("EXITO. Se actualizó correctamente el Rol "+newValue);
           listCategory();
         }, function (error) {
@@ -88,7 +88,7 @@
 
       //-- List Sub Category
       $scope.listSubCategory=function(sub_categories){
-        categoryService.category.list_sub_category(null,function (response) {
+        return categoryService.list_sub_category(null,function (response) {
           var array_category=[];
           var result_sub_category=response.results;
           for(var i=0;i<result_sub_category.length;i++){
@@ -189,7 +189,7 @@
             id_sub_category.push(category.subcategories[i].pk);
           }
         }
-        categoryService.category.addSubCategory({category_id : category.pk, subcategories:id_sub_category},function (response) {
+        return categoryService.addSubCategory({category_id : category.pk, subcategories:id_sub_category},function (response) {
           showSimpleToast("EXITO. Se retiró correctamente la categoria"+subcategory.name+" del Rol "+category.name);
           $scope.asyncSubCategories=[];
           listCategory();
@@ -206,7 +206,7 @@
         for(var j=0;j<category.subcategories.length;j++){
           id_sub_category.push(category.subcategories[j].pk);
         }
-        categoryService.category.addSubCategory({category_id : category.pk, subcategories:id_sub_category},function (response) {
+        return categoryService.addSubCategory({category_id : category.pk, subcategories:id_sub_category},function (response) {
           showSimpleToast("EXITO. Se agregó las nuevas categorias al Rol  : "+category.name);
           $scope.asyncSubCategories=[];
           listCategory();
@@ -264,7 +264,7 @@
 
       $scope.saveSubCategory=function(newSubCategory,category){
         $scope.addSubCategoryModel=false;
-        categoryService.category.register_sub_category({name : newSubCategory},function (response) {
+        return categoryService.register_sub_category({name : newSubCategory},function (response) {
             showSimpleToast("EXITO. Se agregó la nueva categoria");
             $scope.selectCategory(category);
             $scope.btnAddSubCategory=true;
@@ -280,7 +280,7 @@
 
       $scope.callUpdateSubCategoryService=function(category,newValue){
         //-- Call Update Service
-        categoryService.category.update_sub_category({subcategory_id : category.pk ,name : newValue},function (response) {
+        return categoryService.update_sub_category({subcategory_id : category.pk ,name : newValue},function (response) {
           showSimpleToast("EXITO. Se actualizó correctamente la categoria : "+newValue);
           listCategory();
         }, function (error) {
@@ -299,7 +299,7 @@
 
       $scope.callDeleteCategoryService=function(category){
         //-- Call Delete category
-        categoryService.category.delete_category({category_id : category.pk},function (response) {
+        return categoryService.delete_category({category_id : category.pk},function (response) {
           showSimpleToast("EXITO. Se dio de baja al Rol : "+category.name);
           listCategory();
         }, function (error) {

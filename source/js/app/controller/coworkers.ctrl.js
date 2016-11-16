@@ -3,9 +3,9 @@
     angular.module('module.controller.coworkers', [])
         .controller('controller.coworkers', coworkersController);
 
-    coworkersController.$inject = ['$scope', '$state', '$q', '$timeout', '$translate', '$mdDialog', '$mdToast', '$resourceService', 'employeeService', 'serviceStorage'];
+    coworkersController.$inject = ['$scope', '$state', '$q', '$timeout', '$translate', '$mdDialog', '$mdToast', '$resourceService', 'employeeService', 'storageService'];
 
-    function coworkersController($scope, $state, $q, $timeout, $translate, $mdDialog, $mdToast, $resourceService, employeeService, serviceStorage) {
+    function coworkersController($scope, $state, $q, $timeout, $translate, $mdDialog, $mdToast, $resourceService, employeeService, storageService) {
         $scope.users = [];
         $scope.active = "Activo";
         $scope.loading = false;
@@ -31,7 +31,7 @@
             $scope.selected = null;
             $scope.searchText = '';
 
-            employeeService.empĺoyee.list(objReq, function(response) {
+            return employeeService.list(objReq, function(response) {
                 var array_users = [];
                 for (var i in response.results) {
                     var detail_user = response.results[i];
@@ -68,7 +68,7 @@
         }
 
         function _onChange(user) {
-            employeeService.empĺoyee.updateBlock({
+            return employeeService.updateBlock({
                 employee_id: user.pk,
                 action: user.is_blocked
             }, function(response) {

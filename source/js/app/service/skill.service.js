@@ -3,9 +3,9 @@
 	angular.module('module.service.skill', [])
 
 		.factory('skillService', skillService);
-		skillService.$inject = 	['$resourceService','serviceStorage','$state'];
+		skillService.$inject = 	['$resourceService','storageService','$state'];
 
-			function skillService($resourceService, serviceStorage, $state) {
+			function skillService($resourceService, storageService, $state) {
 
                 return {
                     list: list,

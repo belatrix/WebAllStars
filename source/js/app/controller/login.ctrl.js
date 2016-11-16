@@ -7,10 +7,10 @@
     	'$resourceService',
       '$state',
       'loginService',
-      'serviceStorage'
+      'storageService'
     ];
 
-    function controllerLogin($scope, $resourceService, $state, loginService, serviceStorage) {
+    function controllerLogin($scope, $resourceService, $state, loginService, storageService) {
 
       $scope.getSignIn=function(user){
 
@@ -18,7 +18,7 @@
 
       	loginService.signIn(user,function(data){
           console.log("Token : "+data.token);
-          serviceStorage.setData('token',data.token);
+          storageService.setData('token',data.token);
           $state.go('coworkers');
         },function(){
           $scope.loading = false;
