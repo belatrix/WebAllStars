@@ -1,10 +1,10 @@
 (function() {
     'use strict';
-    angular.module('module.service').factory('categoryService', serviceCategory);
+    angular.module('module.service').factory('categoryService', categoryService);
 
-    serviceCategory.$inject = ['$state', '$resourceService', 'serviceStorage'];
+    categoryService.$inject = ['$state', '$resourceService', 'serviceStorage'];
 
-    function serviceCategory($state, $resourceService, serviceStorage) {
+    function categoryService($state, $resourceService, serviceStorage) {
         return {
             category: {
                 list: list,

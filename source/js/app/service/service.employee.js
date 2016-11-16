@@ -1,32 +1,35 @@
 (function() {
-	'use strict';
-	angular.module('module.service')
+    'use strict';
+    angular.module('module.service').factory('employeeService', employeeService);
 
-	.service('employeeService', [
-		'$resourceService',
-		'serviceStorage',
-		'$state',
-		function ($resourceService, serviceStorage, $state) {
+    employeeService.$inject = ['$state', '$resourceService', 'serviceStorage'];
 
-			this.empĺoyee = {
-		        list: function (query,fnSuccess,fnError) {
-		  				var employeeList = $resourceService.request('employeeList');
-		  				return employeeList.get(query,fnSuccess,fnError);
-		  		},
-		  		updateBlock:function (query,fnSuccess,fnError) {
-		  				var updateBlock = $resourceService.request('updateBlockEmployee');
-		  				return updateBlock.post(query,fnSuccess,fnError);
-		  		}
-		    };
+    function employeeService($state, $resourceService, serviceStorage) {
+        return {
+            employee: {
+                list: list,
+                updateBlock: updateBlock
+            },
+            getEmployeeById: {
+                user: user
+            }
+        };
 
-			/** Get an employee by employee_Id */
-			this.getEmployeeById = {
-		        user: function (query, fnSuccess, fnError) {
-					var user = $resourceService.request('getEmployeeById');
+        function list(query, fnSuccess, fnError) {
+            var employeeList = $resourceService.request('employeeList');
+            return employeeList.get(query, fnSuccess, fnError);
+        }
 
-					return user.get(query, fnSuccess, fnError);
-				}
-		    };
-	}]);
+        function updateBlock(query, fnSuccess, fnError) {
+            var updateBlock = $resourceService.request('updateBlockEmployee');
+            return updateBlock.post(query, fnSuccess, fnError);
+        }
+
+        /** Get an employee by employee_Id */
+        function user(query, fnSuccess, fnError) {
+            var user = $resourceService.request('getEmployeeById');
+            return user.get(query, fnSuccess, fnError);
+        }
+    }
 
 })();
