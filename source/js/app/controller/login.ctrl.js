@@ -2,9 +2,9 @@
     'use strict';
     angular.module('module.controller').controller('controller.login', controllerLogin);
 
-    controllerLogin.$inject = ['$scope', '$state', '$resourceService', 'loginService', 'serviceStorage'];
+    controllerLogin.$inject = ['$scope', '$state', '$resourceService', 'loginService', 'storageService'];
 
-    function controllerLogin($scope, $state, $resourceService, loginService, serviceStorage) {
+    function controllerLogin($scope, $state, $resourceService, loginService, storageService) {
 
         $scope.loading = false;
 
@@ -15,7 +15,7 @@
 
             loginService.signIn(user, function(data) {
                 console.log("Token : " + data.token);
-                serviceStorage.setData('token', data.token);
+                storageService.setData('token', data.token);
                 $state.go('coworkers');
             }, function() {
                 $scope.loading = false;

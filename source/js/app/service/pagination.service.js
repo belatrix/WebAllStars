@@ -2,9 +2,9 @@
     'use strict';
     angular.module('module.service').factory('paginationService', paginationService);
 
-    paginationService.$inject = ['$state', '$resourceService', 'serviceStorage'];
+    paginationService.$inject = ['$state', '$resourceService', 'storageService'];
 
-    function paginationService($resourceService, serviceStorage, $state) {
+    function paginationService($state, $resourceService, storageService) {
 
         return {
             range: range,

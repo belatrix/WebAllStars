@@ -2,9 +2,9 @@
     'use strict';
     angular.module('module.service').factory('startService', startService);
 
-    startService.$inject = ['$state', '$resourceService', 'serviceStorage'];
+    startService.$inject = ['$state', '$resourceService', 'storageService'];
 
-    function startService($state, $resourceService, serviceStorage) {
+    function startService($state, $resourceService, storageService) {
         return {
             list: list
         };

@@ -3,11 +3,11 @@
     /*jshint latedef: false */
     /*jshint validthis: true */
     /*jshint maxparams: 8 */
-    angular.module('module.service').factory('serviceStorage', serviceStorage);
+    angular.module('module.service').factory('storageService', storageService);
 
-    serviceStorage.$inject = ['$sessionStorage'];
+    storageService.$inject = ['$sessionStorage'];
 
-    function serviceStorage($sessionStorage) {
+    function storageService($sessionStorage) {
         var data = {};
         return {
             data: data,

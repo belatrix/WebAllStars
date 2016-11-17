@@ -2,9 +2,9 @@
     'use strict';
     angular.module('module.service').factory('categoryService', categoryService);
 
-    categoryService.$inject = ['$state', '$resourceService', 'serviceStorage'];
+    categoryService.$inject = ['$state', '$resourceService', 'storageService'];
 
-    function categoryService($state, $resourceService, serviceStorage) {
+    function categoryService($state, $resourceService, storageService) {
         return {
             category: {
                 list: list,
@@ -15,7 +15,7 @@
                 register_sub_category: register_sub_category,
                 update_sub_category: update_sub_category,
                 updateBlock: updateBlock,
-                addSubCategory
+                addSubCategory: addSubCategory
             }
         };
 

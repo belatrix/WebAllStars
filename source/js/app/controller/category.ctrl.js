@@ -2,9 +2,9 @@
     'use strict';
     angular.module('module.controller').controller('controller.category', categoryController);
 
-    categoryController.$inject = ['$scope', '$q', '$timeout', '$state', '$mdDialog', '$mdToast', '$resourceService', 'categoryService', 'serviceStorage'];
+    categoryController.$inject = ['$scope', '$q', '$timeout', '$state', '$mdDialog', '$mdToast', '$resourceService', 'categoryService', 'storageService'];
 
-    function categoryController($scope, $q, $timeout, $state, $mdDialog, $mdToast, $resourceService, categoryService, serviceStorage) {
+    function categoryController($scope, $q, $timeout, $state, $mdDialog, $mdToast, $resourceService, categoryService, storageService) {
         var cachedQuery = null;
         var vlastSearch = null;
         var pendingSearch = null;

@@ -2,9 +2,9 @@
     'use strict';
     angular.module('module.service').factory('loginService', loginService);
 
-    loginService.$inject = ['$state', '$resourceService', 'serviceStorage'];
+    loginService.$inject = ['$state', '$resourceService', 'storageService'];
 
-    function loginService($state, $resourceService, serviceStorage) {
+    function loginService($state, $resourceService, storageService) {
         return {
             signIn: signIn,
             logOut: logOut
@@ -17,7 +17,7 @@
         }
 
         function logOut() {
-            serviceStorage.deleteData('token');
+            storageService.deleteData('token');
             $state.go('login');
         }
 

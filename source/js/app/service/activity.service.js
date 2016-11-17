@@ -2,9 +2,9 @@
     'use strict';
     angular.module('module.service').service('activityService', activityService);
 
-    categoryService.$inject = ['$state', '$resourceService', 'serviceStorage'];
+    activityService.$inject = ['$state', '$resourceService', 'storageService'];
 
-    function activityService($state, $resourceService, serviceStorage) {
+    function activityService($state, $resourceService, storageService) {
         return {
             empĺoyee: {
                 list: list
