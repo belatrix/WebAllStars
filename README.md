@@ -71,12 +71,13 @@ sudo make install
 package.json chunk to configure
 {
   "name": "belatrix-web-connect",
-  version": "0.0.1",
+  "version": "0.0.1",
   "description": "web application to connect collaborators in a great company",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "install": "bower install && bower-installer"
+    "start": "gulp server",
+    "postinstall": "bower install && bower-installer",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },...
 ```
 - It´s easy, the "install" part contains the neccesary commands to install the dependencies
