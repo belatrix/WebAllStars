@@ -3,7 +3,7 @@ Belatrix Connect Web Application
 
 *About the web application*
 
-This web application has the mission to represent the idea to connect all the co-workers inside Belatrix family, to valuate and recognize the work and the team-spirit, using a gamification´s mechanics to create  and interact through motivation  in a better coexistence. 
+This web application has the mission to represent the idea to connect all the co-workers inside Belatrix family, to valuate and recognize the work and the team-spirit, using a gamification´s mechanics to create  and interact through motivation  in a better coexistence.
 
 *About the project architecture*
 
@@ -13,7 +13,7 @@ This web application has been designed using the nex tools:
 
 - [Material Design Specifications] (https://material.google.com/)
 - [AngularJS] (https://angularjs.org/)
-- [Angular Material] (https://material.angularjs.org/) 
+- [Angular Material] (https://material.angularjs.org/)
 - [Gulp] (http://gulpjs.com/)
 - [Bower] (http://bower.io/)
 - [NodeJS] (https://nodejs.org/)
@@ -61,31 +61,9 @@ make
 sudo make install
 ```
 
-**2. Installing Bower**
+**2. Use a simple command to install all**
 
-```bash
-npm install -g bower
-```
-for more details visit [Bower website] (http://bower.io/)
-
-**3. Installing GULP**
-
-```bash
-npm install -g gulp
-```
-for more details visit [Bower website] (http://gulpjs.com/)
-
-
-**4. Installing Bower-installer**
-
-```bash
-npm install -g bower-installer
-```
-for more details visit [Bower-installer site] (https://www.npmjs.com/package/bower-installer)
-
-**5. Finally use a simple command to install all**
-
-`npm install` 
+`npm install`
 
 - This do the nodeJS dependencies installation, bower and bower-installer to simplify the specifics files in a clean folder, prevoiusly configured in package.json like this:
 
@@ -103,10 +81,16 @@ package.json chunk to configure
 ```
 - It´s easy, the "install" part contains the neccesary commands to install the dependencies
 
+**3. Run the app**
+
+`npm start`
+
+- This runs gulp server to build the app and run the server
+
 **GULP TASKS**
 
 ```bash
-  gulp server 
+  gulp server
 ```
 Open a server in port http://localhost:3000 with livereload
 
