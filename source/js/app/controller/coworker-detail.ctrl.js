@@ -13,7 +13,7 @@
         /*private functions*/
         function _init() {
             if ($stateParams.employee_id) {
-                employeeService.getEmployeeById.user({
+                return employeeService.user({
                         employee_id: $stateParams.employee_id
                     },
                     function(response) {
@@ -31,7 +31,7 @@
                         _showError(error);
                     });
 
-                skillService.listByEmployeeId({
+                return skillService.listByEmployeeId({
                         employee_id: $stateParams.employee_id
                     },
                     function(response) {
@@ -41,7 +41,7 @@
                         _showError(error);
                     });
 
-                startService.list({
+                return startService.list({
                         employee_id: $stateParams.employee_id
                     },
                     function(response) {

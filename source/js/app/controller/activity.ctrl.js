@@ -9,13 +9,13 @@
 
     function controllerActivity($scope, activityService) {
 
-      activityService.empĺoyee.list(function (response) {
+      activityService.list(function (response) {
 
         console.log(response.results);
 
       }, function (error) {
 
-      })
+      });
 
       var imagePath = 'https://trello-avatars.s3.amazonaws.com/8e19c573c63d0ff0a4be0fe5c352891b/170.png';
 
@@ -87,7 +87,7 @@
               date: '14:30'
             }
           ]
-        },
+        }
       ];
 
       $scope.selected = $scope.users[0];
