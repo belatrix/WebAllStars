@@ -11,6 +11,8 @@
         $scope.openMenu = openMenu;
         $scope.logOut = logOut;
         $scope.switchLanguage = switchLanguage;
+        $scope.key = 'es';
+        $scope.changeLanguage = changeLanguage;
 
         /*private functions*/
         function buildToggler(navID) {
@@ -25,6 +27,10 @@
         /*end private functions*/
 
         /*public functions*/
+        function changeLanguage(key) {
+            $translate.use(key);
+        }
+
         function openMenu($mdOpenMenu, ev) {
             $mdOpenMenu(ev);
         }

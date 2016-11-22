@@ -73,9 +73,9 @@
 				if($attr.animatedLoad) {
 					angular.element(document).ready(function () {
 						q.removeClass('hide');
-						q.addClass('animated '+ $attr.animatedLoad).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
-				    			q.removeClass('animated ' + $attr.animatedLoad);
-			 			});
+							q.addClass('animated '+ $attr.animatedLoad).one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function() {
+					    			q.removeClass('animated ' + $attr.animatedLoad);
+				 			});
         				});
 				}
 

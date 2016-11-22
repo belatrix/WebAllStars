@@ -44,8 +44,7 @@
   "skills.switch.inactive": "Inactive",
   "skills.combo.status": "Status",
   
-  "footer.language": "Language :",
-    
-  "header.menu.logout": "Logout"
+  "header.language": "English",
+  "header.logout": "Logout"
   
 }
