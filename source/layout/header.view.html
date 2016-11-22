@@ -21,12 +21,21 @@
       <md-menu-content width="4">
         <md-menu-item>
           <md-button ng-click="logOut()">
-            <md-icon
+            <!--md-icon
               md-svg-icon="person"
               md-menu-align-target>
-            </md-icon>
-              Logout
+            </md-icon-->
+            <p flex>Logout</p>
+            <md-switch ng-init="data=true"
+              class="md-warn md-menu-align-target"
+              ng-model="data"
+              aria-label="Switch 2"
+              ng-true-value="'yup'"
+              ng-false-value="'nope'">
+              Switch
+            </md-switch>
               <!--<div translate="header.menu.logout"></div>-->
+
           </md-button>
         </md-menu-item>
       </md-menu-content>
