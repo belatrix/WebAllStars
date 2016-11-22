@@ -1,21 +1,22 @@
 (function() {
-	'use strict';
-	angular.module('module.service.resource', [])
+    'use strict';
+    angular.module('module.service').factory('$resourceService', $resourceService);
 
-	.factory('$resourceService', resourceService);
-	resourceService.$inject = ['resourceServiceConfig', '$resource'];
+    $resourceService.$inject = ['$resource', 'resourceServiceConfig'];
 
-	function resourceService(config, $resource) {
+    function $resourceService($resource, resourceServiceConfig) {
+        return {
+            request: request
+        }
 
-		return {
-			request: request
-		};
-		function request(url){
-			return $resource(config.remoteURL + config[url].url,
-				config[url].params,
-				config[url].actions,
-				config[url].options);
-		}
-	}
+        function request(url) {
+            return $resource(
+                resourceServiceConfig.remoteURL + resourceServiceConfig[url].url,
+                resourceServiceConfig[url].params,
+                resourceServiceConfig[url].actions,
+                resourceServiceConfig[url].options
+            );
+        }
+    }
 
 })();

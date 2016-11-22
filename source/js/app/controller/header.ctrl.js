@@ -1,45 +1,42 @@
 (function() {
-  'use strict';
-  angular.module('module.controller.header', [])
-    .controller('controllerHeader', controllerHeader);
+    'use strict';
+    angular.module('module.controller').controller('controllerHeader', controllerHeader);
 
-    controllerHeader.$inject=[
-    	'$scope',
-      '$state',
-      '$mdDialog',
-      '$mdUtil',
-      '$mdSidenav',
-      'loginService',
-      '$translate'
-    ];
+    controllerHeader.$inject = ['$scope', '$state', '$mdDialog', '$mdUtil', '$mdSidenav', '$translate', 'loginService'];
 
-    function controllerHeader($scope, $state, $mdDialog, $mdUtil, $mdSidenav, loginService, $translate) {
+    function controllerHeader($scope, $state, $mdDialog, $mdUtil, $mdSidenav, $translate, loginService) {
 
-      $scope.toggleLeft = buildToggler('left');
+        $scope.toggleLeft = buildToggler('left');
 
-      function buildToggler(navID) {
-        var debounceFn =  $mdUtil.debounce(function(){
-              $mdSidenav(navID)
-                .toggle()
-                .then(function () {
-                  //$log.debug("toggle " + navID + " is done");
-                });
-            },300);
-        return debounceFn;
-      }
+        $scope.openMenu = openMenu;
+        $scope.logOut = logOut;
+        $scope.switchLanguage = switchLanguage;
 
-      $scope.openMenu = function($mdOpenMenu, ev) {
-        var originatorEv = ev;
-        $mdOpenMenu(ev);
-      };
+        /*private functions*/
+        function buildToggler(navID) {
+            return $mdUtil.debounce(function() {
+                $mdSidenav(navID)
+                    .toggle()
+                    .then(function() {
+                        //$log.debug("toggle " + navID + " is done");
+                    });
+            }, 300);
+        }
+        /*end private functions*/
 
-      $scope.logOut = function () {
-        loginService.logOut();
-      };
+        /*public functions*/
+        function openMenu($mdOpenMenu, ev) {
+            $mdOpenMenu(ev);
+        }
 
-      $scope.switchLanguage = function(lang) {
-        $translate.use(lang);
-      };
+        function logOut() {
+            loginService.logOut();
+        }
+
+        function switchLanguage(lang) {
+            $translate.use(lang);
+        }
+        /*end public functions*/
     }
 
 })();

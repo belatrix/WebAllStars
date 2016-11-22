@@ -1,24 +1,18 @@
-
 (function() {
-	'use strict';
-	angular.module('module.service.start', [])
+    'use strict';
+    angular.module('module.service').factory('startService', startService);
 
-	.factory('startService', startService);
-	startService.$inject = ['storageService','$resourceService','$state'];
+    startService.$inject = ['$state', '$resourceService', 'storageService'];
 
-		function startService(storageService, $resourceService, $state) {
+    function startService($state, $resourceService, storageService) {
+        return {
+            list: list
+        };
 
-			return {
-				list: list
-			};
-
-            /** Get recommendations associated with a particular employee */
-			function list(query,fnSuccess,fnError) {
-				var startList = $resourceService.request('getStartsByEmployeeId');
-
-				return startList.get(query,fnSuccess,fnError);
-			}
-
-
-	}
+        /** Get recommendations associated with a particular employee */
+        function list(query, fnSuccess, fnError) {
+            var startList = $resourceService.request('getStartsByEmployeeId');
+            return startList.get(query, fnSuccess, fnError);
+        }
+    }
 })();

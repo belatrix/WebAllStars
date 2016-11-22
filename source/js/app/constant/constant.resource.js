@@ -1,9 +1,7 @@
 (function () {
   'use strict';
 
-  angular.module('module.constant.resource', [])
-
-    .constant('resourceServiceConfig', {
+  angular.module('module.constant').constant('resourceServiceConfig', {
 
       remoteURL: 'http://belatrix-connect.herokuapp.com/',
 

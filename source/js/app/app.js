@@ -8,13 +8,13 @@
         'ngAnimate',
         'ngMessages',
         'ui.router',
-        'config.routes',
-        'config.theme',       
         'module.controller',
         'module.service',
         'module.constant',
-        'module.component'
-        ,'pascalprecht.translate'
+        'module.component',
+        'config.routes',
+        'config.theme',
+        'pascalprecht.translate'
     ]).config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
             prefix: 'js/app/config/i18n/locale-',
@@ -59,6 +59,7 @@
       }]);
 
     });
+    /*
     app.run( function( $rootScope ,$resourceService, $state, storageService) {
       var checkingSession,
           hasToken;
@@ -76,5 +77,6 @@
         });
 
     });
+    */
 
 })();
