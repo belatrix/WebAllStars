@@ -20,7 +20,7 @@
             prefix: 'js/app/config/i18n/locale-',
             suffix: '.json'
         });
-      $translateProvider.preferredLanguage('en');
+      $translateProvider.preferredLanguage('es');
     });
 
     app.config(function ($httpProvider, $resourceProvider) {

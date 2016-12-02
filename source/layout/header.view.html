@@ -25,10 +25,20 @@
               md-svg-icon="person"
               md-menu-align-target>
             </md-icon>
-              Logout
-              <!--<div translate="header.menu.logout"></div>-->
+            <span translate="header.logout"></span>
           </md-button>
         </md-menu-item>
+        <md-menu-item>
+          <md-switch 
+            ng-model="key" 
+            aria-label=""
+            ng-change="changeLanguage(key)"
+            ng-true-value="'es'" 
+            ng-false-value="'en'">
+            <span translate="header.language"></span>
+          </md-switch>
+        </md-menu-item>
+
       </md-menu-content>
     </md-menu>
   </div>
