@@ -2,15 +2,19 @@
   <div flex>
     <div flex-order-gt-xs ng layout-gt-sm="row" layout="column" class="listdemoBasicUsage">
         <div flex="">
-            
-        
+
+
             <div class="md-toolbar-tools">
                 <md-input-container class="md-block" md-no-float flex-gt-sm>
                     <md-icon md-svg-icon="search"></md-icon>
-                    <input ng-model="searchText" ng-model-options='{ debounce: 500 }' ng-change="list_specific(searchText)" type="text" placeholder="Buscar" >
+                    <input ng-model="searchText" 
+                           ng-model-options='{ debounce: 500 }' 
+                           ng-change="listSpecific(searchText)" 
+                           placeholder="{{ 'coworkers.text.findcoworkers' | translate }}"
+                           type="text">
                 </md-input-container>
             </div>
-        
+
             <md-content class="list" flex>
                 <md-list layout-wrap>
                     <md-list-item  ng-repeat="user in users | filter:searchText | orderBy:'-total_score'"
@@ -19,30 +23,36 @@
                             <img ng-src="{{ user.avatar }}" class="md-avatar" />
                             <div flex="25">
                                 <div class="md-list-item-text" layout="column">
-                                    <p>Co worker</p>
+                                    <p translate="coworkers.subtitle.coworkers"></p>
                                     <h3>{{ user.first_name }} {{ user.last_name }}</h3>
                                 </div>
                             </div>
                             <div flex="25">
                                 <div class="md-list-item-text" align="center" layout="column">
-                                    <p>Ubicacion</p>
+                                    <p translate="coworkers.subtitle.ubication"></p>
                                     <div align="middle">
-                                        <h3 >{{ user.location.name }}</h3> 
+                                        <h3 >{{ user.location.name }}</h3>
                                     </div>
                                 </div>
                             </div>
                             <div flex="25">
                                  <div class="md-list-item-text" align="center" layout="column">
-                                    <p>Recomendacion</p>
+                                    <p translate="coworkers.subtitle.recomendation"></p>
                                     <h3>{{ user.total_score }}</h3>
                                 </div>
                             </div>
                             <div flex="25">
                                 <div>
                                     <div layout="row" layout-align="center" layout-margin>
-                                        <md-switch ng-model="user.is_blocked" ng-click="showConfirm($event,user)">
-                                            {{user.is_blocked === true ? active = "Bloqueado" : active = "Desbloqueado"}}
+                                        <md-switch ng-model="user.is_blocked"
+                                                   ng-click="showConfirm($event,user)">
                                         </md-switch>
+                                        <div ng-if="user.is_blocked === true">
+                                          <div translate="coworkers.switch.locked"></div>
+                                        </div>
+                                        <div ng-if="user.is_blocked === false">
+                                          <div translate="coworkers.switch.unlocked">
+                                        </div>
                                     </div>
                                 </div>
                     </md-list-item>

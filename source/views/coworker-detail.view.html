@@ -14,7 +14,7 @@
                     <div layout="column">
                     <div flex class="md-display-2">
                         {{ user.first_name }} {{ user.last_name }}
-                        <md-button class="md-accent md-raised"> Mensaje </md-button>
+                        <md-button class="md-accent md-raised"><div translate="btn.message"></div></md-button>
                     </div>
                     <div flex class="md-subhead">{{ user.skype_id }}</div>
                     <div flex class="md-subhead">{{ user.location  }}</div>
@@ -25,9 +25,11 @@
     <div ng-cloak>
   <md-content>
     <md-tabs md-dynamic-height md-border-bottom>
-      <md-tab label="Habilidades">
+      <md-tab label="{{ 'coworkers.detail.tab1' | translate }}">
         <md-content class="md-padding">
-           <p ng-If="!skills.length">No se encontraron habilidades para {{ user.first_name }} {{ user.last_name }}.</p>
+           <div ng-If="!skills.length">
+              <p><div translate="coworkers.detail.messages.nothabilities"></div> {{ user.first_name }} {{ user.last_name }}.</p>
+           </div>
         <md-list ng-If="skills.length">
             <md-list-item class="md-3-line" ng-repeat="item in skills">
                 <md-icon md-svg-icon="verified_user" class="md-avatar">
@@ -41,9 +43,11 @@
         </md-list>
         </md-content>
       </md-tab>
-      <md-tab label="Recomendaciones">
+      <md-tab label="{{ 'coworkers.detail.tab2' | translate }}">
         <md-content class="md-padding">
-           <p ng-If="!starts.length">No se encontraron recomendaciones para {{ user.first_name }} {{ user.last_name }}.</p>
+           <div ng-If="!starts.length">
+             <p><div translate="coworkers.detail.messages.notrecomendation"></div>{{ user.first_name }} {{ user.last_name }}.</p>
+           </div>
         <md-list ng-If="starts.length">
             <md-list-item class="md-2-line" ng-repeat="item in starts">
                 <img ng-src="{{ item.from_user.avatar }}" class="md-avatar" />

@@ -1,0 +1,50 @@
+{
+  "menu.option": "Opciones",
+  "menu.option1": "Trabajadores",
+  "menu.option2": "Habilidades",
+  "menu.option3": "Categorias",
+
+  "coworkers.subtitle.coworkers": "Trabajadores",
+  "coworkers.subtitle.ubication": "Ubicación",
+  "coworkers.subtitle.recomendation": "Recomendación",  
+  "coworkers.switch.locked": "Bloqueado",
+  "coworkers.switch.unlocked": "Desbloqueado",
+  "coworkers.text.findcoworkers": "Buscar Trabajador",
+
+  "coworkers.detail.tab1": "HABILIDADES",
+  "coworkers.detail.tab2": "RECOMENDACIONES",
+  "coworkers.detail.messages.nothabilities" : "No se encontraron habilidades para ",
+  "coworkers.detail.messages.notrecomendation" : "No se encontraron recomendaciones para",
+  
+  "category.subtitle.rol": "Rol",
+  "category.text.findcategory": "Buscar Categorias",
+  "category.text.newcategory": "Nueva Categoria",
+  "category.text.newrol": "Nueva Rol",
+  "category.emptylist": "No hay Categoria",
+
+  "btn.add": "Agregar",
+  "btn.save": "Guardar",
+  "btn.cancel": "Cancelar",
+  "btn.message": "Mensaje",
+
+  "tooltip.add.rol": "Agregar Rol",
+  "tooltip.add.category": "Agregar Categoria",
+  "tooltip.accept": "Aceptar",
+  "tooltip.clear": "Limpiar",
+  "tooltip.edit": "Editar",
+  "tooltip.delete": "Borrar",
+  "tooltip.first": "Inicio",
+  "tooltip.previous": "Previo",
+  "tooltip.next": "Siguiente",
+  "tooltip.last": "Ultimo ",
+  
+  "skills.text.findskills": "Buscar Habilidades",
+  "skills.text.newskills": "Nombre de Habilidad",
+  "skills.switch.active": "Activo",
+  "skills.switch.inactive": "Inactivo",
+  "skills.combo.status": "Estado",
+
+  "header.language": "Español",
+  "header.logout": "Cerrar Sesión"
+
+}
