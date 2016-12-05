@@ -20,6 +20,16 @@
       </md-button>
       <md-menu-content width="4">
         <md-menu-item>
+          <md-switch
+            ng-model="key"
+            aria-label=""
+            ng-change="changeLanguage(key)"
+            ng-true-value="'es'"
+            ng-false-value="'en'">
+            <span translate="header.language"></span>
+          </md-switch>
+        </md-menu-item>
+        <md-menu-item>
           <md-button ng-click="logOut()">
             <md-icon
               md-svg-icon="person"
@@ -27,16 +37,6 @@
             </md-icon>
             <span translate="header.logout"></span>
           </md-button>
-        </md-menu-item>
-        <md-menu-item>
-          <md-switch 
-            ng-model="key" 
-            aria-label=""
-            ng-change="changeLanguage(key)"
-            ng-true-value="'es'" 
-            ng-false-value="'en'">
-            <span translate="header.language"></span>
-          </md-switch>
         </md-menu-item>
 
       </md-menu-content>
