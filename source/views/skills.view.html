@@ -1,5 +1,5 @@
 <md-content class="list" flex>
-	<div layout-padding layout="row">
+	<!--div layout-padding layout="row">
 
 		<div flex>
 			<md-autocomplete md-input-minlength="2"
@@ -20,7 +20,7 @@
 				</md-not-found>
 			</md-autocomplete>
 		</div>
-	</div>
+	</div-->
 	<md-list layout-wrap>
 		<md-list-item ng-repeat="skill in skillsPerPage | filter:searchText | orderBy:'skill.name'"
 					  ng-click="selectSkill(skill)">
@@ -50,22 +50,26 @@
 			<div flex="10">
 				<div>
 					<div layout="row" layout-align="center" layout-margin>
-						<md-switch ng-model="skill.is_active"
+							<md-switch ng-model="skill.is_active"
 								   ng-click="showConfirm($event, skill)">
-                        </md-switch>
-                        <div ng-if="skill.is_active === true">
-                          <div translate="skills.switch.active"></div>  
-                        </div>
-                        <div ng-if="skill.is_active === false">
-                          <div translate="skills.switch.inactive"></div>
-                        </div>
+              </md-switch>
+              <div ng-if="skill.is_active === true">
+                <div translate="skills.switch.active"></div>
+              </div>
+              <div ng-if="skill.is_active === false">
+                <div translate="skills.switch.inactive"></div>
+              </div>
 					</div>
 				</div>
 			</div>
 		</md-list-item>
 	</md-list>
+	<br />
+	<br />
+	<br />
+	<br />
 	<!-- pager -->
-	<section ng-if="pager.pages.length"
+	<!--section ng-if="pager.pages.length"
 			 layout="row"
 			 layout-sm="column"
 			 layout-align="center center"
@@ -115,7 +119,7 @@
             </md-icon>
 		</md-button>
 
-	</section>
+	</section-->
 
 </md-content>
 
