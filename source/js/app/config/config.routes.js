@@ -42,7 +42,7 @@
             parent:'dashboard',
             url: "/skills",
             templateUrl: "views/skills.view.html",
-            controller: "controller.skills",
+            controller: "controller.skills"
         }).state('category', {
             parent:'dashboard',
             url: "/category",
@@ -61,6 +61,11 @@
             params: {
               employee_id: null
             }
+        }).state('badges', {
+            parent:'dashboard',
+            url:"/badges",
+            templateUrl:"views/badges.view.html",
+            controller: "controller.badges"
         });
 
       $urlRouterProvider.otherwise("/login");
