@@ -5,7 +5,8 @@ var batch = require('gulp-batch'),
 	  gulp = require('gulp'),
     inject = require('gulp-inject'),
 	  server = require('gulp-server-livereload'),
-	  watch = require('gulp-watch');
+	  watch = require('gulp-watch'),
+    karma = require('karma').server;
 
 gulp.task('server', ['watch', 'index'], function() {
 
@@ -56,4 +57,11 @@ gulp.task('index', function () {
 
   return target.pipe(inject(sources, {ignorePath: 'source'}))
     .pipe(gulp.dest('./source'));
+});
+
+gulp.task('tests', function (done) {
+  return karma.start({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: true
+  }, done);
 });

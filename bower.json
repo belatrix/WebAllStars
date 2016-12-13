@@ -30,7 +30,7 @@
     "animate.css": "^3.5.2",
     "angular-material-icons": "~0.7.1",
     "underscore": "^1.8.3",
-    "angular-translate": "^2.13.0",   
+    "angular-translate": "^2.13.0",
     "angular-translate-loader-static-files": "^2.13.0"
   },
   "install": {
