@@ -15,6 +15,24 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      "./source/js/lib/angular/angular.js",  
+      "./source/js/lib/angular-animate/angular-animate.js",  
+      "./source/js/lib/angular-material/angular-material.js",
+      "./source/js/lib/angular-aria/angular-aria.js",
+      "./source/js/lib/angular-material-icons/angular-material-icons.min.js",
+      "./source/js/lib/angular-messages/angular-messages.js",
+      "./source/js/lib/angular-resource/angular-resource.js",
+      "./source/js/lib/angular-route/angular-route.js",
+      "./source/js/lib/angular-sanitize/angular-sanitize.js",
+      "./source/js/lib/angular-translate/angular-translate.js",
+      "./source/js/lib/angular-translate-loader-static-files/angular-translate-loader-static-files.js",
+      "./source/js/lib/angular-ui-router/angular-ui-router.js",
+      "./source/js/lib/ngstorage/ngStorage.js",
+      "./source/js/lib/underscore/underscore.js",
+      "./node_modules/angular-mocks/angular-mocks.js",      
+      "./source/js/app/module/*.js",
+      "./source/js/app/**/*.js",    
+      "./source/js/app/config/test/controller/login.ctrl.spec.js"         
     ],
 
 
