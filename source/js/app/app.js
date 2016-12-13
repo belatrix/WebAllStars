@@ -8,31 +8,31 @@
         'ngAnimate',
         'ngMessages',
         'ui.router',
-        'config.routes',
-        'config.theme',       
         'module.controller',
         'module.service',
         'module.constant',
-        'module.component'
-        ,'pascalprecht.translate'
+        'module.component',
+        'config.routes',
+        'config.theme',
+        'pascalprecht.translate'
     ]).config(function ($translateProvider) {
         $translateProvider.useStaticFilesLoader({
             prefix: 'js/app/config/i18n/locale-',
             suffix: '.json'
         });
-      $translateProvider.preferredLanguage('en');
+      $translateProvider.preferredLanguage('es');
     });
 
     app.config(function ($httpProvider, $resourceProvider) {
       $resourceProvider.defaults.stripTrailingSlashes = false;
 
-      $httpProvider.interceptors.push(['$q', '$location','serviceStorage', '$rootScope', function($q, $location, serviceStorage, $rootScope) {
+      $httpProvider.interceptors.push(['$q', '$location','storageService', '$rootScope', function($q, $location, storageService, $rootScope) {
 
           return {
                   'request': function (config) {
                       config.headers = config.headers || {};
-                      if (serviceStorage.getData('token')) {
-                          config.headers.Authorization = 'Token ' + serviceStorage.getData('token');
+                      if (storageService.getData('token')) {
+                          config.headers.Authorization = 'Token ' + storageService.getData('token');
                       }
                       $rootScope.$broadcast('$request');
                       $rootScope.$broadcast('loadingBefore');
@@ -59,14 +59,15 @@
       }]);
 
     });
-    app.run( function( $rootScope ,$resourceService, $state, serviceStorage) {
+    /*
+    app.run( function( $rootScope ,$resourceService, $state, storageService) {
       var checkingSession,
           hasToken;
 
         checkingSession = function(){
 
-          hasToken = serviceStorage.getData('token');
-          if(hasToken === null){
+          hasToken = storageService.getData('token');
+          if(hasToken == null){
             $state.go('login');
           }
         };
@@ -76,5 +77,6 @@
         });
 
     });
+    */
 
 })();
