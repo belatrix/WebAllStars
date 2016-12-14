@@ -3,6 +3,7 @@
   "menu.option1": "Coworkers",
   "menu.option2": "Skills",
   "menu.option3": "Categories",
+  "menu.option4": "Events",
   
   "coworkers.subtitle.coworkers": "Coworkers",
   "coworkers.subtitle.ubication": "Ubication",
@@ -45,6 +46,10 @@
   "skills.combo.status": "Status",
   
   "header.language": "English",
-  "header.logout": "Logout"
-  
+  "header.logout": "Logout",
+
+  "events.btn.participants": "Participants",
+  "events.btn.edit": "Edit",
+  "events.text.eventdate": "Event date",
+  "events.text.duedate": "Due date"
 }
