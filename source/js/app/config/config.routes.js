@@ -61,6 +61,10 @@
             params: {
               employee_id: null
             }
+        }).state('event', {
+            parent:'dashboard',
+            url: "/event",
+            templateUrl: "views/event.view.html"
         });
 
       $urlRouterProvider.otherwise("/login");

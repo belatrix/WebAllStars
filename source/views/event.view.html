@@ -1,0 +1,41 @@
+<div flex layout="row" layout-align="center center">
+    <div flex-sm="100" flex-gt-sm="90" flex-gt-md="70" flex-gt-lg="50" class="md-whiteframe-z2">
+        <md-content class="md-padding">
+            <form name="eventForm">
+                <md-input-container class="md-block">
+                    <input id="fileInput" type="file" class="ng-hide">
+                    <md-button class="md-raised md-primary">Upload</md-button>
+                </md-input-container>
+                <md-card>
+                    <md-card-title>
+                        <md-card-title-media>
+                            <div class="md-media-lg card-media"></div>
+                        </md-card-title-media>
+                        <md-card-title-text>
+                            <md-content class="md-no-momentum">
+                                <md-input-container class="md-block">
+                                    <label>Title</label>
+                                    <input type="text" />
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Event date</label>
+                                    <md-datepicker ng-model="eventdate"></md-datepicker>
+                                </md-input-container>
+                                <md-input-container class="md-block">
+                                    <label>Due date</label>
+                                    <md-datepicker ng-model="duedate"></md-datepicker>
+                                </md-input-container>
+                            </md-content>
+                        </md-card-title-text>
+                    </md-card-title>
+                </md-card>
+                <md-input-container class="md-block">
+                    <label>Description</label>
+                    <textarea></textarea>
+                </md-input-container>
+                <md-button class="md-primary md-raised">Cancel</md-button>
+                <md-button class="md-accent md-raised">Save</md-button>
+            </form>
+        </md-content>
+    </div>
+</div>
