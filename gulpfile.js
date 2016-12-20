@@ -1,11 +1,8 @@
-'use strict';
-
 var batch = require('gulp-batch'),
     eslint = require('gulp-eslint'),
 	  gulp = require('gulp'),
     inject = require('gulp-inject'),
-	  server = require('gulp-server-livereload'),
-	  watch = require('gulp-watch');
+	  server = require('gulp-server-livereload');
 
 gulp.task('server', ['watch', 'index'], function() {
 
@@ -18,16 +15,14 @@ gulp.task('server', ['watch', 'index'], function() {
 
 });
 
-gulp.task('apply',['lint'],function () {});
+gulp.task('watch', function() {
 
-gulp.task('watch', function () {
-  watch(['source/js/**/*.*',
+  gulp.watch([
+    'source/js/**/*.js',
+    'source/css/**/*.css',
     'source/layout/*.html',
     'source/views/**/*.html',
-    'templates/source/**/*.html'
-  ], batch(function (events, done) {
-    gulp.start('apply', done);
-  }));
+    'templates/source/**/*.html'],['lint']);
 });
 
 gulp.task('lint', function () {

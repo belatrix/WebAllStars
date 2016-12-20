@@ -28,7 +28,7 @@
         .icon("verified_user", "svg/verified_user.svg", 24)
         .icon("language", "svg/ic_language.svg", 24);
 
-      $mdThemingProvider.theme('default').primaryPalette('deep-orange')
+      $mdThemingProvider.theme('default').primaryPalette('orange')
         .accentPalette('blue');
 
     });
