@@ -82,10 +82,6 @@ package.json chunk to configure
 ```
 - It´s easy, the "install" part contains the neccesary commands to install the dependencies
 
-**3. Run the app**
-
-`npm start`
-
 - This runs gulp server to build the app and run the server
 
 **GULP TASKS**

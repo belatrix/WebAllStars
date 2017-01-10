@@ -5,8 +5,7 @@
   "description": "web application to connect collaborators in a great company",
   "main": "index.js",
   "scripts": {
-    "start": "gulp server",
-    "postinstall": "bower install && bower-installer",
+    "install": "bower install && bower-installer",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
