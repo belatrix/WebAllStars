@@ -3,6 +3,7 @@
   "menu.option1": "Colaboradores",
   "menu.option2": "Habilidades",
   "menu.option3": "Categorias",
+  "menu.option4": "Eventos",  
 
   "coworkers.subtitle.coworkers": "Colaborador",
   "coworkers.subtitle.ubication": "Ubicación",
@@ -45,6 +46,10 @@
   "skills.combo.status": "Estado",
 
   "header.language": "Español",
-  "header.logout": "Cerrar Sesión"
+  "header.logout": "Cerrar Sesión",
 
+  "events.btn.participants": "Participantes",
+  "events.btn.edit": "Editar",
+  "events.text.eventdate": "Fecha del evento",
+  "events.text.duedate": "Fin del evento"
 }
